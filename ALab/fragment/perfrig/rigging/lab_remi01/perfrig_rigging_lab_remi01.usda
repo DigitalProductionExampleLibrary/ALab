@@ -1,0 +1,29 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @base/rig/perfrig_rigging_lab_remi01_base_rig/rig.usda@
+)
+{
+    over "rig" (
+        al_usdmaya_transformType = "AL_beast_dummies_rootRig"
+        assettype = "beast_rig"
+    )
+    {
+    }
+
+    def "bindings" (
+        al_usdmaya_transformType = "AL_beast_dummies_rootBindings"
+        assettype = "beast_bindings"
+    )
+    {
+        def Xform "GEO" (
+            al_usdmaya_excludeFromProxyShape = true
+        )
+        {
+        }
+    }
+}
+

@@ -1,0 +1,22 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+over "root" (
+    prepend references = @render_high/cache/mk020_0281_geocache_layout_remi_render_high_cache/cache.usda@
+    variants = {
+        string geo_vis = "default"
+        string geocache = "animbase_render_high"
+    }
+    add variantSets = "geocache"
+)
+{
+    variantSet "geocache" = {
+        "layout_render_high" {
+            float3[] extentsHint = [(58.696926, 98.8073, 16.584442), (91.30884, 119.73089, 44.33644)]
+
+        }
+    }
+}
+

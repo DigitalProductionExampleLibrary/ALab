@@ -1,0 +1,31 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    subLayers = [
+        @surfacing/tool_fertilizer_can01_surfacing.usda@,
+        @modelling/tool_fertilizer_can01_modelling.usda@,
+        @preview/tool_fertilizer_can01_preview.usda@
+    ]
+    upAxis = "Y"
+)
+
+def "root" (
+    prepend apiSchemas = ["GeomModelAPI"]
+    assetInfo = {
+        string entityType = "setpiece"
+        string name = "tool_fertilizer_can01"
+    }
+    prepend inherits = </__class__/tool_fertilizer_can01>
+    kind = "component"
+    prepend specializes = </_root_type>
+)
+{
+    string assetVersionId = "1832455958"
+}
+
+class Scope "_root_type" (
+    doc = "This prim holds the 'fallback' type of the default root prim"
+)
+{
+}
+

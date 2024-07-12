@@ -1,0 +1,81 @@
+#usda 1.0
+(
+    customLayerData = {
+        string otlFile = "./weave.otl"
+    }
+    defaultPrim = "root"
+    framesPerSecond = 24
+    metersPerUnit = 1
+    timeCodesPerSecond = 24
+)
+
+over "root"
+{
+    over "GEO"
+    {
+        over "gauze_standin_geo"
+        {
+            def "weave_gauze" (
+                append references = @file://$WEAVE_SUBGRAPHS_PATH/WeaveHoudiniRenderProcedural.usda@
+            )
+            {
+                string primvarFilter = "*"
+
+                over "GeometryImportParameters"
+                {
+                    string alf:param:primpathMesh = "../../gauze_standin_geo"
+                }
+
+                over "GeneralOptions"
+                {
+                    float alf:param:amplitude = 1.08
+                    int alf:param:threadDensityU = 50
+                    int alf:param:threadDensityV = 50
+                    string alf:param:weavePattern = "3 100010001"
+                    string alf:param:weaveStyle = "Denim"
+                    float alf:param:width = 0.05
+                }
+
+                over "OffsetandDisplacement"
+                {
+                    float alf:param:displacementStrength = 0
+                    string alf:param:randomOffsetExpression = """frequency = 2;
+a = index*frequency;
+noise(a)"""
+                    float alf:param:randomOffsetU = 0.3
+                    float alf:param:randomOffsetV = 0.1
+                }
+
+                over "Scraggle"
+                {
+                    float alf:param:scraggleAmplitude = 1
+                    float alf:param:scraggleBlend = 1
+                    string alf:param:scraggleMask = "ark:/JOB(al_template)/ASSETDIR(assets)/LIBRARY(fragment)/FRAGTYPE(weave)/DOMAIN(surfacing)/FRAGMENT(chemistry_beaker_stand01)/TECHVAR(base)/ASSET(texture)?path=scraggle_mask.1001.tif"
+                }
+
+                over "FrayedEdges"
+                {
+                    float alf:param:fibreProbabilityEnd = 1
+                    int alf:param:maxFibres = 2
+                }
+
+                over "StitchesandPillowing"
+                {
+                    string alf:param:stitchRenderingMode = "0"
+                }
+
+                over "AdvancedOptions"
+                {
+                    bool alf:param:subdivMesh = 1
+                    int alf:param:subdivMeshLevel = 3
+                }
+
+                over "FuzzAdvancedOptions"
+                {
+                    string alf:param:normalExpression = 's = sample("", uv); r = vnoise(5 * uv); m = 0; norm(mix(r, s , m))'
+                }
+            }
+        }
+    }
+}
+

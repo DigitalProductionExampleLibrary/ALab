@@ -1,0 +1,143 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def Xform "root" (
+    variants = {
+        string geo = "render_high"
+    }
+    prepend variantSets = "geo"
+)
+{
+    def Xform "GEO"
+    {
+    }
+    variantSet "geo" = {
+        "base" {
+            float3[] extentsHint = [(-2.934589, -0.672271, -2.071591), (2.505331, 29.569351, 1.988449)]
+
+            over "GEO" (
+                payload = @base/mesh/geo_modelling_decor_necklace_curly01_base_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "client_model" {
+
+        }
+        "collision" {
+
+        }
+        "deform_high" {
+            float3[] extentsHint = [(-2.934589, -0.672271, -2.071591), (2.505331, 29.569351, 1.988449)]
+
+            over "GEO" (
+                payload = @deform_high/mesh/geo_modelling_decor_necklace_curly01_deform_high_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "deform_low" {
+
+        }
+        "display_high" {
+            float3[] extentsHint = [(-2.938058, -0.67317003, -2.0822215), (2.5143836, 29.562538, 1.9979614)]
+
+            over "GEO" (
+                payload = @display_high/mesh/geo_modelling_decor_necklace_curly01_display_high_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "display_low" {
+
+        }
+        "garment" {
+
+        }
+        "maquette" {
+
+        }
+        "muscles" {
+
+        }
+        "pose" {
+            float3[] extentsHint = [(-2.934589, -0.672271, -2.071591), (2.505331, 29.569351, 1.988449)]
+
+            over "GEO" (
+                payload = @pose/mesh/geo_modelling_decor_necklace_curly01_pose_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "render_high" (
+            variants = {
+                string geo_vis = "preview"
+            }
+            prepend variantSets = "geo_vis"
+        ) {
+            float3[] extentsHint = [(-2.934589, -0.672271, -2.071591), (2.505331, 29.569351, 1.988449)]
+
+            over "GEO" (
+                payload = @render_high/mesh/geo_modelling_decor_necklace_curly01_render_high_mesh.usd@
+            )
+            {
+                float3[] extentsHint = [(-2.934589, -0.672271, -2.071591), (2.505331, 29.569351, 1.988449)]
+            }
+            variantSet "geo_vis" = {
+                "default" {
+
+                }
+                "preview" {
+                    float3[] extentsHint = [(-2.938058, -0.67317003, -2.0822215), (2.5143836, 29.562538, 1.9979614)]
+
+                    over "GEO"
+                    {
+                        rel proxyPrim = </root/GEO_PROXY>
+                        uniform token purpose = "render"
+                    }
+
+                    def Xform "GEO_PROXY" (
+                        payload = @display_high/mesh/geo_modelling_decor_necklace_curly01_display_high_mesh.usd@
+                    )
+                    {
+                        vector3d[] extentsHint = [(-2.93458890914917, -0.6722710132598877, -2.0715909004211426), (2.505331039428711, 29.569351196289062, 1.988448977470398)]
+                        uniform token purpose = "proxy"
+                    }
+
+                }
+            }
+
+        }
+        "scan_base" {
+
+        }
+        "scan_high" {
+
+        }
+        "scan_low" {
+
+        }
+        "scan_mid" {
+
+        }
+        "sculpt_bind" {
+
+        }
+        "sculpt_pose" {
+
+        }
+        "sculpt_symm" {
+
+        }
+        "shapes_high" {
+
+        }
+    }
+}
+

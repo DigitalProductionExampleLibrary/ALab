@@ -1,0 +1,143 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def Xform "root" (
+    variants = {
+        string geo = "render_high"
+    }
+    prepend variantSets = "geo"
+)
+{
+    def Xform "GEO"
+    {
+    }
+    variantSet "geo" = {
+        "base" {
+            float3[] extentsHint = [(-3.9669504, -3.6188736, -0.2692924), (3.985799, 4.160319, 1.0289439)]
+
+            over "GEO" (
+                payload = @base/mesh/geo_modelling_decor_paper_notef07_base_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "client_model" {
+
+        }
+        "collision" {
+
+        }
+        "deform_high" {
+            float3[] extentsHint = [(-3.9669504, -3.6188736, -0.2692924), (3.985799, 4.160319, 1.0289439)]
+
+            over "GEO" (
+                payload = @deform_high/mesh/geo_modelling_decor_paper_notef07_deform_high_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "deform_low" {
+
+        }
+        "display_high" {
+            float3[] extentsHint = [(-5.4763103, -3.7027597, -0.16485308), (3.899374, 4.139963, 1.3096734)]
+
+            over "GEO" (
+                payload = @display_high/mesh/geo_modelling_decor_paper_notef07_display_high_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "display_low" {
+
+        }
+        "garment" {
+
+        }
+        "maquette" {
+
+        }
+        "muscles" {
+
+        }
+        "pose" {
+            float3[] extentsHint = [(-3.9669504, -3.6188736, -0.2692924), (3.985799, 4.160319, 1.0289439)]
+
+            over "GEO" (
+                payload = @pose/mesh/geo_modelling_decor_paper_notef07_pose_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "render_high" (
+            variants = {
+                string geo_vis = "preview"
+            }
+            prepend variantSets = "geo_vis"
+        ) {
+            float3[] extentsHint = [(-3.9669504, -3.6188736, -0.2692924), (3.985799, 4.160319, 1.0289439)]
+
+            over "GEO" (
+                payload = @render_high/mesh/geo_modelling_decor_paper_notef07_render_high_mesh.usd@
+            )
+            {
+                float3[] extentsHint = [(-3.9669504, -3.6188736, -0.2692924), (3.985799, 4.160319, 1.0289439)]
+            }
+            variantSet "geo_vis" = {
+                "default" {
+
+                }
+                "preview" {
+                    float3[] extentsHint = [(-5.4763103, -3.7027597, -0.16485308), (3.899374, 4.139963, 1.3096734)]
+
+                    over "GEO"
+                    {
+                        rel proxyPrim = </root/GEO_PROXY>
+                        uniform token purpose = "render"
+                    }
+
+                    def Xform "GEO_PROXY" (
+                        payload = @display_high/mesh/geo_modelling_decor_paper_notef07_display_high_mesh.usd@
+                    )
+                    {
+                        vector3d[] extentsHint = [(-3.9669504165649414, -3.6188735961914062, -0.269292414188385), (3.9857990741729736, 4.160318851470947, 1.0289438962936401)]
+                        uniform token purpose = "proxy"
+                    }
+
+                }
+            }
+
+        }
+        "scan_base" {
+
+        }
+        "scan_high" {
+
+        }
+        "scan_low" {
+
+        }
+        "scan_mid" {
+
+        }
+        "sculpt_bind" {
+
+        }
+        "sculpt_pose" {
+
+        }
+        "sculpt_symm" {
+
+        }
+        "shapes_high" {
+
+        }
+    }
+}
+

@@ -1,0 +1,14 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = [
+        @../../../fragment/look/surfacing/furniture_lawn_chair02/look_surfacing_furniture_lawn_chair02.usda@,
+        @../../../fragment/weave/surfacing/furniture_lawn_chair02/weave_surfacing_furniture_lawn_chair02.usda@
+    ]
+)
+{
+}
+

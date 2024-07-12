@@ -1,0 +1,15 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root"
+{
+    asset model:cardTextureXNeg = @test202009demo_ll_leaf01_sm01_preview/cards_textures_x_neg.png@
+    asset model:cardTextureXPos = @test202009demo_ll_leaf01_sm01_preview/cards_textures_X_pos.png@
+    asset model:cardTextureYNeg = @test202009demo_ll_leaf01_sm01_preview/cards_textures_y_neg.png@
+    asset model:cardTextureYPos = @test202009demo_ll_leaf01_sm01_preview/cards_textures_y_pos.png@
+    asset model:cardTextureZNeg = @test202009demo_ll_leaf01_sm01_preview/cards_textures_z_neg.png@
+    asset model:cardTextureZPos = @test202009demo_ll_leaf01_sm01_preview/cards_textures_z_pos.png@
+}
+

@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @../../../fragment/assembly/assembly/lab_inspiration01/assembly_assembly_lab_inspiration01.usda@
+)
+{
+}
+

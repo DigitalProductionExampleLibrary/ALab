@@ -1,0 +1,32 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    subLayers = [
+        @lighting/decor_choko_experiment01_lighting.usda@,
+        @surfacing/decor_choko_experiment01_surfacing.usda@,
+        @modelling/decor_choko_experiment01_modelling.usda@,
+        @preview/decor_choko_experiment01_preview.usda@
+    ]
+    upAxis = "Y"
+)
+
+def "root" (
+    prepend apiSchemas = ["GeomModelAPI"]
+    assetInfo = {
+        string entityType = "setpiece"
+        string name = "decor_choko_experiment01"
+    }
+    prepend inherits = </__class__/decor_choko_experiment01>
+    kind = "component"
+    prepend specializes = </_root_type>
+)
+{
+    string assetVersionId = "1832456806"
+}
+
+class Scope "_root_type" (
+    doc = "This prim holds the 'fallback' type of the default root prim"
+)
+{
+}
+

@@ -1,0 +1,10 @@
+#usda 1.0
+(
+    "This is a placeholder layer to be replaced with the techvar_assets package available as an additional download. Get it to see the data on this asset!"
+    defaultPrim = "root"
+)
+
+over "root"
+{
+}
+

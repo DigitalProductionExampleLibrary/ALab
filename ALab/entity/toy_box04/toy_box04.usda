@@ -1,0 +1,31 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    subLayers = [
+        @surfacing/toy_box04_surfacing.usda@,
+        @modelling/toy_box04_modelling.usda@,
+        @preview/toy_box04_preview.usda@
+    ]
+    upAxis = "Y"
+)
+
+def "root" (
+    prepend apiSchemas = ["GeomModelAPI"]
+    assetInfo = {
+        string entityType = "setpiece"
+        string name = "toy_box04"
+    }
+    prepend inherits = </__class__/toy_box04>
+    kind = "component"
+    prepend specializes = </_root_type>
+)
+{
+    string assetVersionId = "1832455164"
+}
+
+class Scope "_root_type" (
+    doc = "This prim holds the 'fallback' type of the default root prim"
+)
+{
+}
+

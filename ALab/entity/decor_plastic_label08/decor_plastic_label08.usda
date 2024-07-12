@@ -1,0 +1,31 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    subLayers = [
+        @surfacing/decor_plastic_label08_surfacing.usda@,
+        @modelling/decor_plastic_label08_modelling.usda@,
+        @preview/decor_plastic_label08_preview.usda@
+    ]
+    upAxis = "Y"
+)
+
+def "root" (
+    prepend apiSchemas = ["GeomModelAPI"]
+    assetInfo = {
+        string entityType = "setpiece"
+        string name = "decor_plastic_label08"
+    }
+    prepend inherits = </__class__/decor_plastic_label08>
+    kind = "component"
+    prepend specializes = </_root_type>
+)
+{
+    string assetVersionId = "1832456096"
+}
+
+class Scope "_root_type" (
+    doc = "This prim holds the 'fallback' type of the default root prim"
+)
+{
+}
+

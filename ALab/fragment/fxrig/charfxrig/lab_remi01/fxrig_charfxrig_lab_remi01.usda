@@ -1,0 +1,23 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend variantSets = ["simcontrol", "simrig"]
+)
+{
+    variantSet "simcontrol" = {
+        "global" {
+            asset control = @@
+
+        }
+    }
+    variantSet "simrig" = {
+        "global" {
+            asset rig = @base/rig/fxrig_charfxrig_lab_remi01_base_rig.otl@
+
+        }
+    }
+}
+

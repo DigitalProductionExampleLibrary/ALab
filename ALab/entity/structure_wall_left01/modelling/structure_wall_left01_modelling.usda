@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @../../../fragment/geo/modelling/structure_wall_left01/geo_modelling_structure_wall_left01.usda@
+)
+{
+}
+

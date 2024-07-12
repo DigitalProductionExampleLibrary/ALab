@@ -1,0 +1,14 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    framesPerSecond = 24
+    metersPerUnit = 1
+    timeCodesPerSecond = 24
+)
+
+def "root" (
+    prepend payload = @render_high/binding/look_surfacing_proc_dev_circuit_resistor09_render_high_binding/render_high.usda@
+)
+{
+}
+

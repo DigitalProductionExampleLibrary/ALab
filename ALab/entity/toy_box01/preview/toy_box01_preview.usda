@@ -1,0 +1,15 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root"
+{
+    asset model:cardTextureXNeg = @toy_box01_preview/cards_textures_x_neg.png@
+    asset model:cardTextureXPos = @toy_box01_preview/cards_textures_X_pos.png@
+    asset model:cardTextureYNeg = @toy_box01_preview/cards_textures_y_neg.png@
+    asset model:cardTextureYPos = @toy_box01_preview/cards_textures_y_pos.png@
+    asset model:cardTextureZNeg = @toy_box01_preview/cards_textures_z_neg.png@
+    asset model:cardTextureZPos = @toy_box01_preview/cards_textures_z_pos.png@
+}
+

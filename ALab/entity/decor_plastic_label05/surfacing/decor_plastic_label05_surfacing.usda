@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @../../../fragment/look/surfacing/decor_plastic_label05/look_surfacing_decor_plastic_label05.usda@
+)
+{
+}
+

@@ -1,0 +1,31 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    subLayers = [
+        @surfacing/plant_choko_leaf03_surfacing.usda@,
+        @modelling/plant_choko_leaf03_modelling.usda@,
+        @preview/plant_choko_leaf03_preview.usda@
+    ]
+    upAxis = "Y"
+)
+
+def "root" (
+    prepend apiSchemas = ["GeomModelAPI"]
+    assetInfo = {
+        string entityType = "setpiece"
+        string name = "plant_choko_leaf03"
+    }
+    prepend inherits = </__class__/plant_choko_leaf03>
+    kind = "component"
+    prepend specializes = </_root_type>
+)
+{
+    string assetVersionId = "1832460010"
+}
+
+class Scope "_root_type" (
+    doc = "This prim holds the 'fallback' type of the default root prim"
+)
+{
+}
+

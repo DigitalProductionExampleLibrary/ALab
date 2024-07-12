@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @../../../fragment/geo/modelling/electronics_powerpoint01/geo_modelling_electronics_powerpoint01.usda@
+)
+{
+}
+

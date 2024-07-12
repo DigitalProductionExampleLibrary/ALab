@@ -1,0 +1,159 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def Xform "root" (
+    variants = {
+        string geo = "render_high"
+    }
+    prepend variantSets = "geo"
+)
+{
+    def Xform "GEO"
+    {
+    }
+    variantSet "geo" = {
+        "base" {
+            float3[] extentsHint = [(-3.8651466, -0.8845965, -4.5933514), (5.286449, 7.1269026, 4.593849)]
+
+            over "GEO" (
+                payload = @base/mesh/geo_modelling_electronics_wire_spool01_base_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "client_model" {
+
+        }
+        "collision" {
+
+        }
+        "deform_high" {
+            float3[] extentsHint = [(-3.8651466, -0.8845965, -4.5933514), (5.286449, 7.1269026, 4.593849)]
+
+            over "GEO" (
+                payload = @deform_high/mesh/geo_modelling_electronics_wire_spool01_deform_high_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "deform_low" {
+
+        }
+        "deform_mid" {
+            float3[] extentsHint = [(-3.8690567, -0.88629824, -4.6156497), (5.286449, 7.134502, 4.6156497)]
+
+            over "GEO" (
+                payload = @deform_mid/mesh/geo_modelling_electronics_wire_spool01_deform_mid_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "display_high" {
+            float3[] extentsHint = [(-3.6427317, -0.68759733, -4.4244933), (5.143964, 6.968859, 4.4290013)]
+
+            over "GEO" (
+                payload = @display_high/mesh/geo_modelling_electronics_wire_spool01_display_high_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "display_low" {
+
+        }
+        "display_mid" {
+
+        }
+        "garment" {
+
+        }
+        "maquette" {
+
+        }
+        "muscles" {
+
+        }
+        "pose" {
+            float3[] extentsHint = [(-3.8651466, -0.8845965, -4.5933514), (5.286449, 7.1269026, 4.593849)]
+
+            over "GEO" (
+                payload = @pose/mesh/geo_modelling_electronics_wire_spool01_pose_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "render_high" (
+            variants = {
+                string geo_vis = "preview"
+            }
+            prepend variantSets = "geo_vis"
+        ) {
+            float3[] extentsHint = [(-3.8651466, -0.8845965, -4.5933514), (5.286449, 7.1269026, 4.593849)]
+
+            over "GEO" (
+                payload = @render_high/mesh/geo_modelling_electronics_wire_spool01_render_high_mesh.usd@
+            )
+            {
+                float3[] extentsHint = [(-3.8651466, -0.8845965, -4.5933514), (5.286449, 7.1269026, 4.593849)]
+            }
+            variantSet "geo_vis" = {
+                "default" {
+
+                }
+                "preview" {
+                    float3[] extentsHint = [(-3.6427317, -0.68759733, -4.4244933), (5.143964, 6.968859, 4.4290013)]
+
+                    over "GEO"
+                    {
+                        rel proxyPrim = </root/GEO_PROXY>
+                        uniform token purpose = "render"
+                    }
+
+                    def Xform "GEO_PROXY" (
+                        payload = @display_high/mesh/geo_modelling_electronics_wire_spool01_display_high_mesh.usd@
+                    )
+                    {
+                        vector3d[] extentsHint = [(-3.8651466369628906, -0.8845965266227722, -4.593351364135742), (5.286448955535889, 7.1269025802612305, 4.593849182128906)]
+                        uniform token purpose = "proxy"
+                    }
+
+                }
+            }
+
+        }
+        "scan_base" {
+
+        }
+        "scan_high" {
+
+        }
+        "scan_low" {
+
+        }
+        "scan_mid" {
+
+        }
+        "sculpt_bind" {
+
+        }
+        "sculpt_pose" {
+
+        }
+        "sculpt_symm" {
+
+        }
+        "shapes_high" {
+
+        }
+        "shapes_mid" {
+
+        }
+    }
+}
+

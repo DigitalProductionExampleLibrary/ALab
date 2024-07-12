@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @../../../fragment/camerageo/modelling/test_beast_generic01/camerageo_modelling_test_beast_generic01.usda@
+)
+{
+}
+

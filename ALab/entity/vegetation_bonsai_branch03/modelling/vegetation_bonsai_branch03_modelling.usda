@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @../../../fragment/geo/modelling/vegetation_bonsai_branch03/geo_modelling_vegetation_bonsai_branch03.usda@
+)
+{
+}
+

@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @../../../fragment/assembly/assembly/proc_dev_circuit_board_large03/assembly_assembly_proc_dev_circuit_board_large03.usd@
+)
+{
+}
+

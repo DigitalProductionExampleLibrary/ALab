@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @../../../fragment/geo/modelling/construction_cinder_block01/geo_modelling_construction_cinder_block01.usda@
+)
+{
+}
+

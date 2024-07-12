@@ -1,0 +1,159 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def Xform "root" (
+    variants = {
+        string geo = "render_high"
+    }
+    prepend variantSets = "geo"
+)
+{
+    def Xform "GEO"
+    {
+    }
+    variantSet "geo" = {
+        "base" {
+            float3[] extentsHint = [(-2.9567387, -0.06590915, -2.9567387), (2.9567387, 13.114545, 2.956739)]
+
+            over "GEO" (
+                payload = @base/mesh/geo_modelling_chemistry_bottle01_base_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "client_model" {
+
+        }
+        "collision" {
+
+        }
+        "deform_high" {
+            float3[] extentsHint = [(-2.9567387, -0.06590915, -2.9567387), (2.9567387, 13.114545, 2.956739)]
+
+            over "GEO" (
+                payload = @deform_high/mesh/geo_modelling_chemistry_bottle01_deform_high_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "deform_low" {
+
+        }
+        "deform_mid" {
+            float3[] extentsHint = [(-2.9567387, -0.06590915, -2.9567387), (2.9567387, 13.114545, 2.9567387)]
+
+            over "GEO" (
+                payload = @deform_mid/mesh/geo_modelling_chemistry_bottle01_deform_mid_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "display_high" {
+            float3[] extentsHint = [(-2.956739, -0.006892567, -2.956739), (2.956739, 13.021815, 2.956739)]
+
+            over "GEO" (
+                payload = @display_high/mesh/geo_modelling_chemistry_bottle01_display_high_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "display_low" {
+
+        }
+        "display_mid" {
+
+        }
+        "garment" {
+
+        }
+        "maquette" {
+
+        }
+        "muscles" {
+
+        }
+        "pose" {
+            float3[] extentsHint = [(-2.9567387, -0.06590915, -2.9567387), (2.9567387, 13.114545, 2.956739)]
+
+            over "GEO" (
+                payload = @pose/mesh/geo_modelling_chemistry_bottle01_pose_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "render_high" (
+            variants = {
+                string geo_vis = "preview"
+            }
+            prepend variantSets = "geo_vis"
+        ) {
+            float3[] extentsHint = [(-2.9567387, -0.06590915, -2.9567387), (2.9567387, 13.114545, 2.956739)]
+
+            over "GEO" (
+                payload = @render_high/mesh/geo_modelling_chemistry_bottle01_render_high_mesh.usd@
+            )
+            {
+                float3[] extentsHint = [(-2.9567387, -0.06590915, -2.9567387), (2.9567387, 13.114545, 2.956739)]
+            }
+            variantSet "geo_vis" = {
+                "default" {
+
+                }
+                "preview" {
+                    float3[] extentsHint = [(-2.956739, -0.006892567, -2.956739), (2.956739, 13.021815, 2.956739)]
+
+                    over "GEO"
+                    {
+                        rel proxyPrim = </root/GEO_PROXY>
+                        uniform token purpose = "render"
+                    }
+
+                    def Xform "GEO_PROXY" (
+                        payload = @display_high/mesh/geo_modelling_chemistry_bottle01_display_high_mesh.usd@
+                    )
+                    {
+                        vector3d[] extentsHint = [(-2.9567387104034424, -0.06590914726257324, -2.9567387104034424), (2.9567387104034424, 13.114544868469238, 2.9567389488220215)]
+                        uniform token purpose = "proxy"
+                    }
+
+                }
+            }
+
+        }
+        "scan_base" {
+
+        }
+        "scan_high" {
+
+        }
+        "scan_low" {
+
+        }
+        "scan_mid" {
+
+        }
+        "sculpt_bind" {
+
+        }
+        "sculpt_pose" {
+
+        }
+        "sculpt_symm" {
+
+        }
+        "shapes_high" {
+
+        }
+        "shapes_mid" {
+
+        }
+    }
+}
+

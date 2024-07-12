@@ -1,0 +1,256 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def Xform "root" (
+    kind = "assembly"
+)
+{
+    def Xform "structure_barrier01_0001" (
+        instanceable = true
+        prepend references = @../../../../entity/structure_barrier01/structure_barrier01.usda@
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, -0, -0)
+        float3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "structure_base01_0001" (
+        instanceable = false
+        prepend references = @../../../../entity/structure_base01/structure_base01.usda@
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, -0, -0)
+        float3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "structure_roof_0001" (
+        instanceable = true
+        prepend references = @../../../../entity/structure_roof/structure_roof.usda@
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, -0, -0)
+        float3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "wall04" (
+        kind = "group"
+    )
+    {
+        def Xform "structure_wall_left01_0001" (
+            instanceable = true
+            prepend references = @../../../../entity/structure_wall_left01/structure_wall_left01.usda@
+        )
+        {
+            token visibility = "inherited"
+            float3 xformOp:rotateXYZ = (0, -0, -0)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+        }
+
+        def Xform "structure_window_louvered02_0001" (
+            instanceable = true
+            prepend references = @../../../../entity/structure_window_louvered02/structure_window_louvered02.usda@
+        )
+        {
+            float3 xformOp:rotateXYZ = (88.303856, 89.714905, 90)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (316.46681990820036, 149.4181212740812, 144.60171917302418)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+        }
+
+        def Xform "structure_window_louvered02_0002" (
+            instanceable = true
+            prepend references = @../../../../entity/structure_window_louvered02/structure_window_louvered02.usda@
+        )
+        {
+            float3 xformOp:rotateXYZ = (155.4648, 89.27099, 156.34637)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (316.1361576785576, 149.85782483095232, 316.0720521662118)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+        }
+    }
+
+    def Xform "wall01" (
+        kind = "group"
+    )
+    {
+        def Xform "structure_door01_0001" (
+            instanceable = true
+            prepend references = @../../../../entity/structure_door01/structure_door01.usda@
+        )
+        {
+            float3 xformOp:rotateXYZ = (0, -0, -0)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+        }
+
+        def Xform "structure_door_garage01_0001" (
+            instanceable = true
+            prepend references = @../../../../entity/structure_door_garage01/structure_door_garage01.usda@
+        )
+        {
+            float3 xformOp:rotateXYZ = (0, -0, -0)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+        }
+
+        def Xform "structure_wall_fibro05_0001" (
+            instanceable = true
+            prepend references = @../../../../entity/structure_wall_fibro05/structure_wall_fibro05.usda@
+        )
+        {
+            float3 xformOp:rotateXYZ = (0, -0, -0)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (-26.74399353846221, 0, 403.64865668319396)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+        }
+
+        def Xform "structure_wall_front01_0001" (
+            instanceable = true
+            prepend references = @../../../../entity/structure_wall_front01/structure_wall_front01.usda@
+        )
+        {
+            float3 xformOp:rotateXYZ = (0, -0, -0)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+        }
+
+        def Xform "structure_window_casement01_0001" (
+            instanceable = true
+            prepend references = @../../../../entity/structure_window_casement01/structure_window_casement01.usda@
+        )
+        {
+            float3 xformOp:rotateXYZ = (180, 7.016709e-15, 180)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (246.44736788998011, 126.57880099993054, 409.7987060838822)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+        }
+
+        def Xform "structure_window_casement01_0002" (
+            instanceable = true
+            prepend references = @../../../../entity/structure_window_casement01/structure_window_casement01.usda@
+        )
+        {
+            float3 xformOp:rotateXYZ = (180, 7.016709e-15, 180)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (-165.9602084962441, 126.63079489378282, 409.58297243967127)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+        }
+
+        def Xform "structure_window_louvered01_0001" (
+            instanceable = true
+            prepend references = @../../../../entity/structure_window_louvered01/structure_window_louvered01.usda@
+        )
+        {
+            float3 xformOp:rotateXYZ = (0, -0, -0)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (-375.06601958967366, 230.28235392126038, 405.18147847950695)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+        }
+    }
+
+    def Xform "wall02" (
+        kind = "group"
+    )
+    {
+        def Xform "structure_wall_fibro01_0003" (
+            instanceable = true
+            prepend references = @../../../../entity/structure_wall_fibro01/structure_wall_fibro01.usda@
+        )
+        {
+            token visibility = "inherited"
+            float3 xformOp:rotateXYZ = (0, 90, -0)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (-525.4234304092333, -0.16512613450982627, 272.4580652955905)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+        }
+
+        def Xform "structure_wall_fibro04_0001" (
+            instanceable = true
+            prepend references = @../../../../entity/structure_wall_fibro04/structure_wall_fibro04.usda@
+        )
+        {
+            token visibility = "inherited"
+            float3 xformOp:rotateXYZ = (0, -0, -0)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (-525.7752257086388, 0, -46.14514629981891)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+        }
+
+        def Xform "structure_wall_right01_0001" (
+            instanceable = true
+            prepend references = @../../../../entity/structure_wall_right01/structure_wall_right01.usda@
+        )
+        {
+            float3 xformOp:rotateXYZ = (0, -0, -0)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+        }
+    }
+
+    def Xform "wall03" (
+        kind = "group"
+    )
+    {
+        def Xform "structure_wall_fibro01_0002" (
+            instanceable = true
+            prepend references = @../../../../entity/structure_wall_fibro01/structure_wall_fibro01.usda@
+        )
+        {
+            token visibility = "inherited"
+            float3 xformOp:rotateXYZ = (0, -0, -0)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (196.79232039910215, -0.16512613450982627, -44.08230741154193)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+        }
+
+        def Xform "structure_wall_fibro02_0001" (
+            instanceable = true
+            prepend references = @../../../../entity/structure_wall_fibro02/structure_wall_fibro02.usda@
+        )
+        {
+            token visibility = "inherited"
+            float3 xformOp:rotateXYZ = (0, -0, -0)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (-25.14219015827751, 0, -44.1409276041183)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+        }
+
+        def Xform "structure_wall_fibro03_0001" (
+            instanceable = true
+            prepend references = @../../../../entity/structure_wall_fibro03/structure_wall_fibro03.usda@
+        )
+        {
+            token visibility = "inherited"
+            float3 xformOp:rotateXYZ = (0, -0, -0)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (-245.70451298396205, 0, -44.26121552568293)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+        }
+
+        def Xform "structure_wall_back01_0001" (
+            instanceable = true
+            prepend references = @../../../../entity/structure_wall_back01/structure_wall_back01.usda@
+        )
+        {
+            float3 xformOp:rotateXYZ = (0, -0, -0)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+        }
+    }
+}
+

@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @../../../fragment/breakdown/assembly/shot/mk020_0281_breakdown_assembly_shot.usda@
+)
+{
+}
+

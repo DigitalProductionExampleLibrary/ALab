@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @../../../fragment/look/surfacing/stationary_pencil03/look_surfacing_stationary_pencil03.usda@
+)
+{
+}
+

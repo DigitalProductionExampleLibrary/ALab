@@ -1,0 +1,338 @@
+#usda 1.0
+(
+    "first checkin of wirespoolv3"
+    customLayerData = {
+        string otlFile = "./look.otl"
+        double validation_max_level = 0
+    }
+    defaultPrim = "root"
+    framesPerSecond = 24
+    metersPerUnit = 1
+    timeCodesPerSecond = 24
+)
+
+over "root"
+{
+    def Scope "MATERIAL"
+    {
+        def Material "multimetal01" (
+            prepend references = @ark:/JOB(al_template)/ASSETDIR(assets)/LIBRARY(fragment)/FRAGTYPE(material)/DOMAIN(surfacing)/FRAGMENT(multimetal01)/TECHVAR(render_high)/ASSET(material)?extension=.usda@</root/multimetal01>
+        )
+        {
+            token outputs:displacement.connect = </root/MATERIAL/multimetal01/multimetal01.outputs:displacement>
+            token outputs:mask.connect = </root/MATERIAL/multimetal01/multimetal01.outputs:mask>
+            token outputs:multimetal01.connect = </root/MATERIAL/multimetal01/multimetal01.outputs:normal>
+            token outputs:surface.connect = </root/MATERIAL/multimetal01/multimetal01.outputs:surface>
+        }
+
+        def Material "generic01" (
+            prepend references = @ark:/JOB(al_template)/ASSETDIR(assets)/LIBRARY(fragment)/FRAGTYPE(material)/DOMAIN(surfacing)/FRAGMENT(generic01)/TECHVAR(render_high)/ASSET(material)?extension=.usda@</root/generic01>
+        )
+        {
+            vector3f inputs:Adjust_Brightness = (0.5, 0.5, 0.5) (
+                displayName = "Adjust Brightness"
+            )
+            vector3f inputs:Adjust_Contrast = (0.5, 0.5, 0) (
+                displayName = "Adjust Contrast"
+            )
+            float inputs:Adjust_Hue = 0 (
+                displayName = "Adjust Hue"
+            )
+            vector3f inputs:Adjust_Saturation = (0.5, 0.5, 0.5) (
+                displayName = "Adjust Saturation"
+            )
+            asset inputs:colorFilePath (
+                displayName = "Color File Path"
+            )
+            vector3f inputs:Diffuse_gamma = (1, 1, 1) (
+                displayName = "Diffuse Gamma"
+            )
+            asset inputs:displacementFilePath (
+                displayName = "Displacement File Path"
+            )
+            float inputs:displacementMagnitude = 0 (
+                displayName = "Displacement Magnitude"
+            )
+            float inputs:ior_default = 1.35 (
+                displayName = "Ior Default"
+            )
+            asset inputs:iorFilePath (
+                displayName = "Ior File Path"
+            )
+            asset inputs:maskFilePath (
+                displayName = "Mask File Path"
+            )
+            asset inputs:normalFilePath (
+                displayName = "Normal File Path"
+            )
+            float2 inputs:Roughness_remap = (0, 1) (
+                displayName = "Roughness Remap"
+            )
+            asset inputs:roughnessFilePath (
+                displayName = "Roughness File Path"
+            )
+            color3f inputs:Specular_Brightness = (0.1, 0.1, 0.1) (
+                displayName = "Specular_Brightness"
+            )
+            asset inputs:specularFilePath (
+                displayName = "Specular File Path"
+            )
+            token outputs:displacement.connect = </root/MATERIAL/generic01/generic01.outputs:displacement>
+            token outputs:generic01.connect = </root/MATERIAL/generic01/generic01.outputs:normal>
+            token outputs:mask.connect = </root/MATERIAL/generic01/generic01.outputs:mask>
+            token outputs:surface.connect = </root/MATERIAL/generic01/generic01.outputs:surface>
+        }
+
+        def Nodegraph "generic01_override"
+        {
+            vector3f inputs:Adjust_Brightness_interface = (0.5, 0.5, 0.5) (
+                displayName = "Adjust Brightness"
+            )
+            vector3f inputs:Adjust_Contrast_interface = (0.5, 0.5, 0.5) (
+                displayName = "Adjust Contrast"
+            )
+            float inputs:Adjust_Hue_interface = 0 (
+                displayName = "Adjust Hue"
+            )
+            vector3f inputs:Adjust_Saturation_interface = (0.5, 0.5, 0.5) (
+                displayName = "Adjust Saturation"
+            )
+            asset inputs:colorFilePath_interface = @ark:/JOB(al_template)/ASSETDIR(assets)/LIBRARY(fragment)/FRAGTYPE(look)/DOMAIN(surfacing)/FRAGMENT(electronics_wire_spool03)/TECHVAR(render_high)/ASSET(texture)?version=2&path=Diffuse_wirespool1.<UDIM>.tif@ (
+                displayName = "Color File Path"
+            )
+            vector3f inputs:Diffuse_gamma_interface = (0.454545, 0.454545, 0.454545) (
+                displayName = "Diffuse Gamma"
+            )
+            asset inputs:displacementFilePath_interface (
+                displayName = "Displacement File Path"
+            )
+            float inputs:displacementMagnitude_interface = 0 (
+                displayName = "Displacement Magnitude"
+            )
+            float inputs:ior_default_interface = 1.35 (
+                displayName = "Ior Default"
+            )
+            asset inputs:iorFilePath_interface (
+                displayName = "Ior File Path"
+            )
+            asset inputs:maskFilePath_interface = @ark:/JOB(al_template)/ASSETDIR(assets)/LIBRARY(fragment)/FRAGTYPE(look)/DOMAIN(surfacing)/FRAGMENT(electronics_wire_spool03)/TECHVAR(render_high)/ASSET(texture)?version=2&path=Mask_wirespool1.<UDIM>.tif@ (
+                displayName = "Mask File Path"
+            )
+            asset inputs:normalFilePath_interface = @ark:/JOB(al_template)/ASSETDIR(assets)/LIBRARY(fragment)/FRAGTYPE(look)/DOMAIN(surfacing)/FRAGMENT(electronics_wire_spool03)/TECHVAR(render_high)/ASSET(texture)?version=2&path=Normal_wirespool1.<UDIM>.tif@ (
+                displayName = "Normal File Path"
+            )
+            float2 inputs:Roughness_remap_interface = (0, 1) (
+                displayName = "Roughness Remap"
+            )
+            asset inputs:roughnessFilePath_interface = @ark:/JOB(al_template)/ASSETDIR(assets)/LIBRARY(fragment)/FRAGTYPE(look)/DOMAIN(surfacing)/FRAGMENT(electronics_wire_spool03)/TECHVAR(render_high)/ASSET(texture)?version=2&path=Roughness_wirespool1.<UDIM>.tif@ (
+                displayName = "Roughness File Path"
+            )
+            color3f inputs:Specular_Brightness_interface = (0.1, 0.1, 0.1) (
+                displayName = "Specular_Brightness"
+            )
+            asset inputs:specularFilePath_interface = @ark:/JOB(al_template)/ASSETDIR(assets)/LIBRARY(fragment)/FRAGTYPE(look)/DOMAIN(surfacing)/FRAGMENT(electronics_wire_spool03)/TECHVAR(render_high)/ASSET(texture)?version=2&path=Specular_wirespool1.<UDIM>.tif@ (
+                displayName = "Specular File Path"
+            )
+            vector3f outputs:Adjust_Brightness.connect = </root/MATERIAL/generic01_override/Adjust_Brightness_constant.outputs:result>
+            vector3f outputs:Adjust_Contrast.connect = </root/MATERIAL/generic01_override/Adjust_Contrast_constant.outputs:result>
+            float outputs:Adjust_Hue.connect = </root/MATERIAL/generic01_override/Adjust_Hue_constant.outputs:result>
+            vector3f outputs:Adjust_Saturation.connect = </root/MATERIAL/generic01_override/Adjust_Saturation_constant.outputs:result>
+            string outputs:colorFilePath.connect = </root/MATERIAL/generic01_override/colorFilePath_constant.outputs:result>
+            vector3f outputs:Diffuse_gamma.connect = </root/MATERIAL/generic01_override/Diffuse_gamma_constant.outputs:result>
+            string outputs:displacementFilePath.connect = </root/MATERIAL/generic01_override/displacementFilePath_constant.outputs:result>
+            float outputs:displacementMagnitude.connect = </root/MATERIAL/generic01_override/displacementMagnitude_constant.outputs:result>
+            float outputs:ior_default.connect = </root/MATERIAL/generic01_override/ior_default_constant.outputs:result>
+            string outputs:iorFilePath.connect = </root/MATERIAL/generic01_override/iorFilePath_constant.outputs:result>
+            string outputs:maskFilePath.connect = </root/MATERIAL/generic01_override/maskFilePath_constant.outputs:result>
+            string outputs:normalFilePath.connect = </root/MATERIAL/generic01_override/normalFilePath_constant.outputs:result>
+            float2 outputs:Roughness_remap.connect = </root/MATERIAL/generic01_override/Roughness_remap_constant.outputs:result>
+            string outputs:roughnessFilePath.connect = </root/MATERIAL/generic01_override/roughnessFilePath_constant.outputs:result>
+            vector3f outputs:Specular_Brightness.connect = </root/MATERIAL/generic01_override/Specular_Brightness_constant.outputs:result>
+            string outputs:specularFilePath.connect = </root/MATERIAL/generic01_override/specularFilePath_constant.outputs:result>
+
+            def Shader "colorFilePath_constant"
+            {
+                uniform token info:id = "glimpse_constantString"
+                asset inputs:value.connect = </root/MATERIAL/generic01_override.inputs:colorFilePath_interface>
+                string outputs:result
+            }
+
+            def Shader "roughnessFilePath_constant"
+            {
+                uniform token info:id = "glimpse_constantString"
+                asset inputs:value.connect = </root/MATERIAL/generic01_override.inputs:roughnessFilePath_interface>
+                string outputs:result
+            }
+
+            def Shader "displacementFilePath_constant"
+            {
+                uniform token info:id = "glimpse_constantString"
+                asset inputs:value.connect = </root/MATERIAL/generic01_override.inputs:displacementFilePath_interface>
+                string outputs:result
+            }
+
+            def Shader "maskFilePath_constant"
+            {
+                uniform token info:id = "glimpse_constantString"
+                asset inputs:value.connect = </root/MATERIAL/generic01_override.inputs:maskFilePath_interface>
+                string outputs:result
+            }
+
+            def Shader "normalFilePath_constant"
+            {
+                uniform token info:id = "glimpse_constantString"
+                asset inputs:value.connect = </root/MATERIAL/generic01_override.inputs:normalFilePath_interface>
+                string outputs:result
+            }
+
+            def Shader "displacementMagnitude_constant"
+            {
+                uniform token info:id = "glimpse_constantScalar"
+                float inputs:value.connect = </root/MATERIAL/generic01_override.inputs:displacementMagnitude_interface>
+                float outputs:result
+            }
+
+            def Shader "iorFilePath_constant"
+            {
+                uniform token info:id = "glimpse_constantString"
+                asset inputs:value.connect = </root/MATERIAL/generic01_override.inputs:iorFilePath_interface>
+                string outputs:result
+            }
+
+            def Shader "Diffuse_gamma_constant"
+            {
+                uniform token info:id = "glimpse_constantVector"
+                vector3f inputs:value.connect = </root/MATERIAL/generic01_override.inputs:Diffuse_gamma_interface>
+                vector3f outputs:result
+            }
+
+            def Shader "Roughness_remap_constant"
+            {
+                uniform token info:id = "glimpse_constantvector2"
+                float2 inputs:value.connect = </root/MATERIAL/generic01_override.inputs:Roughness_remap_interface>
+                float2 outputs:result
+            }
+
+            def Shader "Adjust_Saturation_constant"
+            {
+                uniform token info:id = "glimpse_constantVector"
+                vector3f inputs:value.connect = </root/MATERIAL/generic01_override.inputs:Adjust_Saturation_interface>
+                vector3f outputs:result
+            }
+
+            def Shader "Adjust_Contrast_constant"
+            {
+                uniform token info:id = "glimpse_constantVector"
+                vector3f inputs:value.connect = </root/MATERIAL/generic01_override.inputs:Adjust_Contrast_interface>
+                vector3f outputs:result
+            }
+
+            def Shader "Adjust_Hue_constant"
+            {
+                uniform token info:id = "glimpse_constantScalar"
+                float inputs:value.connect = </root/MATERIAL/generic01_override.inputs:Adjust_Hue_interface>
+                float outputs:result
+            }
+
+            def Shader "Adjust_Brightness_constant"
+            {
+                uniform token info:id = "glimpse_constantVector"
+                vector3f inputs:value.connect = </root/MATERIAL/generic01_override.inputs:Adjust_Brightness_interface>
+                vector3f outputs:result
+            }
+
+            def Shader "ior_default_constant"
+            {
+                uniform token info:id = "glimpse_constantScalar"
+                float inputs:value.connect = </root/MATERIAL/generic01_override.inputs:ior_default_interface>
+                float outputs:result
+            }
+
+            def Shader "specularFilePath_constant"
+            {
+                uniform token info:id = "glimpse_constantString"
+                asset inputs:value.connect = </root/MATERIAL/generic01_override.inputs:specularFilePath_interface>
+                string outputs:result
+            }
+
+            def Shader "Specular_Brightness_constant"
+            {
+                uniform token info:id = "glimpse_constantColor"
+                color3f inputs:value.connect = </root/MATERIAL/generic01_override.inputs:Specular_Brightness_interface>
+                vector3f outputs:result
+            }
+        }
+
+        def Material "usdpreviewsurface1"
+        {
+            token outputs:displacement.connect = </root/MATERIAL/usdpreviewsurface1/usdpreviewsurface1.outputs:displacement>
+            token outputs:surface.connect = </root/MATERIAL/usdpreviewsurface1/usdpreviewsurface1.outputs:surface>
+
+            def Shader "usdpreviewsurface1"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor.connect = </root/MATERIAL/usdpreviewsurface1/usduvtexture2.outputs:rgb>
+                normal3f inputs:normal.connect = </root/MATERIAL/usdpreviewsurface1/usduvtexture1.outputs:rgb>
+                float inputs:roughness.connect = </root/MATERIAL/usdpreviewsurface1/usduvtexture3.outputs:r>
+                token outputs:displacement
+                token outputs:surface
+            }
+
+            def Shader "usduvtexture2"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @ark:/JOB(al_template)/ASSETDIR(assets)/LIBRARY(fragment)/FRAGTYPE(look)/DOMAIN(surfacing)/FRAGMENT(electronics_wire_spool03)/TECHVAR(render_high)/ASSET(texture)?version=2&path=electronics_wire_spool03_BaseColor.<UDIM>.jpg@
+                float2 inputs:st.connect = </root/MATERIAL/usdpreviewsurface1/usdprimvarreader1.outputs:result>
+                vector3f outputs:rgb
+            }
+
+            def Shader "usdprimvarreader1"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+
+            def Shader "usduvtexture3"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @ark:/JOB(al_template)/ASSETDIR(assets)/LIBRARY(fragment)/FRAGTYPE(look)/DOMAIN(surfacing)/FRAGMENT(electronics_wire_spool03)/TECHVAR(render_high)/ASSET(texture)?version=2&path=electronics_wire_spool03_Roughness.<UDIM>.jpg@
+                float2 inputs:st.connect = </root/MATERIAL/usdpreviewsurface1/usdprimvarreader1.outputs:result>
+                float outputs:r
+            }
+
+            def Shader "usduvtexture1"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @ark:/JOB(al_template)/ASSETDIR(assets)/LIBRARY(fragment)/FRAGTYPE(look)/DOMAIN(surfacing)/FRAGMENT(electronics_wire_spool03)/TECHVAR(render_high)/ASSET(texture)?version=2&path=electronics_wire_spool03_Normal_openGL.<UDIM>.jpg@
+                float2 inputs:st.connect = </root/MATERIAL/usdpreviewsurface1/usdprimvarreader1.outputs:result>
+                vector3f outputs:rgb
+            }
+        }
+    }
+
+    over "GEO"
+    {
+        rel material:binding:preview = </root/MATERIAL/usdpreviewsurface1>
+
+        over "spool_M_geo"
+        {
+            custom rel material:slotBinding:_000 = </root/MATERIAL/multimetal01>
+            custom rel material:slotBinding:_010 = </root/MATERIAL/generic01>
+            custom rel material:slotBinding:_010:_:_000 = </root/MATERIAL/generic01_override>
+        }
+
+        over "innerWire_M_geo"
+        {
+            custom rel material:slotBinding:_000 = </root/MATERIAL/generic01>
+            custom rel material:slotBinding:_000:_:_000 = </root/MATERIAL/generic01_override>
+        }
+
+        over "wire_M_geo"
+        {
+            custom rel material:slotBinding:_000 = </root/MATERIAL/generic01>
+            custom rel material:slotBinding:_000:_:_000 = </root/MATERIAL/generic01_override>
+        }
+    }
+}
+

@@ -1,0 +1,24 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    variants = {
+        string alfro = "render"
+    }
+    prepend variantSets = "alfro"
+)
+{
+    variantSet "alfro" = {
+        "off" {
+
+        }
+        "render" (
+            payload = None
+        ) {
+
+        }
+    }
+}
+

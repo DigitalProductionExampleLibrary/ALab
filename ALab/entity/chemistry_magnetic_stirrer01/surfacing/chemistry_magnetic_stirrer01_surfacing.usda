@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @../../../fragment/look/surfacing/chemistry_magnetic_stirrer01/look_surfacing_chemistry_magnetic_stirrer01.usda@
+)
+{
+}
+

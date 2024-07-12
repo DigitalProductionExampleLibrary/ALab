@@ -1,0 +1,143 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def Xform "root" (
+    variants = {
+        string geo = "render_high"
+    }
+    prepend variantSets = "geo"
+)
+{
+    def Xform "GEO"
+    {
+    }
+    variantSet "geo" = {
+        "base" {
+            float3[] extentsHint = [(-5.6856494, 0.14498949, -6.068237), (5.685746, 11.423822, 11.54043)]
+
+            over "GEO" (
+                payload = @base/mesh/geo_modelling_decor_piggy_bank01_base_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "client_model" {
+
+        }
+        "collision" {
+
+        }
+        "deform_high" {
+            float3[] extentsHint = [(-5.6856494, 0.14498949, -6.068237), (5.685746, 11.423822, 11.54043)]
+
+            over "GEO" (
+                payload = @deform_high/mesh/geo_modelling_decor_piggy_bank01_deform_high_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "deform_low" {
+
+        }
+        "display_high" {
+            float3[] extentsHint = [(-5.6874266, 0.13646711, -6.070958), (5.687394, 11.449171, 11.518024)]
+
+            over "GEO" (
+                payload = @display_high/mesh/geo_modelling_decor_piggy_bank01_display_high_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "display_low" {
+
+        }
+        "garment" {
+
+        }
+        "maquette" {
+
+        }
+        "muscles" {
+
+        }
+        "pose" {
+            float3[] extentsHint = [(-5.6856494, 0.14498949, -6.068237), (5.685746, 11.423822, 11.54043)]
+
+            over "GEO" (
+                payload = @pose/mesh/geo_modelling_decor_piggy_bank01_pose_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "render_high" (
+            variants = {
+                string geo_vis = "preview"
+            }
+            prepend variantSets = "geo_vis"
+        ) {
+            float3[] extentsHint = [(-5.6856494, 0.14498949, -6.068237), (5.685746, 11.423822, 11.54043)]
+
+            over "GEO" (
+                payload = @render_high/mesh/geo_modelling_decor_piggy_bank01_render_high_mesh.usd@
+            )
+            {
+                float3[] extentsHint = [(-5.6856494, 0.14498949, -6.068237), (5.685746, 11.423822, 11.54043)]
+            }
+            variantSet "geo_vis" = {
+                "default" {
+
+                }
+                "preview" {
+                    float3[] extentsHint = [(-5.6874266, 0.13646711, -6.070958), (5.687394, 11.449171, 11.518024)]
+
+                    over "GEO"
+                    {
+                        rel proxyPrim = </root/GEO_PROXY>
+                        uniform token purpose = "render"
+                    }
+
+                    def Xform "GEO_PROXY" (
+                        payload = @display_high/mesh/geo_modelling_decor_piggy_bank01_display_high_mesh.usd@
+                    )
+                    {
+                        vector3d[] extentsHint = [(-5.685649394989014, 0.1449894905090332, -6.068236827850342), (5.685746192932129, 11.423822402954102, 11.540430068969727)]
+                        uniform token purpose = "proxy"
+                    }
+
+                }
+            }
+
+        }
+        "scan_base" {
+
+        }
+        "scan_high" {
+
+        }
+        "scan_low" {
+
+        }
+        "scan_mid" {
+
+        }
+        "sculpt_bind" {
+
+        }
+        "sculpt_pose" {
+
+        }
+        "sculpt_symm" {
+
+        }
+        "shapes_high" {
+
+        }
+    }
+}
+

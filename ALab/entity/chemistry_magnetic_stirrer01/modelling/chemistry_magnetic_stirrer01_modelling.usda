@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @../../../fragment/geo/modelling/chemistry_magnetic_stirrer01/geo_modelling_chemistry_magnetic_stirrer01.usda@
+)
+{
+}
+

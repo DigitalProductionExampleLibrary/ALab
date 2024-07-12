@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @../../../fragment/look/surfacing/chemistry_beaker03/look_surfacing_chemistry_beaker03.usda@
+)
+{
+}
+

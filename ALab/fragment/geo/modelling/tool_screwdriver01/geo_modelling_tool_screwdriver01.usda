@@ -1,0 +1,143 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def Xform "root" (
+    variants = {
+        string geo = "render_high"
+    }
+    prepend variantSets = "geo"
+)
+{
+    def Xform "GEO"
+    {
+    }
+    variantSet "geo" = {
+        "base" {
+            float3[] extentsHint = [(-1.1465912, -9.051108, -1.1465906), (1.1465912, 9.051108, 1.1465905)]
+
+            over "GEO" (
+                payload = @base/mesh/geo_modelling_tool_screwdriver01_base_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "client_model" {
+
+        }
+        "collision" {
+
+        }
+        "deform_high" {
+            float3[] extentsHint = [(-1.1465912, -9.051108, -1.1465906), (1.1465912, 9.051108, 1.1465905)]
+
+            over "GEO" (
+                payload = @deform_high/mesh/geo_modelling_tool_screwdriver01_deform_high_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "deform_low" {
+
+        }
+        "display_high" {
+            float3[] extentsHint = [(-1.1766843, -9.043319, -1.1189287), (1.176304, 9.051108, 1.1189905)]
+
+            over "GEO" (
+                payload = @display_high/mesh/geo_modelling_tool_screwdriver01_display_high_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "display_low" {
+
+        }
+        "garment" {
+
+        }
+        "maquette" {
+
+        }
+        "muscles" {
+
+        }
+        "pose" {
+            float3[] extentsHint = [(-1.1465912, -9.051108, -1.1465906), (1.1465912, 9.051108, 1.1465905)]
+
+            over "GEO" (
+                payload = @pose/mesh/geo_modelling_tool_screwdriver01_pose_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "render_high" (
+            variants = {
+                string geo_vis = "preview"
+            }
+            prepend variantSets = "geo_vis"
+        ) {
+            float3[] extentsHint = [(-1.1465912, -9.051108, -1.1465906), (1.1465912, 9.051108, 1.1465905)]
+
+            over "GEO" (
+                payload = @render_high/mesh/geo_modelling_tool_screwdriver01_render_high_mesh.usd@
+            )
+            {
+                float3[] extentsHint = [(-1.1465912, -9.051108, -1.1465906), (1.1465912, 9.051108, 1.1465905)]
+            }
+            variantSet "geo_vis" = {
+                "default" {
+
+                }
+                "preview" {
+                    float3[] extentsHint = [(-1.1766843, -9.043319, -1.1189287), (1.176304, 9.051108, 1.1189905)]
+
+                    over "GEO"
+                    {
+                        rel proxyPrim = </root/GEO_PROXY>
+                        uniform token purpose = "render"
+                    }
+
+                    def Xform "GEO_PROXY" (
+                        payload = @display_high/mesh/geo_modelling_tool_screwdriver01_display_high_mesh.usd@
+                    )
+                    {
+                        vector3d[] extentsHint = [(-1.1465911865234375, -9.051108360290527, -1.1465905904769897), (1.1465911865234375, 9.051108360290527, 1.1465904712677002)]
+                        uniform token purpose = "proxy"
+                    }
+
+                }
+            }
+
+        }
+        "scan_base" {
+
+        }
+        "scan_high" {
+
+        }
+        "scan_low" {
+
+        }
+        "scan_mid" {
+
+        }
+        "sculpt_bind" {
+
+        }
+        "sculpt_pose" {
+
+        }
+        "sculpt_symm" {
+
+        }
+        "shapes_high" {
+
+        }
+    }
+}
+

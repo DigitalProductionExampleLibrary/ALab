@@ -1,0 +1,15 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root"
+{
+    asset model:cardTextureXNeg = @plant_choko_leaf02_preview/cards_textures_x_neg.png@
+    asset model:cardTextureXPos = @plant_choko_leaf02_preview/cards_textures_X_pos.png@
+    asset model:cardTextureYNeg = @plant_choko_leaf02_preview/cards_textures_y_neg.png@
+    asset model:cardTextureYPos = @plant_choko_leaf02_preview/cards_textures_y_pos.png@
+    asset model:cardTextureZNeg = @plant_choko_leaf02_preview/cards_textures_z_neg.png@
+    asset model:cardTextureZPos = @plant_choko_leaf02_preview/cards_textures_z_pos.png@
+}
+

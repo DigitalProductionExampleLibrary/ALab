@@ -1,0 +1,31 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    subLayers = [
+        @surfacing/stationary_set_square01_surfacing.usda@,
+        @modelling/stationary_set_square01_modelling.usda@,
+        @preview/stationary_set_square01_preview.usda@
+    ]
+    upAxis = "Y"
+)
+
+def "root" (
+    prepend apiSchemas = ["GeomModelAPI"]
+    assetInfo = {
+        string entityType = "prop"
+        string name = "stationary_set_square01"
+    }
+    prepend inherits = </__class__/stationary_set_square01>
+    kind = "component"
+    prepend specializes = </_root_type>
+)
+{
+    string assetVersionId = "1832449808"
+}
+
+class Scope "_root_type" (
+    doc = "This prim holds the 'fallback' type of the default root prim"
+)
+{
+}
+

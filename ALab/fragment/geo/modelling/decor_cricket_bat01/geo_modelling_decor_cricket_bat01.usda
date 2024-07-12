@@ -1,0 +1,143 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def Xform "root" (
+    variants = {
+        string geo = "render_high"
+    }
+    prepend variantSets = "geo"
+)
+{
+    def Xform "GEO"
+    {
+    }
+    variantSet "geo" = {
+        "base" {
+            float3[] extentsHint = [(-4.9261436, 0.028335745, -4.098947), (4.926143, 87.073494, 2.4206185)]
+
+            over "GEO" (
+                payload = @base/mesh/geo_modelling_decor_cricket_bat01_base_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "client_model" {
+
+        }
+        "collision" {
+
+        }
+        "deform_high" {
+            float3[] extentsHint = [(-4.9261436, 0.028335745, -4.098947), (4.926143, 87.073494, 2.4206185)]
+
+            over "GEO" (
+                payload = @deform_high/mesh/geo_modelling_decor_cricket_bat01_deform_high_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "deform_low" {
+
+        }
+        "display_high" {
+            float3[] extentsHint = [(-4.9314513, 0.028415507, -4.098947), (4.9314575, 87.07477, 2.4076166)]
+
+            over "GEO" (
+                payload = @display_high/mesh/geo_modelling_decor_cricket_bat01_display_high_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "display_low" {
+
+        }
+        "garment" {
+
+        }
+        "maquette" {
+
+        }
+        "muscles" {
+
+        }
+        "pose" {
+            float3[] extentsHint = [(-4.9261436, 0.028335745, -4.098947), (4.926143, 87.073494, 2.4206185)]
+
+            over "GEO" (
+                payload = @pose/mesh/geo_modelling_decor_cricket_bat01_pose_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "render_high" (
+            variants = {
+                string geo_vis = "preview"
+            }
+            prepend variantSets = "geo_vis"
+        ) {
+            float3[] extentsHint = [(-4.9261436, 0.028335745, -4.098947), (4.926143, 87.073494, 2.4206185)]
+
+            over "GEO" (
+                payload = @render_high/mesh/geo_modelling_decor_cricket_bat01_render_high_mesh.usd@
+            )
+            {
+                float3[] extentsHint = [(-4.9261436, 0.028335745, -4.098947), (4.926143, 87.073494, 2.4206185)]
+            }
+            variantSet "geo_vis" = {
+                "default" {
+
+                }
+                "preview" {
+                    float3[] extentsHint = [(-4.9314513, 0.028415507, -4.098947), (4.9314575, 87.07477, 2.4076166)]
+
+                    over "GEO"
+                    {
+                        rel proxyPrim = </root/GEO_PROXY>
+                        uniform token purpose = "render"
+                    }
+
+                    def Xform "GEO_PROXY" (
+                        payload = @display_high/mesh/geo_modelling_decor_cricket_bat01_display_high_mesh.usd@
+                    )
+                    {
+                        vector3d[] extentsHint = [(-4.926143646240234, 0.02833574451506138, -4.098947048187256), (4.926143169403076, 87.07349395751953, 2.4206185340881348)]
+                        uniform token purpose = "proxy"
+                    }
+
+                }
+            }
+
+        }
+        "scan_base" {
+
+        }
+        "scan_high" {
+
+        }
+        "scan_low" {
+
+        }
+        "scan_mid" {
+
+        }
+        "sculpt_bind" {
+
+        }
+        "sculpt_pose" {
+
+        }
+        "sculpt_symm" {
+
+        }
+        "shapes_high" {
+
+        }
+    }
+}
+

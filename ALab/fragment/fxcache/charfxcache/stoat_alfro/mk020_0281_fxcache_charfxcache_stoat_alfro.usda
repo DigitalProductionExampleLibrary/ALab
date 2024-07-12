@@ -1,0 +1,12 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    subLayers = [
+        @base/cache/mk020_0281_fxcache_charfxcache_stoat_alfro_base_cache/cache.usda@
+    ]
+)
+
+def "root"
+{
+}
+

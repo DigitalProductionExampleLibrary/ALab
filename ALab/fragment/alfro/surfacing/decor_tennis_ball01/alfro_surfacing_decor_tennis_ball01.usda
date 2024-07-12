@@ -1,0 +1,27 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    framesPerSecond = 24
+    metersPerUnit = 1
+    timeCodesPerSecond = 24
+)
+
+def "root" (
+    variants = {
+        string alfro = "render"
+    }
+    prepend variantSets = "alfro"
+)
+{
+    variantSet "alfro" = {
+        "off" {
+
+        }
+        "render" (
+            payload = None
+        ) {
+
+        }
+    }
+}
+

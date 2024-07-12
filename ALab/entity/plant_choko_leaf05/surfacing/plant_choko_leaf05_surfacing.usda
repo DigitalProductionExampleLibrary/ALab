@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @../../../fragment/look/surfacing/plant_choko_leaf05/look_surfacing_plant_choko_leaf05.usda@
+)
+{
+}
+

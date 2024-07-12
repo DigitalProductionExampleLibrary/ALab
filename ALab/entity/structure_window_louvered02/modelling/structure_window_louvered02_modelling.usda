@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @../../../fragment/geo/modelling/structure_window_louvered02/geo_modelling_structure_window_louvered02.usda@
+)
+{
+}
+

@@ -1,0 +1,31 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    subLayers = [
+        @surfacing/decor_jar03_surfacing.usda@,
+        @modelling/decor_jar03_modelling.usda@,
+        @assembly/decor_jar03_assembly.usda@,
+        @preview/decor_jar03_preview.usda@
+    ]
+    upAxis = "Y"
+)
+
+def "root" (
+    prepend apiSchemas = ["GeomModelAPI"]
+    assetInfo = {
+        string entityType = "setpiece"
+        string name = "decor_jar03"
+    }
+    prepend inherits = </__class__/decor_jar03>
+    kind = "component"
+    prepend specializes = </_root_type>
+)
+{
+}
+
+class Scope "_root_type" (
+    doc = "This prim holds the 'fallback' type of the default root prim"
+)
+{
+}
+

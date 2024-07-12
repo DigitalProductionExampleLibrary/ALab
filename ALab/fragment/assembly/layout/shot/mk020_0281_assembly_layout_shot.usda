@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+over "root" (
+    prepend payload = @base/definition/mk020_0281_assembly_layout_shot_base_definition.usda@
+)
+{
+}
+

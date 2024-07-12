@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @../../../fragment/look/surfacing/toy_box02/look_surfacing_toy_box02.usda@
+)
+{
+}
+

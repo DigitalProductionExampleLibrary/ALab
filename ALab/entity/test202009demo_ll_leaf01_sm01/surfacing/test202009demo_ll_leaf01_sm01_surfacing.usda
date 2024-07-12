@@ -1,0 +1,27 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def Scope "root" (
+    variants = {
+        string prelit = "False"
+    }
+    prepend variantSets = "prelit"
+)
+{
+    variantSet "prelit" = {
+        "False" (
+            customData = {
+                string ASSET_TYPE = "AL_fragment"
+            }
+            prepend references = @../../../fragment/look/surfacing/test202009demo_ll_leaf01_sm01/look_surfacing_test202009demo_ll_leaf01_sm01.usda@
+        ) {
+
+        }
+        "True" {
+
+        }
+    }
+}
+

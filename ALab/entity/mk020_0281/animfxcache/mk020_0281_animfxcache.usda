@@ -1,0 +1,47 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    subLayers = [
+        @../../../fragment/fxcache/animfxcache/remi_geo/mk020_0281_fxcache_animfxcache_remi_geo.usda@,
+        @../../../fragment/fxcache/animfxcache/stoat_alfro/mk020_0281_fxcache_animfxcache_stoat_alfro.usda@,
+        @../../../fragment/fxcache/animfxcache/stoat_geo/mk020_0281_fxcache_animfxcache_stoat_geo.usda@
+    ]
+)
+
+def "root"
+{
+    over "remi" (
+        variants = {
+            string hasanimfx = "on"
+        }
+        prepend variantSets = "hasanimfx"
+    )
+    {
+        variantSet "hasanimfx" = {
+            "off" {
+
+            }
+            "on" {
+
+            }
+        }
+    }
+
+    over "stoat" (
+        variants = {
+            string hasanimfx = "on"
+        }
+        prepend variantSets = "hasanimfx"
+    )
+    {
+        variantSet "hasanimfx" = {
+            "off" {
+
+            }
+            "on" {
+
+            }
+        }
+    }
+}
+

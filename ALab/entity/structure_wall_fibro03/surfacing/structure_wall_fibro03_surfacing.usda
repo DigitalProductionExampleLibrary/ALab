@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @../../../fragment/look/surfacing/structure_wall_fibro03/look_surfacing_structure_wall_fibro03.usda@
+)
+{
+}
+

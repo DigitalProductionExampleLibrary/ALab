@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @../../../fragment/geo/modelling/decor_book_open01/geo_modelling_decor_book_open01.usda@
+)
+{
+}
+

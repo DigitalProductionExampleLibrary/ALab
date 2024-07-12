@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @../../../fragment/geo/modelling/electronics_tesla_coil01/geo_modelling_electronics_tesla_coil01.usda@
+)
+{
+}
+

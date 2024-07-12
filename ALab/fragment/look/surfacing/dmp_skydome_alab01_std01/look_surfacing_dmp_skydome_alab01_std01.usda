@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend payload = @render_high/binding/look_surfacing_dmp_skydome_alab01_std01_render_high_binding/render_high.usda@
+)
+{
+}
+

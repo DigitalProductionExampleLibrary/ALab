@@ -1,0 +1,143 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def Xform "root" (
+    variants = {
+        string geo = "render_high"
+    }
+    prepend variantSets = "geo"
+)
+{
+    def Xform "GEO"
+    {
+    }
+    variantSet "geo" = {
+        "base" {
+            float3[] extentsHint = [(-5.7992554, -4.3292313, -11.192108), (5.7992554, 4.329239, 11.192139)]
+
+            over "GEO" (
+                payload = @base/mesh/geo_modelling_structure_brick_broken03_base_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "client_model" {
+
+        }
+        "collision" {
+
+        }
+        "deform_high" {
+            float3[] extentsHint = [(-5.7992554, -4.3292313, -11.192108), (5.7992554, 4.329239, 11.192139)]
+
+            over "GEO" (
+                payload = @deform_high/mesh/geo_modelling_structure_brick_broken03_deform_high_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "deform_low" {
+
+        }
+        "display_high" {
+            float3[] extentsHint = [(-5.7992554, -4.3292313, -11.162876), (5.8111963, 4.288376, 11.19214)]
+
+            over "GEO" (
+                payload = @display_high/mesh/geo_modelling_structure_brick_broken03_display_high_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "display_low" {
+
+        }
+        "garment" {
+
+        }
+        "maquette" {
+
+        }
+        "muscles" {
+
+        }
+        "pose" {
+            float3[] extentsHint = [(-5.7992554, -4.3292313, -11.192108), (5.7992554, 4.329239, 11.192139)]
+
+            over "GEO" (
+                payload = @pose/mesh/geo_modelling_structure_brick_broken03_pose_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "render_high" (
+            variants = {
+                string geo_vis = "preview"
+            }
+            prepend variantSets = "geo_vis"
+        ) {
+            float3[] extentsHint = [(-5.7992554, -4.3292313, -11.192108), (5.7992554, 4.329239, 11.192139)]
+
+            over "GEO" (
+                payload = @render_high/mesh/geo_modelling_structure_brick_broken03_render_high_mesh.usd@
+            )
+            {
+                float3[] extentsHint = [(-5.7992554, -4.3292313, -11.192108), (5.7992554, 4.329239, 11.192139)]
+            }
+            variantSet "geo_vis" = {
+                "default" {
+
+                }
+                "preview" {
+                    float3[] extentsHint = [(-5.7992554, -4.3292313, -11.162876), (5.8111963, 4.288376, 11.19214)]
+
+                    over "GEO"
+                    {
+                        rel proxyPrim = </root/GEO_PROXY>
+                        uniform token purpose = "render"
+                    }
+
+                    def Xform "GEO_PROXY" (
+                        payload = @display_high/mesh/geo_modelling_structure_brick_broken03_display_high_mesh.usd@
+                    )
+                    {
+                        vector3d[] extentsHint = [(-5.79925537109375, -4.329231262207031, -11.192108154296875), (5.79925537109375, 4.3292388916015625, 11.192138671875)]
+                        uniform token purpose = "proxy"
+                    }
+
+                }
+            }
+
+        }
+        "scan_base" {
+
+        }
+        "scan_high" {
+
+        }
+        "scan_low" {
+
+        }
+        "scan_mid" {
+
+        }
+        "sculpt_bind" {
+
+        }
+        "sculpt_pose" {
+
+        }
+        "sculpt_symm" {
+
+        }
+        "shapes_high" {
+
+        }
+    }
+}
+

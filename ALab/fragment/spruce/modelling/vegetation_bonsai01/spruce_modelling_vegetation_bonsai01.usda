@@ -1,0 +1,27 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    framesPerSecond = 24
+    metersPerUnit = 1
+    timeCodesPerSecond = 24
+)
+
+def "root" (
+    variants = {
+        string spruce = "render"
+    }
+    prepend variantSets = "spruce"
+)
+{
+    variantSet "spruce" = {
+        "off" {
+
+        }
+        "render" (
+            payload = @base/groom/spruce_modelling_vegetation_bonsai01_base_groom/groom.usda@
+        ) {
+
+        }
+    }
+}
+

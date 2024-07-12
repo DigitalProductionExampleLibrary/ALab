@@ -1,0 +1,31 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    subLayers = [
+        @surfacing/electronics_powerpoint01_surfacing.usda@,
+        @modelling/electronics_powerpoint01_modelling.usda@,
+        @preview/electronics_powerpoint01_preview.usda@
+    ]
+    upAxis = "Y"
+)
+
+def "root" (
+    prepend apiSchemas = ["GeomModelAPI"]
+    assetInfo = {
+        string entityType = "prop"
+        string name = "electronics_powerpoint01"
+    }
+    prepend inherits = </__class__/electronics_powerpoint01>
+    kind = "component"
+    prepend specializes = </_root_type>
+)
+{
+    string assetVersionId = "1832460070"
+}
+
+class Scope "_root_type" (
+    doc = "This prim holds the 'fallback' type of the default root prim"
+)
+{
+}
+

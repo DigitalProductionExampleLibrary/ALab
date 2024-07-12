@@ -1,0 +1,18 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = [
+        @../../../fragment/look/surfacing/stoat_body01/look_surfacing_stoat_body01.usda@,
+        @../../../fragment/alfro/surfacing/stoat_body01/alfro_surfacing_stoat_body01.usda@,
+        @../../../fragment/alfro/surfacing/stoat_tail01/alfro_surfacing_stoat_tail01.usda@,
+        @../../../fragment/alfro/surfacing/stoat_base01/alfro_surfacing_stoat_base01.usda@,
+        @../../../fragment/alfro/surfacing/stoat_tongue01/alfro_surfacing_stoat_tongue01.usda@,
+        @../../../fragment/alfro/surfacing/stoat_uvula01/alfro_surfacing_stoat_uvula01.usda@
+    ]
+)
+{
+}
+

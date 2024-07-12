@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+
+<h1 id="animal-logic-directors-cut">Animal Logic &ldquo;Directors Cut&rdquo;</h1>
+<p>This document describes some of the USD concepts which we have removed to make the assets more universally compatible.</p>
+<div class="toc">
+<ul>
+<li><a href="#animal-logic-directors-cut">Animal Logic &ldquo;Directors Cut&rdquo;</a><ul>
+<li><a href="#uris-relative-filepaths">URIs &gt; Relative Filepaths</a></li>
+<li><a href="#camera-attributes">Camera Attributes</a></li>
+<li><a href="#prim-schemas">Prim Schemas</a></li>
+<li><a href="#render-procedurals">Render Procedurals</a></li>
+<li><a href="#glimpse-materials-and-bindings">&ldquo;Glimpse&rdquo; Materials and Bindings</a></li>
+<li><a href="#maya-reference-schema">Maya Reference Schema</a></li>
+<li><a href="#ptex-asset-attributes">Ptex Asset Attributes</a></li>
+<li><a href="#variant-fallbacks">Variant Fallbacks</a></li>
+<li><a href="#models-custom-kinds">Models &amp; Custom Kinds</a><ul>
+<li><a href="#register-your-kinds-plugininfojson">Register your kinds (plugininfo.json)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="uris-relative-filepaths">URIs &gt; Relative Filepaths</h2>
+<p>We replaced all URIs which we use in our assets with filepaths. Our asset resolver has a tiered plugin system, which allows us to resolve (and even mutate) URIs in multiple different ways. For example, the &ldquo;STATE&rdquo; in the URI can be overwritten easily so that a given process can switch between the &ldquo;delivered&rdquo; state of an asset and the &ldquo;live/latest&rdquo;.</p>
+<pre class="codehilite"><code class="language-python">subLayers = [
+        @ark:/JOB(al_template)/ASSETDIR(assets)/LIBRARY(entity)/ENTITY(furniture_workbench01)/DOMAIN(surfacing)/STATE(delivered)?version=15&amp;extension=.usda:.usd:.usdc@,
+        @ark:/JOB(al_template)/ASSETDIR(assets)/LIBRARY(entity)/ENTITY(furniture_workbench01)/DOMAIN(modelling)/STATE(delivered)?version=14&amp;extension=.usda:.usd:.usdc@
+    ]
+</code></pre>
+
+<h2 id="camera-attributes">Camera Attributes</h2>
+<p>The AL Camera Schema provides many attributes in addition to the default camera schema:</p>
+<ul>
+<li><strong>Burnin_ Attributes</strong>: The attributes are passed on to the review pipeline and displayed on the &ldquo;letterbox burnin&rdquo;. They are primarily driven by requirements of a &ldquo;plate based&rdquo; VFX/hybrid show and display information which is important in reviews.</li>
+</ul>
+<p><a href="ztl01_060_cameracache_layout_camera01_base_cache_v004.usdc">ztl01<em>060</em>cameracache<em>layout</em>camera01<em>base</em>cache_v004.usdc</a></p>
+<pre class="codehilite"><code>burnIn_enabled
+burnIn_frameInsetBotCinema
+burnIn_frameInsetBotRender
+burnIn_frameInsetLeftCinema
+burnIn_frameInsetLeftRender
+burnIn_frameInsetRightCinema
+burnIn_frameInsetRightRender
+burnIn_frameInsetTopCinema
+burnIn_frameInsetTopRender
+burnIn_hardCodedInnerRatio
+burnIn_hardCodedOuterRatio
+burnIn_innerRatio
+burnIn_outerRatio
+burnIn_showInsetCinema
+burnIn_showInsetRender
+burnIn_showTumbleLines
+burnIn_showTumbleSquare
+</code></pre>
+
+<ul>
+<li><strong>al_ Attributes</strong>: Mainly used for &ldquo;plate based shows&rdquo;, allows description of real world cameras, defined by a custom schema:</li>
+</ul>
+<pre class="codehilite"><code class="language-c++">[...]
+static const TfTokenVector distortAttrsTable[numModels] = {
+        // ClassicLDModel
+        {
+            AL_SchemasCommonTokens-&gt;al_distort_enabled,
+            AL_SchemasCommonTokens-&gt;al_distort_pin_edges,
+            AL_SchemasCommonTokens-&gt;al_distort_center_x,
+            AL_SchemasCommonTokens-&gt;al_distort_center_y,
+            AL_SchemasCommonTokens-&gt;al_distort_distortion,
+            AL_SchemasCommonTokens-&gt;al_distort_quartic_distortion,
+            AL_SchemasCommonTokens-&gt;al_distort_curvature_x,
+            AL_SchemasCommonTokens-&gt;al_distort_curvature_y,
+            AL_SchemasCommonTokens-&gt;al_distort_anamorphic_squeeze,
+            AL_SchemasCommonTokens-&gt;al_distort_auto,
+            AL_SchemasCommonTokens-&gt;al_distort_auto_gain,
+            AL_SchemasCommonTokens-&gt;al_distort_lens_breathing_multiply
+        },
+
+        // RadialStdDeg4
+        {
+            AL_SchemasCommonTokens-&gt;al_distort_enabled,
+            AL_SchemasCommonTokens-&gt;al_distort_pin_edges,
+            AL_SchemasCommonTokens-&gt;al_distort_dynamic_lens,
+            AL_SchemasCommonTokens-&gt;al_distort_center_x,
+            AL_SchemasCommonTokens-&gt;al_distort_center_y,
+            AL_SchemasCommonTokens-&gt;al_distort_distortion,
+            AL_SchemasCommonTokens-&gt;al_distort_u_deg2,
+            AL_SchemasCommonTokens-&gt;al_distort_v_deg2,
+            AL_SchemasCommonTokens-&gt;al_distort_quartic_distortion,
+            AL_SchemasCommonTokens-&gt;al_distort_u_deg4,
+            AL_SchemasCommonTokens-&gt;al_distort_v_deg4,
+            AL_SchemasCommonTokens-&gt;al_distort_phi_cylindric_dir,
+            AL_SchemasCommonTokens-&gt;al_distort_b_cylindric_bending
+        },
+
+        // AnamorphicStdDeg4
+        {
+            AL_SchemasCommonTokens-&gt;al_distort_enabled,
+            AL_SchemasCommonTokens-&gt;al_distort_pin_edges,
+            AL_SchemasCommonTokens-&gt;al_distort_dynamic_lens,
+            AL_SchemasCommonTokens-&gt;al_distort_center_x,
+            AL_SchemasCommonTokens-&gt;al_distort_center_y,
+            AL_SchemasCommonTokens-&gt;al_distort_cx02,
+            AL_SchemasCommonTokens-&gt;al_distort_cy02,
+            AL_SchemasCommonTokens-&gt;al_distort_cx22,
+            AL_SchemasCommonTokens-&gt;al_distort_cy22,
+            AL_SchemasCommonTokens-&gt;al_distort_cx04,
+            AL_SchemasCommonTokens-&gt;al_distort_cy04,
+            AL_SchemasCommonTokens-&gt;al_distort_cx24,
+            AL_SchemasCommonTokens-&gt;al_distort_cy24,
+            AL_SchemasCommonTokens-&gt;al_distort_cx44,
+            AL_SchemasCommonTokens-&gt;al_distort_cy44,
+            AL_SchemasCommonTokens-&gt;al_distort_lens_rotation,
+            AL_SchemasCommonTokens-&gt;al_distort_squeeze_x,
+            AL_SchemasCommonTokens-&gt;al_distort_squeeze_y
+        },
+
+        // AnamorphicDeg6
+        {
+            AL_SchemasCommonTokens-&gt;al_distort_enabled,
+            AL_SchemasCommonTokens-&gt;al_distort_pin_edges,
+            AL_SchemasCommonTokens-&gt;al_distort_dynamic_lens,
+            AL_SchemasCommonTokens-&gt;al_distort_center_x,
+            AL_SchemasCommonTokens-&gt;al_distort_center_y,
+            AL_SchemasCommonTokens-&gt;al_distort_cx02,
+            AL_SchemasCommonTokens-&gt;al_distort_cy02,
+            AL_SchemasCommonTokens-&gt;al_distort_cx22,
+            AL_SchemasCommonTokens-&gt;al_distort_cy22,
+            AL_SchemasCommonTokens-&gt;al_distort_cx04,
+            AL_SchemasCommonTokens-&gt;al_distort_cy04,
+            AL_SchemasCommonTokens-&gt;al_distort_cx24,
+            AL_SchemasCommonTokens-&gt;al_distort_cy24,
+            AL_SchemasCommonTokens-&gt;al_distort_cx44,
+            AL_SchemasCommonTokens-&gt;al_distort_cy44,
+            AL_SchemasCommonTokens-&gt;al_distort_cx06,
+            AL_SchemasCommonTokens-&gt;al_distort_cy06,
+            AL_SchemasCommonTokens-&gt;al_distort_cx26,
+            AL_SchemasCommonTokens-&gt;al_distort_cy26,
+            AL_SchemasCommonTokens-&gt;al_distort_cx46,
+            AL_SchemasCommonTokens-&gt;al_distort_cy46,
+            AL_SchemasCommonTokens-&gt;al_distort_cx66,
+            AL_SchemasCommonTokens-&gt;al_distort_cy66
+        },
+
+        // RadialFisheyeDeg8
+        {
+            AL_SchemasCommonTokens-&gt;al_distort_enabled,
+            AL_SchemasCommonTokens-&gt;al_distort_pin_edges,
+            AL_SchemasCommonTokens-&gt;al_distort_dynamic_lens,
+            AL_SchemasCommonTokens-&gt;al_distort_center_x,
+            AL_SchemasCommonTokens-&gt;al_distort_center_y,
+            AL_SchemasCommonTokens-&gt;al_distort_distortion,
+            AL_SchemasCommonTokens-&gt;al_distort_quartic_distortion,
+            AL_SchemasCommonTokens-&gt;al_distort_degree6,
+            AL_SchemasCommonTokens-&gt;al_distort_degree8
+        },
+}
+[...]
+</code></pre>
+
+<h2 id="prim-schemas">Prim Schemas</h2>
+<p>In addition to the Camera schema, we use other schemas for various use cases at Animal Logic. See below for a few more examples which we use with the &ldquo;USD schema generator&rdquo; (as outlined <a href="https://graphics.pixar.com/usd/docs/api/_usd__page__generating_schemas.html">here</a>).</p>
+<pre class="codehilite"><code class="language-python">class ALEditFrameRange &quot;ALEditFrameRange&quot; (
+    doc = &quot;AL's FrameRange provided by the Edit department&quot;
+    inherits = &lt;/Typed&gt;
+    customData = {
+        string className = &quot;EditFrameRange&quot;
+        string fileName = &quot;EditFrameRange&quot;
+      }
+)
+{
+    int startHeadFrame = -1
+    int endTailFrame = -1
+    int headFrameCount = -1
+    int tailFrameCount = -1
+    int render:maxFrameCount = -1
+    int render:stepSize = -1
+}
+</code></pre>
+
+<pre class="codehilite"><code class="language-python">class &quot;ALGlimpseCurveAPI&quot;
+(
+    inherits = &lt;/ALGlimpseObjectAPI&gt;
+    customData = {
+        string apiSchemaType = &quot;nonApplied&quot;
+        string className = &quot;GlimpseCurveAPI&quot;
+        string fileName = &quot;GlimpseCurveAPI&quot;
+        string extraIncludes = &quot;&quot;&quot; &quot;&quot;&quot;
+    }
+)
+{
+  token glimpse:curve:renderingMode = &quot;hair&quot; (
+    allowedTokens = [&quot;hair&quot;, &quot;sausages&quot;, &quot;ribbon&quot;]
+    customData = {
+        string apiName = &quot;renderingMode&quot;
+    }
+  )
+
+  token glimpse:curve:shadowMode = &quot;opaque&quot; (
+    allowedTokens = [&quot;opaque&quot;, &quot;transparent&quot;]
+    customData = {
+        string apiName = &quot;shadowMode&quot;
+    }
+  )
+
+  int glimpse:curve:subdivision = 0 (
+    customData = {
+        string apiName = &quot;curveSegmentsSubdiv&quot;
+    }
+  )
+
+  float glimpse:curve:anisotropy = 0.0(
+    customData = {
+        string apiName = &quot;normalsAnisotropy&quot;
+    }
+  )
+}
+</code></pre>
+
+<h2 id="render-procedurals">Render Procedurals</h2>
+<p><img alt="Shot" src="weave.png" /></p>
+<p>In the Animal Logic pipeline, we emit some procedural geometry straight into the renderer (glimpse) - cloth and fabric for example <a href="https://dl.acm.org/doi/abs/10.1145/3214745.3214781">(&ldquo;weave&rdquo;)</a>.</p>
+<p>The procedurals are defined in USD and the renderer translator instantiates them in the render scene. The procedural also receives a reference to the <a href="https://graphics.pixar.com/usd/docs/api/class_usd_stage_cache.html">USD <em>stage ID</em></a>, to allow access to the completely composed data in the stage.<br />
+In the example below, you can see how the &ldquo;weave&rdquo; procedural is configured to read geometry from the prim &ldquo;../../gauze<em>standin</em>geo&rdquo;. So when the renderer executes the procedural, the prim will be located in the stage and the procedural will emit the geometry &ldquo;on&rdquo; the gauze mesh in the correct location.</p>
+<blockquote>
+<p>Note: We will replace the &ldquo;relative path&rdquo; string attribute with USD relationships soon.</p>
+</blockquote>
+<p><a href="weave.usda">weave.usda</a></p>
+<pre class="codehilite"><code class="language-python">def &quot;weave_gauze&quot; (
+    append references = @file://$WEAVE_SUBGRAPHS_PATH/WeaveHoudiniRenderProcedural.usda@
+    )
+    {
+        over &quot;GeometryImportParameters&quot;
+        {
+            string alf:param:primpathMesh = &quot;../../gauze_standin_geo&quot;
+        }
+[...]
+</code></pre>
+
+<h2 id="glimpse-materials-and-bindings">&ldquo;Glimpse&rdquo; Materials and Bindings</h2>
+<p><a href="https://www.fxguide.com/fxfeatured/a-glimpse-at-animal-logic/">Glimpse</a> is the in-house renderer at Animal Logic and we are currently transitioning from a bespoke material description language to USDShade.<br />
+The example which we provide still contains numerous issues which we are currently addressing, but nevertheless showcases a unique layered assignment mechanism, which is a key feature of Glimpse.<br />
+Layered assignments underpin two important workflows:<br />
+- Hierarchy based material layering to achieve effects such as rust and dirt<br />
+- Assignment hierarchy inferred contatenation of material inputs / outputs as &ldquo;overrides&rdquo;. This concept is similar to primvars as material input overrides, but the override values can be computed with shader graphs at render time.</p>
+<p><a href="material_binding.usda">material_binding.usda</a></p>
+<pre class="codehilite"><code class="language-python">    over &quot;GEO&quot;
+    {
+        rel material:binding:preview = &lt;/root/MATERIAL/usdpreviewsurface1&gt;
+        custom rel material:slotBinding:_010 = &lt;/root/MATERIAL/generic01&gt;
+
+        over &quot;spool_M_geo&quot;
+        {
+            custom rel material:slotBinding:_000 = &lt;/root/MATERIAL/multimetal01&gt;
+            custom rel material:slotBinding:_010:_:_000 = &lt;/root/MATERIAL/generic01_override&gt;
+        }
+
+        over &quot;innerWire_M_geo&quot;
+        {
+            custom rel material:slotBinding:_000:_:_000 = &lt;/root/MATERIAL/generic01_override&gt;
+        }
+
+        over &quot;wire_M_geo&quot;
+        {
+            custom rel material:slotBinding:_000:_:_000 = &lt;/root/MATERIAL/generic01_override&gt;
+        }
+    }
+</code></pre>
+
+<h2 id="maya-reference-schema">Maya Reference Schema</h2>
+<p>We use a custom schema call ALMayaReference to reference maya data. When shot building tools encounter such a prim during stage traversal, <br />
+they will create a maya reference to the given file. We use this mainly for rigs and rig motion.</p>
+<pre class="codehilite"><code class="language-python">    def ALMayaReference &quot;rig&quot;
+    {
+        asset mayaReference = @rigs/cache.mb@
+    }
+</code></pre>
+
+<h2 id="ptex-asset-attributes">Ptex Asset Attributes</h2>
+<p>We have extended the ptex format slightly to be able to set a per mesh &ldquo;face index offset&rdquo;. This allows us to use single ptex files for multiple mesh prims, even if they have overlapping face indexes. Our pipeline will &ldquo;bake&rsquo; certain information (such as &ldquo;occlusion&rdquo;) into ptex files and author a corresponding USD layer with the attributes:</p>
+<pre class="codehilite"><code class="language-python">def &quot;root&quot;
+{
+    string primvars:glimpse:userData:asset_channels_bakeTexture = &quot;ark:/JOB(al_template)/ASSETDIR(assets)/LIBRARY(fragment)/FRAGTYPE(geo)/DOMAIN(modelling)/FRAGMENT(furniture_workbench01)/TECHVAR(baked_data)/ASSET(texture)?version=13&amp;path=asset_channels_bake.ptx&quot;
+    string primvars:glimpse:userData:asset_occlusion_bakeTexture = &quot;ark:/JOB(al_template)/ASSETDIR(assets)/LIBRARY(fragment)/FRAGTYPE(geo)/DOMAIN(modelling)/FRAGMENT(furniture_workbench01)/TECHVAR(baked_data)/ASSET(texture)?version=13&amp;path=asset_occlusion_bake.ptx&quot;
+
+    over &quot;GEO&quot;
+    {
+        over &quot;glassPane_geo&quot;
+        {
+            int primvars:glimpse:userData:ptexFaceIndexOffset = 0
+        }
+
+        over &quot;skirting_geo&quot;
+        {
+            int primvars:glimpse:userData:ptexFaceIndexOffset = 150
+        }
+
+        over &quot;toekicker_geo&quot;
+        {
+            int primvars:glimpse:userData:ptexFaceIndexOffset = 472
+        }
+
+        over &quot;counter_geo&quot;
+        {
+            int primvars:glimpse:userData:ptexFaceIndexOffset = 1094
+        }
+    [...]
+</code></pre>
+
+<h2 id="variant-fallbacks">Variant Fallbacks</h2>
+<p>Variant Fallbacks provide a convinient mechanism to define which variants various departments should &ldquo;see&rdquo; when loading USD files. Keep in mind that you can set variant fallbacks via pluginInfo.json files (+environment variables) or as static attributes on stage objects before you load layers into them. This means that you can have company/show/department/shot specific fallbacks. Below is an excerpt of some of our fallbacks:</p>
+<pre class="codehilite"><code class="language-json">{
+    &quot;Plugins&quot;: [
+        {
+            &quot;Type&quot;: &quot;resource&quot;,
+            &quot;Name&quot;: &quot;ALUsdVariantFallbacks&quot;,
+            &quot;Info&quot;: {
+                &quot;UsdVariantFallbacks&quot;: {
+                    &quot;alfro&quot;: [&quot;render&quot;],
+                    &quot;weave&quot;: [&quot;render&quot;],
+                    &quot;spawn&quot;: [&quot;render&quot;],
+                    &quot;spruce&quot;: [&quot;render&quot;],
+                    &quot;quill&quot;: [&quot;render&quot;],
+                    &quot;geocache&quot;: [&quot;animfinal_render_high&quot;, &quot;animbase_render_high&quot;],
+                    &quot;geo&quot;: [&quot;render_high&quot;, &quot;display_high&quot;],
+                    [...]
+                    &quot;simrig&quot;: [&quot;shot&quot;, &quot;global&quot;],
+                    &quot;simcontrol&quot;: [&quot;shot&quot;, &quot;global&quot;],
+                    &quot;simdata&quot;: [&quot;shot&quot;, &quot;global&quot;]
+                }
+            }
+        }
+    ]
+}
+</code></pre>
+
+<h2 id="models-custom-kinds">Models &amp; Custom Kinds</h2>
+<p>Models are organised into &lsquo;Model Hierarchies&rsquo; (groups &amp; assemblies).</p>
+<p>Be aware that there is a fairly strict &ldquo;grammar&rdquo; in USD which needs to be adhered to when you set up your model hierarchy. If you break it (parent an assembly under a component), the modelAPI won&rsquo;t function as expected (ie, drawmode won&rsquo;t work etc). In addition, it is important not to use unregistered kinds (although the API allows that).</p>
+<h3 id="register-your-kinds-plugininfojson">Register your kinds (plugininfo.json)</h3>
+<p>To register custom kinds in your pipeline, define them in a pluginInfo.json. This is an excerpt of the one we use at Animal Logic:</p>
+<pre class="codehilite"><code class="language-json">{
+    &quot;Plugins&quot;: [
+      {
+        &quot;Info&quot;: {
+          # Any modification to this file should be reflected in the file used
+          # to generate the c++ tokens.
+          &quot;Kinds&quot;: {
+              &quot;scene&quot;: {
+                  &quot;baseKind&quot;: &quot;assembly&quot;
+              },
+              &quot;shot&quot;: {
+                  &quot;baseKind&quot;: &quot;assembly&quot;
+              },
+              ...
+              &quot;environment&quot;: {
+                &quot;baseKind&quot;: &quot;assembly&quot;
+              },
+              &quot;character_asmb&quot;: {
+                &quot;baseKind&quot;: &quot;assembly&quot;
+              },
+              &quot;crowd_asmb&quot;: {
+                &quot;baseKind&quot;: &quot;assembly&quot;
+              },
+              ...
+              &quot;part&quot;: {
+                &quot;baseKind&quot;: &quot;component&quot;
+              },
+              &quot;setpiece&quot;: {
+                &quot;baseKind&quot;: &quot;component&quot;
+              },
+              &quot;camera&quot;: {
+                &quot;baseKind&quot;: &quot;component&quot;
+              },
+              &quot;lightrig&quot;: {
+                &quot;baseKind&quot;: &quot;component&quot;
+              },
+              ...
+          }
+        },
+        ...
+    ]
+}
+</code></pre>

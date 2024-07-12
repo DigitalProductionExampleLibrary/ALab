@@ -1,0 +1,10 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @base/placement/mk020_0281_export_base_placement.usda@
+)
+{
+}

@@ -1,0 +1,15 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = [
+        @../../../fragment/look/surfacing/lab_remi_head01/look_surfacing_lab_remi_head01.usda@,
+        @../../../fragment/alfro/surfacing/lab_remi_head01/alfro_surfacing_lab_remi_head01.usda@,
+        @../../../fragment/alfro/surfacing/lab_remi_head01_secondary/alfro_surfacing_lab_remi_head01_secondary.usda@
+    ]
+)
+{
+}
+

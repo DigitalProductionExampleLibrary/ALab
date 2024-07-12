@@ -1,0 +1,13 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    subLayers = [
+        @../animfxcache/mk020_0281_animfxcache.usda@,
+        @../animbase/mk020_0281_animbase.usda@
+    ]
+)
+
+def "root"
+{
+}
+

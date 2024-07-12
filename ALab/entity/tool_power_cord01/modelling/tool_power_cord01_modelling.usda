@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @../../../fragment/geo/modelling/tool_power_cord01/geo_modelling_tool_power_cord01.usda@
+)
+{
+}
+

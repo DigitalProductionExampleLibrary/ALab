@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @../../../fragment/geo/modelling/proc_dev_circuit_capacitor02/geo_modelling_proc_dev_circuit_capacitor02.usda@
+)
+{
+}
+

@@ -1,0 +1,30 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    subLayers = [
+        @rigging/stoat01_rigging.usda@,
+        @assembly/stoat01_assembly.usda@
+    ]
+    upAxis = "Y"
+)
+
+def "root" (
+    prepend apiSchemas = ["GeomModelAPI"]
+    assetInfo = {
+        string entityType = "character"
+        string name = "stoat01"
+    }
+    prepend inherits = </__class__/stoat01>
+    kind = "assembly"
+    prepend specializes = </_root_type>
+)
+{
+    string assetVersionId = "1832546232"
+}
+
+class Scope "_root_type" (
+    doc = "This prim holds the 'fallback' type of the default root prim"
+)
+{
+}
+

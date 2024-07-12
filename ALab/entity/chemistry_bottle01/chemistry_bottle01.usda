@@ -1,0 +1,31 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    subLayers = [
+        @surfacing/chemistry_bottle01_surfacing.usda@,
+        @modelling/chemistry_bottle01_modelling.usda@,
+        @preview/chemistry_bottle01_preview.usda@
+    ]
+    upAxis = "Y"
+)
+
+def "root" (
+    prepend apiSchemas = ["GeomModelAPI"]
+    assetInfo = {
+        string entityType = "prop"
+        string name = "chemistry_bottle01"
+    }
+    prepend inherits = </__class__/chemistry_bottle01>
+    kind = "component"
+    prepend specializes = </_root_type>
+)
+{
+    string assetVersionId = "1832455960"
+}
+
+class Scope "_root_type" (
+    doc = "This prim holds the 'fallback' type of the default root prim"
+)
+{
+}
+

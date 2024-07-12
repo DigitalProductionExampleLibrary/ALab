@@ -1,0 +1,24 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend variantSets = "range"
+)
+{
+    def ALEditFrameRange "framerange"
+    {
+    }
+    variantSet "range" = {
+        "tight" {
+            over "framerange" (
+                prepend references = @tight/data/mk020_0281_shotrange_edit_shot_tight_data.usda@
+            )
+            {
+            }
+
+        }
+    }
+}
+

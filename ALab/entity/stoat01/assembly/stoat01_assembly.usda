@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @../../../fragment/assembly/assembly/stoat01/assembly_assembly_stoat01.usda@
+)
+{
+}
+

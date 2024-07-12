@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @../../../fragment/geo/modelling/structure_roof/geo_modelling_structure_roof.usda@
+)
+{
+}
+

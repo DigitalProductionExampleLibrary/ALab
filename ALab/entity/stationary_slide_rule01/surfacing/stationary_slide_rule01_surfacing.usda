@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @../../../fragment/look/surfacing/stationary_slide_rule01/look_surfacing_stationary_slide_rule01.usda@
+)
+{
+}
+

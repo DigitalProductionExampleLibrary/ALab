@@ -1,0 +1,31 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    subLayers = [
+        @surfacing/electronics_audio_generator01_surfacing.usda@,
+        @modelling/electronics_audio_generator01_modelling.usda@,
+        @preview/electronics_audio_generator01_preview.usda@
+    ]
+    upAxis = "Y"
+)
+
+def "root" (
+    prepend apiSchemas = ["GeomModelAPI"]
+    assetInfo = {
+        string entityType = "prop"
+        string name = "electronics_audio_generator01"
+    }
+    prepend inherits = </__class__/electronics_audio_generator01>
+    kind = "component"
+    prepend specializes = </_root_type>
+)
+{
+    string assetVersionId = "1832459652"
+}
+
+class Scope "_root_type" (
+    doc = "This prim holds the 'fallback' type of the default root prim"
+)
+{
+}
+

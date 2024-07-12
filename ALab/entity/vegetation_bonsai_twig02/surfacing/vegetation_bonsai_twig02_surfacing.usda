@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @../../../fragment/look/surfacing/vegetation_bonsai_twig02/look_surfacing_vegetation_bonsai_twig02.usda@
+)
+{
+}
+

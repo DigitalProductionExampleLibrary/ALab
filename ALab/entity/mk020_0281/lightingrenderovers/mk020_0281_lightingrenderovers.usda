@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @../../../fragment/config/lightingrenderovers/rendered_dof/mk020_0281_config_lightingrenderovers_rendered_dof.usda@
+)
+{
+}
+
