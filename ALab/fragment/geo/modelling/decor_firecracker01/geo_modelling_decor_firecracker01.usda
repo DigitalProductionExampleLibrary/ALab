@@ -1,0 +1,143 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def Xform "root" (
+    variants = {
+        string geo = "render_high"
+    }
+    prepend variantSets = "geo"
+)
+{
+    def Xform "GEO"
+    {
+    }
+    variantSet "geo" = {
+        "base" {
+            float3[] extentsHint = [(-1.1830168, -7.981134, -1.2207985), (1.2105794, 11.720342, 1.2056608)]
+
+            over "GEO" (
+                payload = @base/mesh/geo_modelling_decor_firecracker01_base_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "client_model" {
+
+        }
+        "collision" {
+
+        }
+        "deform_high" {
+            float3[] extentsHint = [(-1.1830168, -7.981134, -1.2207985), (1.2105794, 11.720342, 1.2056608)]
+
+            over "GEO" (
+                payload = @deform_high/mesh/geo_modelling_decor_firecracker01_deform_high_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "deform_low" {
+
+        }
+        "display_high" {
+            float3[] extentsHint = [(-1.1814406, -7.91282, -1.2167726), (1.2284229, 11.6847515, 1.1984202)]
+
+            over "GEO" (
+                payload = @display_high/mesh/geo_modelling_decor_firecracker01_display_high_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "display_low" {
+
+        }
+        "garment" {
+
+        }
+        "maquette" {
+
+        }
+        "muscles" {
+
+        }
+        "pose" {
+            float3[] extentsHint = [(-1.1830168, -7.981134, -1.2207985), (1.2105794, 11.720342, 1.2056608)]
+
+            over "GEO" (
+                payload = @pose/mesh/geo_modelling_decor_firecracker01_pose_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "render_high" (
+            variants = {
+                string geo_vis = "preview"
+            }
+            prepend variantSets = "geo_vis"
+        ) {
+            float3[] extentsHint = [(-1.1830168, -7.981134, -1.2207985), (1.2105794, 11.720342, 1.2056608)]
+
+            over "GEO" (
+                payload = @render_high/mesh/geo_modelling_decor_firecracker01_render_high_mesh.usd@
+            )
+            {
+                float3[] extentsHint = [(-1.1830168, -7.981134, -1.2207985), (1.2105794, 11.720342, 1.2056608)]
+            }
+            variantSet "geo_vis" = {
+                "default" {
+
+                }
+                "preview" {
+                    float3[] extentsHint = [(-1.1814406, -7.91282, -1.2167726), (1.2284229, 11.6847515, 1.1984202)]
+
+                    over "GEO"
+                    {
+                        rel proxyPrim = </root/GEO_PROXY>
+                        uniform token purpose = "render"
+                    }
+
+                    def Xform "GEO_PROXY" (
+                        payload = @display_high/mesh/geo_modelling_decor_firecracker01_display_high_mesh.usd@
+                    )
+                    {
+                        vector3d[] extentsHint = [(-1.1830167770385742, -7.981133937835693, -1.2207984924316406), (1.2105793952941895, 11.720341682434082, 1.2056608200073242)]
+                        uniform token purpose = "proxy"
+                    }
+
+                }
+            }
+
+        }
+        "scan_base" {
+
+        }
+        "scan_high" {
+
+        }
+        "scan_low" {
+
+        }
+        "scan_mid" {
+
+        }
+        "sculpt_bind" {
+
+        }
+        "sculpt_pose" {
+
+        }
+        "sculpt_symm" {
+
+        }
+        "shapes_high" {
+
+        }
+    }
+}
+

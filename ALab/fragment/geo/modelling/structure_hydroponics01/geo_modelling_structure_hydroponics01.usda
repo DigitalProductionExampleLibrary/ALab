@@ -1,0 +1,143 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def Xform "root" (
+    variants = {
+        string geo = "render_high"
+    }
+    prepend variantSets = "geo"
+)
+{
+    def Xform "GEO"
+    {
+    }
+    variantSet "geo" = {
+        "base" {
+            float3[] extentsHint = [(243.49002, 154.14224, 266.15564), (308.69833, 249.68672, 405.18433)]
+
+            over "GEO" (
+                payload = @base/mesh/geo_modelling_structure_hydroponics01_base_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "client_model" {
+
+        }
+        "collision" {
+
+        }
+        "deform_high" {
+            float3[] extentsHint = [(243.49002, 154.14224, 266.15564), (308.69833, 249.68672, 405.18433)]
+
+            over "GEO" (
+                payload = @deform_high/mesh/geo_modelling_structure_hydroponics01_deform_high_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "deform_low" {
+
+        }
+        "display_high" {
+            float3[] extentsHint = [(243.59146, 154.1408, 266.15417), (308.6844, 249.68672, 405.1155)]
+
+            over "GEO" (
+                payload = @display_high/mesh/geo_modelling_structure_hydroponics01_display_high_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "display_low" {
+
+        }
+        "garment" {
+
+        }
+        "maquette" {
+
+        }
+        "muscles" {
+
+        }
+        "pose" {
+            float3[] extentsHint = [(243.49002, 154.14224, 266.15564), (308.69833, 249.68672, 405.18433)]
+
+            over "GEO" (
+                payload = @pose/mesh/geo_modelling_structure_hydroponics01_pose_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "render_high" (
+            variants = {
+                string geo_vis = "preview"
+            }
+            prepend variantSets = "geo_vis"
+        ) {
+            float3[] extentsHint = [(243.49002, 154.14224, 266.15564), (308.69833, 249.68672, 405.18433)]
+
+            over "GEO" (
+                payload = @render_high/mesh/geo_modelling_structure_hydroponics01_render_high_mesh.usd@
+            )
+            {
+                float3[] extentsHint = [(243.49002, 154.14224, 266.15564), (308.69833, 249.68672, 405.18433)]
+            }
+            variantSet "geo_vis" = {
+                "default" {
+
+                }
+                "preview" {
+                    float3[] extentsHint = [(243.59146, 154.1408, 266.15417), (308.6844, 249.68672, 405.1155)]
+
+                    over "GEO"
+                    {
+                        rel proxyPrim = </root/GEO_PROXY>
+                        uniform token purpose = "render"
+                    }
+
+                    def Xform "GEO_PROXY" (
+                        payload = @display_high/mesh/geo_modelling_structure_hydroponics01_display_high_mesh.usd@
+                    )
+                    {
+                        vector3d[] extentsHint = [(243.49002075195312, 154.14224243164062, 266.1556396484375), (308.6983337402344, 249.6867218017578, 405.184326171875)]
+                        uniform token purpose = "proxy"
+                    }
+
+                }
+            }
+
+        }
+        "scan_base" {
+
+        }
+        "scan_high" {
+
+        }
+        "scan_low" {
+
+        }
+        "scan_mid" {
+
+        }
+        "sculpt_bind" {
+
+        }
+        "sculpt_pose" {
+
+        }
+        "sculpt_symm" {
+
+        }
+        "shapes_high" {
+
+        }
+    }
+}
+

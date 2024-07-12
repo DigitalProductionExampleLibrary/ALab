@@ -1,0 +1,31 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    subLayers = [
+        @surfacing/furniture_parts_cabinet01_surfacing.usda@,
+        @modelling/furniture_parts_cabinet01_modelling.usda@,
+        @preview/furniture_parts_cabinet01_preview.usda@
+    ]
+    upAxis = "Y"
+)
+
+def "root" (
+    prepend apiSchemas = ["GeomModelAPI"]
+    assetInfo = {
+        string entityType = "setpiece"
+        string name = "furniture_parts_cabinet01"
+    }
+    prepend inherits = </__class__/furniture_parts_cabinet01>
+    kind = "component"
+    prepend specializes = </_root_type>
+)
+{
+    string assetVersionId = "1832458708"
+}
+
+class Scope "_root_type" (
+    doc = "This prim holds the 'fallback' type of the default root prim"
+)
+{
+}
+

@@ -1,0 +1,159 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def Xform "root" (
+    variants = {
+        string geo = "render_high"
+    }
+    prepend variantSets = "geo"
+)
+{
+    def Xform "GEO"
+    {
+    }
+    variantSet "geo" = {
+        "base" {
+            float3[] extentsHint = [(-0.543474, -0.21561301, -0.18808049), (0.18553744, 2.2390206, 0.7745959)]
+
+            over "GEO" (
+                payload = @base/mesh/geo_modelling_vegetation_bonsai_branch03_base_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "client_model" {
+
+        }
+        "collision" {
+
+        }
+        "deform_high" {
+            float3[] extentsHint = [(-0.543474, -0.21561301, -0.18808049), (0.18553744, 2.2390206, 0.7745959)]
+
+            over "GEO" (
+                payload = @deform_high/mesh/geo_modelling_vegetation_bonsai_branch03_deform_high_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "deform_low" {
+
+        }
+        "deform_mid" {
+            float3[] extentsHint = [(-0.24098726, -0.15471017, -0.24348557), (0.32288867, 2.3377895, 0.51743674)]
+
+            over "GEO" (
+                payload = @deform_mid/mesh/geo_modelling_vegetation_bonsai_branch03_deform_mid_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "display_high" {
+            float3[] extentsHint = [(-0.54295444, -0.21561301, -0.18808049), (0.18553744, 2.234857, 0.7745959)]
+
+            over "GEO" (
+                payload = @display_high/mesh/geo_modelling_vegetation_bonsai_branch03_display_high_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "display_low" {
+
+        }
+        "display_mid" {
+
+        }
+        "garment" {
+
+        }
+        "maquette" {
+
+        }
+        "muscles" {
+
+        }
+        "pose" {
+            float3[] extentsHint = [(-0.543474, -0.21561301, -0.18808049), (0.18553744, 2.2390206, 0.7745959)]
+
+            over "GEO" (
+                payload = @pose/mesh/geo_modelling_vegetation_bonsai_branch03_pose_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "render_high" (
+            variants = {
+                string geo_vis = "preview"
+            }
+            prepend variantSets = "geo_vis"
+        ) {
+            float3[] extentsHint = [(-0.543474, -0.21561301, -0.18808049), (0.18553744, 2.2390206, 0.7745959)]
+
+            over "GEO" (
+                payload = @render_high/mesh/geo_modelling_vegetation_bonsai_branch03_render_high_mesh.usd@
+            )
+            {
+                float3[] extentsHint = [(-0.543474, -0.21561301, -0.18808049), (0.18553744, 2.2390206, 0.7745959)]
+            }
+            variantSet "geo_vis" = {
+                "default" {
+
+                }
+                "preview" {
+                    float3[] extentsHint = [(-0.54295444, -0.21561301, -0.18808049), (0.18553744, 2.234857, 0.7745959)]
+
+                    over "GEO"
+                    {
+                        rel proxyPrim = </root/GEO_PROXY>
+                        uniform token purpose = "render"
+                    }
+
+                    def Xform "GEO_PROXY" (
+                        payload = @display_high/mesh/geo_modelling_vegetation_bonsai_branch03_display_high_mesh.usd@
+                    )
+                    {
+                        vector3d[] extentsHint = [(-0.543474018573761, -0.2156130075454712, -0.18808048963546753), (0.1855374425649643, 2.239020586013794, 0.7745959162712097)]
+                        uniform token purpose = "proxy"
+                    }
+
+                }
+            }
+
+        }
+        "scan_base" {
+
+        }
+        "scan_high" {
+
+        }
+        "scan_low" {
+
+        }
+        "scan_mid" {
+
+        }
+        "sculpt_bind" {
+
+        }
+        "sculpt_pose" {
+
+        }
+        "sculpt_symm" {
+
+        }
+        "shapes_high" {
+
+        }
+        "shapes_mid" {
+
+        }
+    }
+}
+

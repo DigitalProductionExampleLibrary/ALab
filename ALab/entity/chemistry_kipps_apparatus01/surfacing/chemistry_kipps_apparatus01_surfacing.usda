@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @../../../fragment/look/surfacing/chemistry_kipps_apparatus01/look_surfacing_chemistry_kipps_apparatus01.usda@
+)
+{
+}
+

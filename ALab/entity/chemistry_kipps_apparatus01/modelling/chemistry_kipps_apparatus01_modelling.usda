@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @../../../fragment/geo/modelling/chemistry_kipps_apparatus01/geo_modelling_chemistry_kipps_apparatus01.usda@
+)
+{
+}
+

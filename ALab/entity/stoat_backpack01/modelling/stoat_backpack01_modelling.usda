@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @../../../fragment/geo/modelling/stoat_backpack01/geo_modelling_stoat_backpack01.usda@
+)
+{
+}
+

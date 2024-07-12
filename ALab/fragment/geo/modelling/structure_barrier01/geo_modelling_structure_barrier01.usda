@@ -1,0 +1,143 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def Xform "root" (
+    variants = {
+        string geo = "render_high"
+    }
+    prepend variantSets = "geo"
+)
+{
+    def Xform "GEO"
+    {
+    }
+    variantSet "geo" = {
+        "base" {
+            float3[] extentsHint = [(-250.428, -82.3484, -43.321526), (-234.1291, 94.06607, 395.67514)]
+
+            over "GEO" (
+                payload = @base/mesh/geo_modelling_structure_barrier01_base_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "client_model" {
+
+        }
+        "collision" {
+
+        }
+        "deform_high" {
+            float3[] extentsHint = [(-250.428, -82.3484, -43.321526), (-234.1291, 94.06607, 395.67514)]
+
+            over "GEO" (
+                payload = @deform_high/mesh/geo_modelling_structure_barrier01_deform_high_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "deform_low" {
+
+        }
+        "display_high" {
+            float3[] extentsHint = [(-250.41258, -82.313995, -43.280746), (-234.14941, 94.06607, 395.67514)]
+
+            over "GEO" (
+                payload = @display_high/mesh/geo_modelling_structure_barrier01_display_high_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "display_low" {
+
+        }
+        "garment" {
+
+        }
+        "maquette" {
+
+        }
+        "muscles" {
+
+        }
+        "pose" {
+            float3[] extentsHint = [(-250.428, -82.3484, -43.321526), (-234.1291, 94.06607, 395.67514)]
+
+            over "GEO" (
+                payload = @pose/mesh/geo_modelling_structure_barrier01_pose_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "render_high" (
+            variants = {
+                string geo_vis = "preview"
+            }
+            prepend variantSets = "geo_vis"
+        ) {
+            float3[] extentsHint = [(-250.428, -82.3484, -43.321526), (-234.1291, 94.06607, 395.67514)]
+
+            over "GEO" (
+                payload = @render_high/mesh/geo_modelling_structure_barrier01_render_high_mesh.usd@
+            )
+            {
+                float3[] extentsHint = [(-250.428, -82.3484, -43.321526), (-234.1291, 94.06607, 395.67514)]
+            }
+            variantSet "geo_vis" = {
+                "default" {
+
+                }
+                "preview" {
+                    float3[] extentsHint = [(-250.41258, -82.313995, -43.280746), (-234.14941, 94.06607, 395.67514)]
+
+                    over "GEO"
+                    {
+                        rel proxyPrim = </root/GEO_PROXY>
+                        uniform token purpose = "render"
+                    }
+
+                    def Xform "GEO_PROXY" (
+                        payload = @display_high/mesh/geo_modelling_structure_barrier01_display_high_mesh.usd@
+                    )
+                    {
+                        vector3d[] extentsHint = [(-250.42799377441406, -82.34839630126953, -43.32152557373047), (-234.1291046142578, 94.06607055664062, 395.6751403808594)]
+                        uniform token purpose = "proxy"
+                    }
+
+                }
+            }
+
+        }
+        "scan_base" {
+
+        }
+        "scan_high" {
+
+        }
+        "scan_low" {
+
+        }
+        "scan_mid" {
+
+        }
+        "sculpt_bind" {
+
+        }
+        "sculpt_pose" {
+
+        }
+        "sculpt_symm" {
+
+        }
+        "shapes_high" {
+
+        }
+    }
+}
+

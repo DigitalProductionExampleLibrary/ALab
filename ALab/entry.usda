@@ -1,0 +1,15 @@
+#usda 1.0
+(
+    endTimeCode = 1057
+    startTimeCode = 1004
+    framesPerSecond = 24
+    metersPerUnit = 0.01
+    timeCodesPerSecond = 24
+    subLayers = [
+    	@baked_procedurals/main.usda@,
+		@trailer_cameras/main.usda@,
+        @entity/mk020_0281/mk020_0281_light_pre_input.usda@
+    ]
+    upAxis = "Y"
+)
+

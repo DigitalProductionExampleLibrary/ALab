@@ -1,0 +1,143 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def Xform "root" (
+    variants = {
+        string geo = "render_high"
+    }
+    prepend variantSets = "geo"
+)
+{
+    def Xform "GEO"
+    {
+    }
+    variantSet "geo" = {
+        "base" {
+            float3[] extentsHint = [(-6.4097776, -0.014014244, -3.2720022), (6.1225495, 15.293042, 1.3090453)]
+
+            over "GEO" (
+                payload = @base/mesh/geo_modelling_plant_choko_leaf03_base_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "client_model" {
+
+        }
+        "collision" {
+
+        }
+        "deform_high" {
+            float3[] extentsHint = [(-6.4097776, -0.014014244, -3.2720022), (6.1225495, 15.293042, 1.3090453)]
+
+            over "GEO" (
+                payload = @deform_high/mesh/geo_modelling_plant_choko_leaf03_deform_high_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "deform_low" {
+
+        }
+        "display_high" {
+            float3[] extentsHint = [(-6.3879395, 0.02202729, -3.2656856), (6.10911, 15.292565, 1.3281341)]
+
+            over "GEO" (
+                payload = @display_high/mesh/geo_modelling_plant_choko_leaf03_display_high_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "display_low" {
+
+        }
+        "garment" {
+
+        }
+        "maquette" {
+
+        }
+        "muscles" {
+
+        }
+        "pose" {
+            float3[] extentsHint = [(-6.4097776, -0.014014244, -3.2720022), (6.1225495, 15.293042, 1.3090453)]
+
+            over "GEO" (
+                payload = @pose/mesh/geo_modelling_plant_choko_leaf03_pose_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "render_high" (
+            variants = {
+                string geo_vis = "preview"
+            }
+            prepend variantSets = "geo_vis"
+        ) {
+            float3[] extentsHint = [(-6.4097776, -0.014014244, -3.2720022), (6.1225495, 15.293042, 1.3090453)]
+
+            over "GEO" (
+                payload = @render_high/mesh/geo_modelling_plant_choko_leaf03_render_high_mesh.usd@
+            )
+            {
+                float3[] extentsHint = [(-6.4097776, -0.014014244, -3.2720022), (6.1225495, 15.293042, 1.3090453)]
+            }
+            variantSet "geo_vis" = {
+                "default" {
+
+                }
+                "preview" {
+                    float3[] extentsHint = [(-6.3879395, 0.02202729, -3.2656856), (6.10911, 15.292565, 1.3281341)]
+
+                    over "GEO"
+                    {
+                        rel proxyPrim = </root/GEO_PROXY>
+                        uniform token purpose = "render"
+                    }
+
+                    def Xform "GEO_PROXY" (
+                        payload = @display_high/mesh/geo_modelling_plant_choko_leaf03_display_high_mesh.usd@
+                    )
+                    {
+                        vector3d[] extentsHint = [(-6.409777641296387, -0.014014244079589844, -3.2720022201538086), (6.122549533843994, 15.293042182922363, 1.3090453147888184)]
+                        uniform token purpose = "proxy"
+                    }
+
+                }
+            }
+
+        }
+        "scan_base" {
+
+        }
+        "scan_high" {
+
+        }
+        "scan_low" {
+
+        }
+        "scan_mid" {
+
+        }
+        "sculpt_bind" {
+
+        }
+        "sculpt_pose" {
+
+        }
+        "sculpt_symm" {
+
+        }
+        "shapes_high" {
+
+        }
+    }
+}
+

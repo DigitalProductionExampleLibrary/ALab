@@ -1,0 +1,32 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    subLayers = [
+        @lighting/decor_party_lights01_lighting.usda@,
+        @surfacing/decor_party_lights01_surfacing.usda@,
+        @modelling/decor_party_lights01_modelling.usda@,
+        @preview/decor_party_lights01_preview.usda@
+    ]
+    upAxis = "Y"
+)
+
+def "root" (
+    prepend apiSchemas = ["GeomModelAPI"]
+    assetInfo = {
+        string entityType = "setpiece"
+        string name = "decor_party_lights01"
+    }
+    prepend inherits = </__class__/decor_party_lights01>
+    kind = "component"
+    prepend specializes = </_root_type>
+)
+{
+    string assetVersionId = "1832455554"
+}
+
+class Scope "_root_type" (
+    doc = "This prim holds the 'fallback' type of the default root prim"
+)
+{
+}
+

@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @../../../fragment/assembly/assembly/lab_projector01/assembly_assembly_lab_projector01.usda@
+)
+{
+}
+

@@ -1,0 +1,25 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend variantSets = "range"
+)
+{
+    def ALAudio "audio" (
+        kind = "model"
+    )
+    {
+    }
+    variantSet "range" = {
+        "tight" {
+            over "audio"
+            {
+                asset identifier = @@
+            }
+
+        }
+    }
+}
+

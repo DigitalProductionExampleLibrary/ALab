@@ -1,0 +1,31 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    subLayers = [
+        @surfacing/vegetation_bonsai_twig03_surfacing.usda@,
+        @modelling/vegetation_bonsai_twig03_modelling.usda@,
+        @preview/vegetation_bonsai_twig03_preview.usda@
+    ]
+    upAxis = "Y"
+)
+
+def "root" (
+    prepend apiSchemas = ["GeomModelAPI"]
+    assetInfo = {
+        string entityType = "setpiece"
+        string name = "vegetation_bonsai_twig03"
+    }
+    prepend inherits = </__class__/vegetation_bonsai_twig03>
+    kind = "component"
+    prepend specializes = </_root_type>
+)
+{
+    string assetVersionId = "1832455252"
+}
+
+class Scope "_root_type" (
+    doc = "This prim holds the 'fallback' type of the default root prim"
+)
+{
+}
+

@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @../../../fragment/fxrig/charfxrig/lab_remi01/fxrig_charfxrig_lab_remi01.usda@
+)
+{
+}
+

@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @../../../fragment/geo/modelling/electronics_camera02/geo_modelling_electronics_camera02.usda@
+)
+{
+}
+

@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+
+<h1 id="documentation">Documentation</h1>
+<div class="toc">
+<ul>
+<li><a href="#documentation">Documentation</a><ul>
+<li><a href="#file-asset-structure-entities-fragments">File / Asset Structure (Entities &amp; Fragments)</a><ul>
+<li><a href="#entities">Entities</a></li>
+<li><a href="#fragments">Fragments</a></li>
+<li><a href="#domain-layers">Domain Layers</a></li>
+<li><a href="#shared-fragments">Shared Fragments</a></li>
+<li><a href="#assemblies-breakdowns">Assemblies &amp; Breakdowns</a></li>
+<li><a href="#composition-arc-diagrams">Composition Arc Diagrams</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#terminology-history">Terminology &amp; History</a><ul>
+<li><a href="#composition-arcs">Composition Arcs</a><ul>
+<li><a href="#payloads">Payloads</a></li>
+<li><a href="#variantsets">VariantSets</a></li>
+<li><a href="#references">References</a></li>
+<li><a href="#sublayers">Sublayers</a></li>
+<li><a href="#specializes">Specializes</a></li>
+</ul>
+</li>
+<li><a href="#demonstrated-usd-concepts">Demonstrated USD Concepts</a><ul>
+<li><a href="#purposes">Purposes</a></li>
+<li><a href="#display-colors-and-opacity-colors">Display Colors and Opacity Colors</a></li>
+<li><a href="#variants">Variants</a></li>
+<li><a href="#geo-variants">Geo Variants</a><ul>
+<li><a href="#geo-variant-set">Geo Variant Set</a><ul>
+<li><a href="#pose-variant-example">Pose Variant Example</a></li>
+</ul>
+</li>
+<li><a href="#geo-vis-variant-set">Geo Vis Variant Set</a></li>
+</ul>
+</li>
+<li><a href="#extentshint-payloads">ExtentsHint &amp; Payloads</a></li>
+<li><a href="#camera-domain-variants">Camera Domain Variants</a></li>
+<li><a href="#point-instancer">Point Instancer</a></li>
+<li><a href="#cameras-frame-range">Cameras &amp; Frame Range</a></li>
+<li><a href="#value-clip-keep-alive">Value Clip &amp; &ldquo;Keep Alive&rdquo;</a></li>
+<li><a href="#open-vdb-volume">Open Vdb Volume</a></li>
+<li><a href="#assemblies-native-instancing">Assemblies &amp; Native Instancing</a></li>
+<li><a href="#usdpreviewsurface-materials-textures">UsdPreviewSurface Materials &amp; Textures</a></li>
+<li><a href="#lights">Lights</a><ul>
+<li><a href="#light-variants">Light Variants</a></li>
+</ul>
+</li>
+<li><a href="#weak-root-prim-typing">Weak Root Prim Typing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="file-asset-structure-entities-fragments">File / Asset Structure (Entities &amp; Fragments)</h2>
+<p>At Animal Logic, we organise files into &ldquo;Entities &amp; Fragments&rdquo; Libraries.</p>
+<p><em>Note: If we weren&rsquo;t using a custom asset resolver internally, we would probably use two PXR<em>AR</em>DEFAULT<em>SEARCH</em>PATHs (pointing to /entity and /fragment) to make asset idenitification very simple.</em></p>
+<h3 id="entities">Entities</h3>
+<p>High level production concepts like Characters, Environments and Shots.</p>
+<p><img alt="Example of Entities" src="entities.svg" /></p>
+<h3 id="fragments">Fragments</h3>
+<p>&ldquo;Data Bundles&rdquo;, such as Geometry (with various representations) or Materials &amp; Textures (Looks).</p>
+<p><img alt="Example of Fragments" src="fragments.svg" /></p>
+<h3 id="domain-layers">Domain Layers</h3>
+<p>Layers on the Entities which connect the Fragments to the Entities. Those layers exist for each Pipeline Step (Department).</p>
+<p><img alt="Fragments on Entity via Domain Layers" src="character.svg" /></p>
+<h3 id="shared-fragments">Shared Fragments</h3>
+<p>Fragments allow us to re-use data to reduce duplication of assets. For example, we can create<br />
+&ldquo;surfacing variations&rdquo; by sharing the same geometry and rig, but using different looks:</p>
+<p><img alt="Shared Fragments" src="fragment_sharing.svg" /></p>
+<h3 id="assemblies-breakdowns">Assemblies &amp; Breakdowns</h3>
+<p>We connect <code>Entities</code> to other <code>Entities</code> is via the <code>Assembly</code> and <code>Breakdown</code> <code>Fragments</code>.</p>
+<p>For an Environment entity to be populated with &ldquo;Setpiece&rdquo; entities, we use <code>Assembly</code> fragments:</p>
+<p><img alt="Assembly" src="environment.svg" /></p>
+<p>At the shot level, the <code>Breakdown</code> fragment brings entities such as <code>Characters</code>, <code>Cameras</code> or <code>Environments</code>.<br />
+Other fragments provide shot-specific overrides, for example:</p>
+<ul>
+<li>Lights unique to the shot.</li>
+<li>A simulation cache from <code>fx</code>.</li>
+<li>Camera caches by <code>layout</code>.</li>
+</ul>
+<p><img alt="Shot" src="shot.svg" /></p>
+<h3 id="composition-arc-diagrams">Composition Arc Diagrams</h3>
+<p>Internally, we use diagrams such as the one below to describe relationships between the layers. We have many diagrams for various workflows, such as &ldquo;Matte Painting&rdquo; or &ldquo;Crowds&rdquo;. </p>
+<p><img alt="Shot" src="ALab_comp_arc.svg" /><br />
+<em>Open in a new window for details.</em></p>
+<h1 id="terminology-history">Terminology &amp; History</h1>
+<p>Whilst the terms above could be considered <em>non standard</em>, we note that we&rsquo;re not aware of an agreed upon industry standard to use in place thereof (ie, even ftrack and ShotGrid use the term &ldquo;Asset&rdquo; to describe different concepts).</p>
+<p>USD Adoption at <strong>Animal Logic</strong> initially started in 2017 in animation and was introduced across all departments in 2019.<br />
+We started by having versions of our geometry pipeline files encoded in <code>USD</code> (modelling geometry and animation caches), <br />
+followed by using USD to represent the &ldquo;relationships between assets&rdquo; (introduction of <code>Entities &amp; Fragments</code> pipeline,<br />
+then updating lighting with <code>USDLux</code> in a full <code>USD</code> workflow, then shading workflows to <code>USDShade</code> and some of our previously <br />
+existing instancing tools with <code>PointInstancers</code>.</p>
+<p>Our most recent transition is adopting <code>USDSkel</code> for our crowds, charfx and animation library workflows. </p>
+<p>The composition arcs choices have been driven by a balance between our <code>USD</code> knowledge and<br />
+how much we can commit to change, always exploring ways of making our pipeline more flexible, robust and capable of meeting<br />
+creative requirements from our shows.</p>
+<h2 id="composition-arcs">Composition Arcs</h2>
+<p>This is an overview of some of the USD composition arcs we use in these assets. To walk through the examples, <br />
+make sure to be on the main folder where the downloaded assets exist, e.g.:</p>
+<pre class="codehilite"><code class="language-bash">cd ~/Downloads/USD_ALab
+</code></pre>
+
+<h3 id="payloads">Payloads</h3>
+<p>For data which is potentially &ldquo;heavy&rdquo;. This data should generally be stored in crate (.usdc) files and <br />
+generally does not refer to other files itself. </p>
+<p>Usually, we use payloads within the &ldquo;Fragment&rdquo; files, for example, for <a href="fragment/geo/modelling/books_encyclopedias01/geo_modelling_books_encyclopedias01.usda">books_encyclopedias01</a>:</p>
+<pre class="codehilite"><code class="language-bash">usdview fragment/geo/modelling/books_encyclopedias01/geo_modelling_books_encyclopedias01.usda
+</code></pre>
+
+<p>Scene description data such as &ldquo;variants&rdquo;, &ldquo;extentsHints&rdquo; or &ldquo;model kinds&rdquo; are kept &ldquo;outside&rdquo; the payloads so that they are available even when payloads are not loaded. </p>
+<pre class="codehilite"><code class="language-python">variantSet &quot;geo&quot; = {
+    &quot;base&quot; {
+        float3[] extentsHint = [(-6.79881, -0.040903993, -7.7824764), (7.272438, 18.345064, 6.9421234)]
+
+        over &quot;GEO&quot; (
+            payload = @base/mesh/geo_modelling_books_encyclopedias01_base_mesh_v010.usdc@
+        )
+        {
+        }
+    }
+</code></pre>
+
+<p>We split each variant into a different payloaded file since those are usually created at different times in our pipeline (and<br />
+some might depend on each other), for example, the <code>display_high</code> payload is created in Houdini once a <code>render_high</code> payload is <br />
+published from <code>Maya</code>.</p>
+<h3 id="variantsets">VariantSets</h3>
+<p>Different workflows require different representations of the same data. We allow different clients to choose<br />
+the most appropiate by exposing all possible representations via variant sets.</p>
+<p>On the fragment <a href="fragment/geo/modelling/books_encyclopedias01/geo_modelling_books_encyclopedias01.usda">books_encyclopedias01</a>:</p>
+<pre class="codehilite"><code class="language-bash">usdview fragment/geo/modelling/books_encyclopedias01/geo_modelling_books_encyclopedias01.usda
+</code></pre>
+
+<p>We can find several variants for the <code>geo</code> variant set:</p>
+<pre class="codehilite"><code class="language-python">def Xform &quot;root&quot; (
+    prepend variantSets = &quot;geo&quot;
+)
+{
+    ...
+    variantSet &quot;geo&quot; = {
+        &quot;base&quot; {
+            float3[] extentsHint = [(-6.79881, -0.040903993, -7.7824764), (7.272438, 18.345064, 6.9421234)]
+
+            over &quot;GEO&quot; (
+                payload = @base/mesh/geo_modelling_books_encyclopedias01_base_mesh.usdc@
+            )
+            {
+            }
+        }
+        &quot;client_model&quot; {
+        }
+        ...
+        &quot;render_high&quot; (
+            variants = {
+                string geo_vis = &quot;preview&quot;
+            }
+            prepend variantSets = &quot;geo_vis&quot;
+        ) {
+        ...
+}
+</code></pre>
+
+<p>Please note how if there are no contents on a variant (e.g. no <code>client_model</code>), the variant exists but it&rsquo;s empty.<br />
+This is due to our transition to USD &ldquo;requiring&rdquo; all fragments to be consistent with exposed variant names.<br />
+In the future we aim to improve the workflows to author only what is needed, so we would not see empty &ldquo;client_model&rdquo; or &ldquo;muscles&rdquo; variants unless required.</p>
+<p>To know more about our variants in the pipeline, visit the &ldquo;Variants&rdquo; section.</p>
+<h3 id="references">References</h3>
+<p>References are like payloads, but &ldquo;always loaded&rdquo;. We use references to bring &ldquo;Fragments&rdquo; into &ldquo;Domain Layers&rdquo;.<br />
+For example, the Modelling Layer on prop <a href="entity/books_encyclopedias01/modelling/books_encyclopedias01_modelling.usda">books_encyclopedias01</a> references a Geo fragment:</p>
+<pre class="codehilite"><code>usdview entity/books_encyclopedias01/modelling/books_encyclopedias01_modelling.usda
+</code></pre>
+
+<p>We could have also used sublayers in many cases to achieve simiar results as we usually reference the root prim.</p>
+<pre class="codehilite"><code>def &quot;root&quot; (
+    prepend references = @../../../fragment/geo/modelling/books_encyclopedias01/geo_modelling_books_encyclopedias01.usda@
+)
+</code></pre>
+
+<p>This is a scenario where &ldquo;what arc to use&rdquo; was driven by a historical technical reason. In this case, our geometry<br />
+pipeline I/O required DCCs to refer to a &ldquo;single root Xform&rdquo; for the geometry files. Choosing sublayers in this case<br />
+would have required our legacy pipeline to be updated to know what to do in case more than 1 root prim was found, which<br />
+we were not committing to do.</p>
+<p>When more domains started transitioning to USD, most followed the reference approach for the sake of consistency, but<br />
+in cases where a sublayer or another arc solved a particular workflow, those changes are embraced (for example, on shots,<br />
+our fxcache fragments are sublayered and not referenced).</p>
+<h3 id="sublayers">Sublayers</h3>
+<p>Sublayers are mainly used in our assets to add domain layers (departments or pipeline steps) to entities, <br />
+for example, for entity <a href="entity/books_encyclopedias01/books_encyclopedias01.usda">books_encyclopedias01</a>, we have:</p>
+<pre class="codehilite"><code>usdview entity/books_encyclopedias01/books_encyclopedias01.usda
+</code></pre>
+
+<pre class="codehilite"><code class="language-python">    subLayers = [
+        @surfacing/books_encyclopedias01_surfacing.usda@,
+        @modelling/books_encyclopedias01_modelling.usda@
+    ]
+</code></pre>
+
+<p>There are cases where we have domains under others. For example, <code>animation</code> domain sublayers <code>animbase</code> and <code>animfxcache</code> domains.<br />
+We refer to these as &ldquo;subdomains&rdquo;.</p>
+<h3 id="specializes">Specializes</h3>
+<p>We use this arc in a very different way to the other ones and for a very specific reason.<br />
+It ensures that the <code>root</code> prim of our entities has a type (<code>Scope</code>), while allowing domains to<br />
+override it with a more appropriate type (e.g. <code>Xform</code> by modelling or <code>SkelRoot</code> by rigging for characters with USDSkel) via their referenced fragments.</p>
+<p>On the entity <a href="entity/books_encyclopedias01/books_encyclopedias01.usda">books_encyclopedias01</a>:</p>
+<pre class="codehilite"><code>usdview entity/books_encyclopedias01/books_encyclopedias01.usda
+</code></pre>
+
+<pre class="codehilite"><code>def &quot;root&quot; (
+    ...
+    prepend specializes = &lt;/_root_type&gt;
+)
+{
+}
+
+class Scope &quot;_root_type&quot; (
+    doc = &quot;This prim holds the 'fallback' type of the default root prim&quot;
+)
+{
+}
+</code></pre>
+
+<p>We ensure the specialized <code>_root_type</code> prim is a <code>class</code> to let most workflows know they can &ldquo;ignore it&rdquo; for their common traversals.</p>
+<h2 id="demonstrated-usd-concepts">Demonstrated USD Concepts</h2>
+<h3 id="purposes">Purposes</h3>
+<p>The assets utilize USD <em>purposes</em> to switch between a lower resolution for OpenGL/viewport display and higher resolution for rendering. This means that users should only have to switch the purpose in the delegates&rsquo; settings and should not have to switch variants.<br />
+Also see the section on &ldquo;UsdPreviewSurface Materials&rdquo; below for more information.</p>
+<p><img alt="proxy_vs_render_purpose" src="proxy_render_purpose.gif" /></p>
+<h3 id="display-colors-and-opacity-colors">Display Colors and Opacity Colors</h3>
+<p>The power of USD in our pipeline has allowed us to make departments more parallel than before. Sometimes we can <br />
+get animation to start adding performance to a character that has not even started shading work.</p>
+<p>This has led to some new workflow requirements: Animation wants to see color as early as possible on the geometry.</p>
+<p>We use the <code>displayColor</code> and <code>displayOpacity</code>, authored by the Modelling department in Maya, for this scenario.</p>
+<p>Then, when surfacing provides materials, animation automatically picks them up on their scenes.</p>
+<h3 id="variants">Variants</h3>
+<p>Each of the published <code>entities</code> (characters, props, environments) exposes variant sets on the default prim. (e.g. <code>geo</code>, <code>geocache</code>, <code>camera</code>, <code>skeleton</code>, <code>alfro</code>, <code>weave</code>)</p>
+<p>This allows consumers of those <code>entities</code> (mainly shot departments), to safely make variant selections on those root prims directly.</p>
+<p>One nice aspect of variants is that there is a fallback mechanism that can be set programmatically when opening<br />
+stages or via a plugin on the environment. We use both on our pipeline and this means we never publish characters, props or<br />
+environments with internal variant selections. We always defer those selections to consumers of the entities via the mentioned mechanisms. </p>
+<p><em>Note</em>: We used to have <code>look</code> set with <code>render_high</code> and <code>display_high</code> variants but dropped it since we started authoring both preview and final render opinions on the same &ldquo;look&rdquo; asset.<br />
+Since this started happening in the middle of a production, the main asset location remained &ldquo;render<em>high&rdquo;. So these look fragments contain both &ldquo;render&rdquo; and &ldquo;preview&rdquo; shaders even though the filenames are &ldquo;render</em>high&rdquo;.    </p>
+<h3 id="geo-variants">Geo Variants</h3>
+<p>All our geometry contributions (mainly coming from the modelling domain), expose different representations of the same data for different consumers.</p>
+<p>We provide 2 variant sets: <code>geo</code> and <code>geo_vis</code>:</p>
+<h4 id="geo-variant-set">Geo Variant Set</h4>
+<table>
+<thead>
+<tr>
+<th>Variant</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>base</td>
+<td>All of the geometry (with the exception of blendshapes) that <strong>modelling</strong> artists author for downstream departments.</td>
+</tr>
+<tr>
+<td>render_high</td>
+<td>This is the main variant used for <strong>surfacing</strong> and <strong>shot</strong> departments for high quality final frame rendering.</td>
+</tr>
+<tr>
+<td>deform_high</td>
+<td>This is the variant used by the <strong>rigging</strong> department to apply deformation to. The output of that deformation gets &ldquo;merged&rdquo; on shots with the <em>render_high</em> geo variant</td>
+</tr>
+<tr>
+<td>display_high</td>
+<td>Procedurally created low resolution version of the <em>render_high</em> geometry for fast preview while still retaining overall shape + colors</td>
+</tr>
+<tr>
+<td>pose</td>
+<td>Mainly used by <strong>modelling</strong> for reviews where the character needs to be in a non-bind pose (e.g. relaxed, with style). This allows for <strong>modelling</strong> to not have to wait for <strong>rigging</strong> to see the character with an expressive pose.</td>
+</tr>
+<tr>
+<td>shapes_high</td>
+<td>All blendshapes used by the performance rig, as well as blendshapes for <em>render_high</em>, <em>deform_high</em>, <em>pose</em> variants creation.</td>
+</tr>
+<tr>
+<td>client_model</td>
+<td>When projects have incoming data from external clients, this is where that client version can be found.</td>
+</tr>
+</tbody>
+</table>
+<p>These variants in our pipeline shine with rigged entities (characters, props) and we&rsquo;re excited to share some examples in the future.</p>
+<h5 id="pose-variant-example">Pose Variant Example</h5>
+<p>When modelling creates the &ldquo;base&rdquo; geometry, they can also provide a &ldquo;pose&rdquo; version for it, which will override the &ldquo;points&rdquo; property only:</p>
+<pre class="codehilite"><code class="language-bash">usdview fragment/geo/modelling/books_encyclopedias01/pose/mesh/geo_modelling_books_encyclopedias01_pose_mesh.usdc
+</code></pre>
+
+<p>This will sublayer the <code>render_high</code> version and override points properties only:</p>
+<pre class="codehilite"><code>#usda 1.0
+(
+    defaultPrim = &quot;GEO&quot;
+    subLayers = [
+        @../../render_high/mesh/geo_modelling_books_encyclopedias01_render_high_mesh.usdc@
+    ]
+)
+
+over &quot;GEO&quot;
+{
+    over &quot;encyclopedia_01&quot;
+    {
+        over &quot;encyclopedia1_cover_M_geo&quot;
+        {
+            point3f[] points = [(-6.766857, -0.01848345, -5.47812), ..., (5.8743553, 18.286024, -5.140335)]
+        }
+
+        over &quot;encyclopedia6_cover_M_geo&quot;
+        {
+            point3f[] points = [(-6.6372204, 0.0063685314, 6.9421234), ..., (5.99792, 18.313019, 6.507246)]
+        }
+    }
+}
+</code></pre>
+
+<p>This allows workflows to switch to the <em>pose</em> variant while retaining all <em>render_high</em> attributes like <strong>pref</strong>, <strong>displayColor</strong> and <strong>st</strong>.<br />
+We use this mainly for situations where we want to preview the entities with a bit of <strong>personality</strong> with the official geometry and before <br />
+rigging and animation have worked on it. </p>
+<h4 id="geo-vis-variant-set">Geo Vis Variant Set</h4>
+<p>This provides clients flexibility to switch visibility level between the <strong>render</strong> and <strong>proxy</strong> purposes on a per entity level.</p>
+<table>
+<thead>
+<tr>
+<th>Variant</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>default</em></td>
+<td>Leave the <code>render_high</code> variant as it came from modelling</td>
+</tr>
+<tr>
+<td><em>preview</em></td>
+<td>Use the <code>display_high</code> variant as a proxy of the <code>render_high</code> and set purposes appropiately</td>
+</tr>
+</tbody>
+</table>
+<p>For example, an artist on a shot with a big environment might want to see on the viewport the &ldquo;high res&rdquo; geometry version of a setpiece to interact with a character.<br />
+They can switch that setpiece to <code>geo_vis=default</code> to remove any <code>render</code> &amp; <code>proxy</code> purpose opinions while still being on the <code>render_high</code> variant.  </p>
+<p><img alt="geo_vis_variant" src="geo_vis_variant.gif" /></p>
+<h3 id="extentshint-payloads">ExtentsHint &amp; Payloads</h3>
+<p>When packaging, we compute extents for all geo fragments. This applies at the shot level as well, so you can have animated <code>extentsHint</code> properties.</p>
+<p>This allows for unloaded stages to provide a preview of all bounding boxes on a shot, allowing for processes like frustrum culling.</p>
+<p>We payload all heavy data behind fragments as described on the <code>Composition Arcs</code> section.</p>
+<h3 id="camera-domain-variants">Camera Domain Variants</h3>
+<p>USD&rsquo;s composition of multiple opinions onto the same prim is usually desired. For example, a character fx layer might contribute a point attribute on a cloth prim which overrides the point attribute which animation has contributed.<br />
+However, on cameras, we decided that we usually don&rsquo;t want to &ldquo;blend&rdquo; opinions from the contributing departments (layout and animation), but prefer to see either one <em>or</em> the other. So cameras provide a &ldquo;domain variant&rdquo; which allows the user to switch between the camera cache which has been authored by layout and by animation.</p>
+<h3 id="point-instancer">Point Instancer</h3>
+<p>Previously we used in house procedurals for instancing elements of environments (e.g. vegetation in a forest) as well as<br />
+instancing elements of the vegetation (e.g. leaves, twigs, branches of trees).<br />
+We have updated those workflows to author native USD Point Instancers instead, which still give the<br />
+ability of having nested instancing + gives us the benefit of multi DCC support and the rest of the USD composition arcs.</p>
+<p>You can find the point instancer under:</p>
+<pre class="codehilite"><code class="language-bash">usdview fragment/spruce/modelling/vegetation_bonsai01/spruce_modelling_vegetation_bonsai01.usda
+</code></pre>
+
+<p>Or, with the lab opened, it is on prim at path:</p>
+<pre class="codehilite"><code>/root/workbench_grp/vegetation_bonsai01_0001
+</code></pre>
+
+<p>The point instancers come with <code>off</code> and <code>render</code> variants under the variant sets <code>spruce</code> and <code>spawn</code>.</p>
+<p><img alt="spruce_disable" src="spruce_disable.gif" /></p>
+<h3 id="cameras-frame-range">Cameras &amp; Frame Range</h3>
+<p>We provide 4 cameras. Usually, they would exist in different shots in our pipeline, but we have referenced them all into the same &ldquo;hero&rdquo; shot (ztl01_060) for user convenience.  The frame range of the shot is:</p>
+<ul>
+<li>Start Frame: 1201</li>
+<li>End Frame: 1300</li>
+</ul>
+<p>The other cameras may have longer or shorter frame ranges, but we have aligned them all to start on 1201 so you can switch easily between them.</p>
+<h3 id="value-clip-keep-alive">Value Clip &amp; &ldquo;Keep Alive&rdquo;</h3>
+<p>The same bonsai entity: <code>vegetation_bonsai01</code> provides &ldquo;keep alive&rdquo; behaviour. This means that it<br />
+has a &ldquo;loopable&rdquo; animation on the instances which makes it come to life. We achieve this via<br />
+value clips in USD. On <a href="fragment/spruce/modelling/vegetation_bonsai01/base/groom/spruce_modelling_vegetation_bonsai01_base_groom/groom.usda">spruce<em>modelling</em>vegetation<em>bonsai01</em>base_groom</a>:</p>
+<pre class="codehilite"><code>usdview fragment/spruce/modelling/vegetation_bonsai01/base/groom/spruce_modelling_vegetation_bonsai01_base_groom/groom.usda 
+</code></pre>
+
+<pre class="codehilite"><code>(
+    ...
+    defaultPrim = &quot;root&quot;
+    endTimeCode = 100
+    framesPerSecond = 24
+    metersPerUnit = 1
+    startTimeCode = 1
+    subLayers = [
+        @clip.usda@,
+        @payload.usdc@
+    ]
+    timeCodesPerSecond = 24
+)
+</code></pre>
+
+<p>Which sublayers <code>clip.usda</code>, where we can see the clip data:</p>
+<pre class="codehilite"><code>over &quot;root&quot; (
+    clips = {
+        dictionary default = {
+            double2[] active = [(1, 0), (100, 0), ..., (5000, 0)]
+            asset[] assetPaths = [@payload.usdc@]
+            string primPath = &quot;/root&quot;
+            double2[] times = [(1, 1), (100, 100), ..., (5000, 51)]
+        }
+    ...
+</code></pre>
+
+<p>To learn more about value clips you can visit <a href="https://graphics.pixar.com/usd/docs/api/_usd__page__value_clips.html">Pixar&rsquo;s Docs</a></p>
+<h3 id="open-vdb-volume">Open Vdb Volume</h3>
+<p><img alt="Shot" src="volume_cropped.png" /></p>
+<p>A <a href="https://graphics.pixar.com/usd/docs/api/usd_vol_page_front.html">&ldquo;volume&rdquo;</a> prim with reference to a open vdb volume simulation of &ldquo;dry ice&rdquo; has been included at this path &ldquo;/root/fx/dryice01/smoke/volume_0&rdquo;. For now, it is provided &ldquo;as is&rdquo; and without material binding. You may wonder why a value clip is used here - it&rsquo;s primarily due to pipeline conventions - ie, we currently export value clips for all animated shotbased fx (including vdbs) although this may not always be necessary.</p>
+<p><strong>Note:</strong> In order to see the volume in Storm (usdView), USD needs to be compiled with OpenVDB which is an optional build flag.</p>
+<h3 id="assemblies-native-instancing">Assemblies &amp; Native Instancing</h3>
+<p>At Animal Logic we make heavy use of instancing whenever possible. By default, all entities used on an environment are instanced.<br />
+This means if we use the same 7 windows on a city, they all share the same prototype prim. <code>ALab</code> is no exception, these are the top used entities<br />
+on it (all of which are instanced):</p>
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th align="center">Instance Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>chemistry<em>test</em>tube03</td>
+<td align="center">21</td>
+</tr>
+<tr>
+<td>chemistry<em>test</em>tube02</td>
+<td align="center">18</td>
+</tr>
+<tr>
+<td>chemistry<em>test</em>tube01</td>
+<td align="center">17</td>
+</tr>
+<tr>
+<td>chemistry_bottle03</td>
+<td align="center">10</td>
+</tr>
+<tr>
+<td>chemistry<em>beaker</em>rack01</td>
+<td align="center">8</td>
+</tr>
+</tbody>
+</table>
+<pre class="codehilite"><code>usdview fragment/assembly/modelling/thelab01/assembly_modelling_thelab01.usda
+</code></pre>
+
+<p>The key parts are:<br />
+  1. Entity delivery file is referenced.<br />
+  2. Prim referencing this entity delivery is marked as <code>instanceable = true</code>.<br />
+  3. Overrides are applied on the same prim. </p>
+<pre class="codehilite"><code>        def Xform &quot;chemistry_test_tube03_0001&quot; (
+            instanceable = true
+            prepend references = @../../../../entity/chemistry_test_tube03/chemistry_test_tube03.usda@
+        )
+        {
+            ... # transformation overrides
+        }
+        def Xform &quot;chemistry_test_tube03_0002&quot; (
+            instanceable = true
+            prepend references = @../../../../entity/chemistry_test_tube03/chemistry_test_tube03.usda@
+        )
+        {
+            ... # transformation overrides
+        }
+</code></pre>
+
+<h3 id="usdpreviewsurface-materials-textures">UsdPreviewSurface Materials &amp; Textures</h3>
+<pre class="codehilite"><code>usdview fragment/look/surfacing/books_encyclopedias01/render_high/binding/look_surfacing_books_encyclopedias01_render_high_binding/render_high.usda
+</code></pre>
+
+<ul>
+<li>Display Purpose: Proxy</li>
+</ul>
+<p>The display purpose utilizes simplified UVs, materials and single channel textures baked from the highres textures to 512x512px jpegs. The UVs and materials are stored in a single USD file and produced by the same pipeline process.</p>
+<ul>
+<li>Display Purpose: Render</li>
+</ul>
+<p>The &ldquo;render&rdquo; purpose utilizes the &ldquo;original&rdquo; UDIM based UVs and the materials are parameterised with a number of jpeg 2k textures which seem to work well for viewport display. We also provide additional textures / channels for users who would like to setup their own materials.<br />
+Textures are ACEScg with an sRGB tone curve applied (OCIO: Utility - Curve - sRGB, or Nuke: standard sRGB tone curve (sRGB (~2.2) in colorspace node)).</p>
+<h3 id="lights">Lights</h3>
+<p>The lights in the Vanilla Edition are a loose reconstruction of the much more complex rig in the Animal Logic Edition. Notably, no light filters (such as blockers) are used, and there is no light-linking for now. Currently only <code>RectLight</code>s are used, some with shaping cones. The lights are colored using the <code>colorTemperature</code> parameter.</p>
+<h4 id="light-variants">Light Variants</h4>
+<p>The lights in the Vanilla Edition were targeted at two widely-available renderers. The <code>/root/lightrig</code> prim contains provides two variants to adapt the lights to these renderers. In particular it adjusts the <code>intensity</code> of the lights by a few of orders of magnitude.</p>
+<ul>
+<li>SideFX Houdini&rsquo;s Karma (<code>default</code> variant)</li>
+<li>NVIDIAs Omniverse&rsquo;s RTC Path-tracer (<code>omniverse</code> variant)</li>
+</ul>
+<p>The <code>omniverse</code> variant also includes a projected map of foliage shadows for the sunlight on the wall.</p>
+<p><em>Note</em>: This release targets USD 20.08. In USD 21.05+, most light parameters now require a <code>input:</code> prefix. FWIW, the next version of Houdini comes with a small tool to upgrade the parameters.</p>
+<h3 id="weak-root-prim-typing">Weak Root Prim Typing</h3>
+<p>When introducing usdskel in our pipeline, we realised that we needed to change the &ldquo;root prim&rdquo; of entities whenever a skeleton is contributed by the rigging layer. In other words, an opinion which is contributed via some complex composition arc (<em>variant</em> within a <em>reference</em> within a <em>sublayer</em>) needed to bring an opinion which was stronger than the local opinion. So we consulted <a href="https://graphics.pixar.com/usd/docs/USD-Glossary.html#USDGlossary-LIVRPSStrengthOrdering">LIVRPS</a> and chose the arc with the weakest strength to set the type. Now, we can just reference a rig fragment into the rig layer of an entity and the root prim will change it&rsquo;s type to skelRoot.</p>
+<p>Entity.usda</p>
+<pre class="codehilite"><code class="language-python">def &quot;root&quot; (
+    prepend apiSchemas = [&quot;GeomModelAPI&quot;]
+    kind = &quot;component&quot;
+    prepend specializes = &lt;/_root_type&gt;
+) {}
+
+class Scope &quot;_root_type&quot; (
+    doc = &quot;This prim holds the 'fallback' type of the default root prim&quot;
+) {}
+</code></pre>
+
+<p>Rig.usda</p>
+<pre class="codehilite"><code class="language-python">def SkelRoot &quot;root&quot;
+{
+    def Scope &quot;RIG&quot;
+    {
+        def Skeleton &quot;root_jnt&quot; (
+            prepend apiSchemas = [&quot;SkelBindingAPI&quot;]
+        [...]
+    }
+}
+</code></pre>

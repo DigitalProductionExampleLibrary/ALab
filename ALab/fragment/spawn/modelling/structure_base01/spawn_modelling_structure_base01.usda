@@ -1,0 +1,27 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    framesPerSecond = 24
+    metersPerUnit = 1
+    timeCodesPerSecond = 24
+)
+
+def "root" (
+    variants = {
+        string spawn = "render"
+    }
+    prepend variantSets = "spawn"
+)
+{
+    variantSet "spawn" = {
+        "off" {
+
+        }
+        "render" (
+            payload = @base/groom/spawn_modelling_structure_base01_base_groom/groom.usda@
+        ) {
+
+        }
+    }
+}
+

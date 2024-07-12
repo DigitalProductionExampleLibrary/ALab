@@ -1,0 +1,59 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    kind = "assembly"
+)
+{
+    over Xform "alab_set01" (
+        customData = {
+            string ASSET_TYPE = "AL_entity"
+            string label = "ENV"
+        }
+        prepend references = @../../../../entity/alab_set01/alab_set01.usda@
+    )
+    {
+    }
+
+    over "camera01" (
+        customData = {
+            string ASSET_TYPE = "AL_entity"
+            string label = "beast generic01 - blender_36_24"
+        }
+        prepend references = @../../../../entity/test_beast_generic01/test_beast_generic01.usda@
+    )
+    {
+    }
+
+    over "dmp_skydome_alab01" (
+        customData = {
+            string ASSET_TYPE = "AL_entity"
+        }
+        prepend references = @../../../../entity/dmp_skydome_alab01/dmp_skydome_alab01.usda@
+    )
+    {
+    }
+
+    over "remi" (
+        customData = {
+            string ASSET_TYPE = "AL_entity"
+            string label = "lab_remi01"
+        }
+        prepend references = @../../../../entity/lab_remi01/lab_remi01.usda@
+    )
+    {
+    }
+
+    over "stoat" (
+        customData = {
+            string ASSET_TYPE = "AL_entity"
+            string label = "stoat01"
+        }
+        prepend references = @../../../../entity/stoat01/stoat01.usda@
+    )
+    {
+    }
+}
+

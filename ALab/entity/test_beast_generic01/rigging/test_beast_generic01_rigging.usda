@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @../../../fragment/perfrig/rigging/test_beast_generic01/perfrig_rigging_test_beast_generic01.usda@
+)
+{
+}
+

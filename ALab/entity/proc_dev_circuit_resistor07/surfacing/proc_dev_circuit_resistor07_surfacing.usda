@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @../../../fragment/look/surfacing/proc_dev_circuit_resistor07/look_surfacing_proc_dev_circuit_resistor07.usda@
+)
+{
+}
+

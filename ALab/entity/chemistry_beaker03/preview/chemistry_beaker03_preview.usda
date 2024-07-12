@@ -1,0 +1,15 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root"
+{
+    asset model:cardTextureXNeg = @chemistry_beaker03_preview/cards_textures_x_neg.png@
+    asset model:cardTextureXPos = @chemistry_beaker03_preview/cards_textures_X_pos.png@
+    asset model:cardTextureYNeg = @chemistry_beaker03_preview/cards_textures_y_neg.png@
+    asset model:cardTextureYPos = @chemistry_beaker03_preview/cards_textures_y_pos.png@
+    asset model:cardTextureZNeg = @chemistry_beaker03_preview/cards_textures_z_neg.png@
+    asset model:cardTextureZPos = @chemistry_beaker03_preview/cards_textures_z_pos.png@
+}
+

@@ -1,0 +1,15 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root"
+{
+    asset model:cardTextureXNeg = @decor_macrame_hangar01_preview/cards_textures_x_neg.png@
+    asset model:cardTextureXPos = @decor_macrame_hangar01_preview/cards_textures_X_pos.png@
+    asset model:cardTextureYNeg = @decor_macrame_hangar01_preview/cards_textures_y_neg.png@
+    asset model:cardTextureYPos = @decor_macrame_hangar01_preview/cards_textures_y_pos.png@
+    asset model:cardTextureZNeg = @decor_macrame_hangar01_preview/cards_textures_z_neg.png@
+    asset model:cardTextureZPos = @decor_macrame_hangar01_preview/cards_textures_z_pos.png@
+}
+

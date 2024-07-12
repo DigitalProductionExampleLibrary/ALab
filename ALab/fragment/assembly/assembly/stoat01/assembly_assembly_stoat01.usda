@@ -1,0 +1,658 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def Xform "root" (
+    kind = "assembly"
+    variants = {
+        string alfro = "render"
+        string geo = "render_high"
+        string geo_vis = "preview"
+    }
+    prepend variantSets = ["alfro", "geo", "geo_vis"]
+)
+{
+    def Xform "body_M_hrc" (
+        prepend references = @../../../../entity/stoat_body01/stoat_body01.usda@
+    )
+    {
+    }
+
+    def Xform "outfit_M_hrc" (
+        prepend references = @../../../../entity/stoat_outfit01/stoat_outfit01.usda@
+    )
+    {
+    }
+
+    def Xform "backpack_M_hrc" (
+        prepend references = @../../../../entity/stoat_backpack01/stoat_backpack01.usda@
+    )
+    {
+    }
+    variantSet "geo" = {
+        "base" {
+            over "body_M_hrc" (
+                variants = {
+                    string geo = "base"
+                }
+            )
+            {
+            }
+
+            over "outfit_M_hrc" (
+                variants = {
+                    string geo = "base"
+                }
+            )
+            {
+            }
+
+            over "backpack_M_hrc" (
+                variants = {
+                    string geo = "base"
+                }
+            )
+            {
+            }
+
+        }
+        "client_model" {
+            over "body_M_hrc" (
+                variants = {
+                    string geo = "client_model"
+                }
+            )
+            {
+            }
+
+            over "outfit_M_hrc" (
+                variants = {
+                    string geo = "client_model"
+                }
+            )
+            {
+            }
+
+            over "backpack_M_hrc" (
+                variants = {
+                    string geo = "client_model"
+                }
+            )
+            {
+            }
+
+        }
+        "collision" {
+            over "body_M_hrc" (
+                variants = {
+                    string geo = "collision"
+                }
+            )
+            {
+            }
+
+            over "outfit_M_hrc" (
+                variants = {
+                    string geo = "collision"
+                }
+            )
+            {
+            }
+
+            over "backpack_M_hrc" (
+                variants = {
+                    string geo = "collision"
+                }
+            )
+            {
+            }
+
+        }
+        "deform_high" {
+            over "body_M_hrc" (
+                variants = {
+                    string geo = "deform_high"
+                }
+            )
+            {
+            }
+
+            over "outfit_M_hrc" (
+                variants = {
+                    string geo = "deform_high"
+                }
+            )
+            {
+            }
+
+            over "backpack_M_hrc" (
+                variants = {
+                    string geo = "deform_high"
+                }
+            )
+            {
+            }
+
+        }
+        "deform_low" {
+            over "body_M_hrc" (
+                variants = {
+                    string geo = "deform_low"
+                }
+            )
+            {
+            }
+
+            over "outfit_M_hrc" (
+                variants = {
+                    string geo = "deform_low"
+                }
+            )
+            {
+            }
+
+            over "backpack_M_hrc" (
+                variants = {
+                    string geo = "deform_low"
+                }
+            )
+            {
+            }
+
+        }
+        "display_high" {
+            over "body_M_hrc" (
+                variants = {
+                    string geo = "display_high"
+                }
+            )
+            {
+            }
+
+            over "outfit_M_hrc" (
+                variants = {
+                    string geo = "display_high"
+                }
+            )
+            {
+            }
+
+            over "backpack_M_hrc" (
+                variants = {
+                    string geo = "display_high"
+                }
+            )
+            {
+            }
+
+        }
+        "display_low" {
+            over "body_M_hrc" (
+                variants = {
+                    string geo = "display_low"
+                }
+            )
+            {
+            }
+
+            over "outfit_M_hrc" (
+                variants = {
+                    string geo = "display_low"
+                }
+            )
+            {
+            }
+
+            over "backpack_M_hrc" (
+                variants = {
+                    string geo = "display_low"
+                }
+            )
+            {
+            }
+
+        }
+        "garment" {
+            over "body_M_hrc" (
+                variants = {
+                    string geo = "garment"
+                }
+            )
+            {
+            }
+
+            over "outfit_M_hrc" (
+                variants = {
+                    string geo = "garment"
+                }
+            )
+            {
+            }
+
+            over "backpack_M_hrc" (
+                variants = {
+                    string geo = "garment"
+                }
+            )
+            {
+            }
+
+        }
+        "maquette" {
+            over "body_M_hrc" (
+                variants = {
+                    string geo = "maquette"
+                }
+            )
+            {
+            }
+
+            over "outfit_M_hrc" (
+                variants = {
+                    string geo = "maquette"
+                }
+            )
+            {
+            }
+
+            over "backpack_M_hrc" (
+                variants = {
+                    string geo = "maquette"
+                }
+            )
+            {
+            }
+
+        }
+        "muscles" {
+            over "body_M_hrc" (
+                variants = {
+                    string geo = "muscles"
+                }
+            )
+            {
+            }
+
+            over "outfit_M_hrc" (
+                variants = {
+                    string geo = "muscles"
+                }
+            )
+            {
+            }
+
+            over "backpack_M_hrc" (
+                variants = {
+                    string geo = "muscles"
+                }
+            )
+            {
+            }
+
+        }
+        "pose" {
+            over "body_M_hrc" (
+                variants = {
+                    string geo = "pose"
+                }
+            )
+            {
+            }
+
+            over "outfit_M_hrc" (
+                variants = {
+                    string geo = "pose"
+                }
+            )
+            {
+            }
+
+            over "backpack_M_hrc" (
+                variants = {
+                    string geo = "pose"
+                }
+            )
+            {
+            }
+
+        }
+        "render_high" {
+            over "body_M_hrc" (
+                variants = {
+                    string geo = "render_high"
+                }
+            )
+            {
+            }
+
+            over "outfit_M_hrc" (
+                variants = {
+                    string geo = "render_high"
+                }
+            )
+            {
+            }
+
+            over "backpack_M_hrc" (
+                variants = {
+                    string geo = "render_high"
+                }
+            )
+            {
+            }
+
+        }
+        "render_high_no_proxy" {
+            over "body_M_hrc" (
+                variants = {
+                    string geo = "render_high_no_proxy"
+                }
+            )
+            {
+            }
+
+            over "outfit_M_hrc" (
+                variants = {
+                    string geo = "render_high_no_proxy"
+                }
+            )
+            {
+            }
+
+            over "backpack_M_hrc" (
+                variants = {
+                    string geo = "render_high_no_proxy"
+                }
+            )
+            {
+            }
+
+        }
+        "scan_base" {
+            over "body_M_hrc" (
+                variants = {
+                    string geo = "scan_base"
+                }
+            )
+            {
+            }
+
+            over "outfit_M_hrc" (
+                variants = {
+                    string geo = "scan_base"
+                }
+            )
+            {
+            }
+
+            over "backpack_M_hrc" (
+                variants = {
+                    string geo = "scan_base"
+                }
+            )
+            {
+            }
+
+        }
+        "scan_high" {
+            over "body_M_hrc" (
+                variants = {
+                    string geo = "scan_high"
+                }
+            )
+            {
+            }
+
+            over "outfit_M_hrc" (
+                variants = {
+                    string geo = "scan_high"
+                }
+            )
+            {
+            }
+
+            over "backpack_M_hrc" (
+                variants = {
+                    string geo = "scan_high"
+                }
+            )
+            {
+            }
+
+        }
+        "scan_low" {
+            over "body_M_hrc" (
+                variants = {
+                    string geo = "scan_low"
+                }
+            )
+            {
+            }
+
+            over "outfit_M_hrc" (
+                variants = {
+                    string geo = "scan_low"
+                }
+            )
+            {
+            }
+
+            over "backpack_M_hrc" (
+                variants = {
+                    string geo = "scan_low"
+                }
+            )
+            {
+            }
+
+        }
+        "scan_mid" {
+            over "body_M_hrc" (
+                variants = {
+                    string geo = "scan_mid"
+                }
+            )
+            {
+            }
+
+            over "outfit_M_hrc" (
+                variants = {
+                    string geo = "scan_mid"
+                }
+            )
+            {
+            }
+
+            over "backpack_M_hrc" (
+                variants = {
+                    string geo = "scan_mid"
+                }
+            )
+            {
+            }
+
+        }
+        "sculpt_bind" {
+            over "body_M_hrc" (
+                variants = {
+                    string geo = "sculpt_bind"
+                }
+            )
+            {
+            }
+
+            over "outfit_M_hrc" (
+                variants = {
+                    string geo = "sculpt_bind"
+                }
+            )
+            {
+            }
+
+            over "backpack_M_hrc" (
+                variants = {
+                    string geo = "sculpt_bind"
+                }
+            )
+            {
+            }
+
+        }
+        "sculpt_pose" {
+            over "body_M_hrc" (
+                variants = {
+                    string geo = "sculpt_pose"
+                }
+            )
+            {
+            }
+
+            over "outfit_M_hrc" (
+                variants = {
+                    string geo = "sculpt_pose"
+                }
+            )
+            {
+            }
+
+            over "backpack_M_hrc" (
+                variants = {
+                    string geo = "sculpt_pose"
+                }
+            )
+            {
+            }
+
+        }
+        "sculpt_symm" {
+            over "body_M_hrc" (
+                variants = {
+                    string geo = "sculpt_symm"
+                }
+            )
+            {
+            }
+
+            over "outfit_M_hrc" (
+                variants = {
+                    string geo = "sculpt_symm"
+                }
+            )
+            {
+            }
+
+            over "backpack_M_hrc" (
+                variants = {
+                    string geo = "sculpt_symm"
+                }
+            )
+            {
+            }
+
+        }
+        "shapes_high" {
+            over "body_M_hrc" (
+                variants = {
+                    string geo = "shapes_high"
+                }
+            )
+            {
+            }
+
+            over "outfit_M_hrc" (
+                variants = {
+                    string geo = "shapes_high"
+                }
+            )
+            {
+            }
+
+            over "backpack_M_hrc" (
+                variants = {
+                    string geo = "shapes_high"
+                }
+            )
+            {
+            }
+
+        }
+    }
+    variantSet "geo_vis" = {
+        "default" {
+            over "body_M_hrc" (
+                variants = {
+                    string geo_vis = "default"
+                }
+            )
+            {
+            }
+
+            over "outfit_M_hrc" (
+                variants = {
+                    string geo_vis = "default"
+                }
+            )
+            {
+            }
+
+            over "backpack_M_hrc" (
+                variants = {
+                    string geo_vis = "default"
+                }
+            )
+            {
+            }
+
+        }
+        "preview" {
+            over "body_M_hrc" (
+                variants = {
+                    string geo_vis = "preview"
+                }
+            )
+            {
+            }
+
+            over "outfit_M_hrc" (
+                variants = {
+                    string geo_vis = "preview"
+                }
+            )
+            {
+            }
+
+            over "backpack_M_hrc" (
+                variants = {
+                    string geo_vis = "preview"
+                }
+            )
+            {
+            }
+
+        }
+    }
+    variantSet "alfro" = {
+        "off" {
+            over "body_M_hrc" (
+                variants = {
+                    string alfro = "off"
+                }
+            )
+            {
+            }
+
+        }
+        "render" {
+            over "body_M_hrc" (
+                variants = {
+                    string alfro = "render"
+                }
+            )
+            {
+            }
+
+        }
+    }
+}
+

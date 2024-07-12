@@ -1,0 +1,17 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root"
+{
+    def "grip_lighting_zlt02_electronics_ham_equipment01" (
+        customData = {
+            string ASSET_TYPE = "AL_fragment"
+        }
+        prepend references = @../../../fragment/grip/lighting/zlt02_electronics_ham_equipment01/grip_lighting_zlt02_electronics_ham_equipment01.usda@
+    )
+    {
+    }
+}
+

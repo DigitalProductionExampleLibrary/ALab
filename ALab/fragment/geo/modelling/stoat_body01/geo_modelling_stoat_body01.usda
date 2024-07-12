@@ -1,0 +1,150 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def Xform "root" (
+    variants = {
+        string geo = "render_high"
+    }
+    prepend variantSets = "geo"
+)
+{
+    def Xform "GEO"
+    {
+    }
+    variantSet "geo" = {
+        "base" {
+            float3[] extentsHint = [(-9.750925, -4.0118737, -33.486362), (9.750925, 34.19591, 7.664668)]
+
+            over "GEO" (
+                payload = @base/mesh/geo_modelling_stoat_body01_base_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "client_model" {
+
+        }
+        "collision" {
+
+        }
+        "deform_high" {
+            float3[] extentsHint = [(-9.750925, -4.0118737, -33.486362), (9.750925, 34.19591, 7.664668)]
+
+            over "GEO" (
+                payload = @deform_high/mesh/geo_modelling_stoat_body01_deform_high_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "deform_low" {
+
+        }
+        "display_high" {
+            float3[] extentsHint = [(-9.565128, -4.0027924, -32.922733), (9.565091, 34.116722, 6.120838)]
+
+            over "GEO" (
+                payload = @display_high/mesh/geo_modelling_stoat_body01_display_high_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "display_low" {
+
+        }
+        "garment" {
+
+        }
+        "maquette" {
+
+        }
+        "muscles" {
+
+        }
+        "pose" {
+            float3[] extentsHint = [(-9.750925, -4.0118737, -33.486362), (9.750925, 34.19591, 7.664668)]
+
+            over "GEO" (
+                payload = @pose/mesh/geo_modelling_stoat_body01_pose_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "render_high" (
+            variants = {
+                string geo_vis = "preview"
+            }
+            prepend variantSets = "geo_vis"
+        ) {
+            float3[] extentsHint = [(-9.750925, -4.0118737, -33.486362), (9.750925, 34.19591, 7.664668)]
+
+            over "GEO" (
+                payload = @render_high/mesh/geo_modelling_stoat_body01_render_high_mesh.usd@
+            )
+            {
+                float3[] extentsHint = [(-9.750925, -4.0118737, -33.486362), (9.750925, 34.19591, 7.664668)]
+            }
+            variantSet "geo_vis" = {
+                "default" {
+
+                }
+                "preview" {
+                    float3[] extentsHint = [(-9.565128, -4.0027924, -32.922733), (9.565091, 34.116722, 6.120838)]
+
+                    over "GEO"
+                    {
+                        rel proxyPrim = </root/GEO_PROXY>
+                        uniform token purpose = "render"
+                    }
+
+                    def Xform "GEO_PROXY" (
+                        payload = @display_high/mesh/geo_modelling_stoat_body01_display_high_mesh.usd@
+                    )
+                    {
+                        vector3d[] extentsHint = [(-9.750925064086914, -4.011873722076416, -33.48636245727539), (9.750925064086914, 34.1959114074707, 7.664668083190918)]
+                        uniform token purpose = "proxy"
+                    }
+
+                }
+            }
+
+        }
+        "scan_base" {
+
+        }
+        "scan_high" {
+
+        }
+        "scan_low" {
+
+        }
+        "scan_mid" {
+
+        }
+        "sculpt_bind" {
+
+        }
+        "sculpt_pose" {
+
+        }
+        "sculpt_symm" {
+
+        }
+        "shapes_high" {
+            float3[] extentsHint = [(-9.750925, -2.642711, -24.967012), (9.750925, 34.19591, 6.2176275)]
+
+            over "GEO" (
+                payload = @shapes_high/mesh/geo_modelling_stoat_body01_shapes_high_mesh.usd@
+            )
+            {
+            }
+
+        }
+    }
+}
+

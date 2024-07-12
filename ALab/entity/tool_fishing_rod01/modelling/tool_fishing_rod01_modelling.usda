@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @../../../fragment/geo/modelling/tool_fishing_rod01/geo_modelling_tool_fishing_rod01.usda@
+)
+{
+}
+

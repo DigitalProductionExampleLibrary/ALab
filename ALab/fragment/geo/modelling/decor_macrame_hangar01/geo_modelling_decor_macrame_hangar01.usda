@@ -1,0 +1,143 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def Xform "root" (
+    variants = {
+        string geo = "render_high"
+    }
+    prepend variantSets = "geo"
+)
+{
+    def Xform "GEO"
+    {
+    }
+    variantSet "geo" = {
+        "base" {
+            float3[] extentsHint = [(-20.166092, -73.92237, -16.11869), (19.65714, 47.238617, 24.290028)]
+
+            over "GEO" (
+                payload = @base/mesh/geo_modelling_decor_macrame_hangar01_base_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "client_model" {
+
+        }
+        "collision" {
+
+        }
+        "deform_high" {
+            float3[] extentsHint = [(-20.166092, -73.92237, -16.11869), (19.65714, 47.238617, 24.290028)]
+
+            over "GEO" (
+                payload = @deform_high/mesh/geo_modelling_decor_macrame_hangar01_deform_high_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "deform_low" {
+
+        }
+        "display_high" {
+            float3[] extentsHint = [(-20.190723, -73.92339, -16.162476), (19.528267, 47.117584, 24.358324)]
+
+            over "GEO" (
+                payload = @display_high/mesh/geo_modelling_decor_macrame_hangar01_display_high_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "display_low" {
+
+        }
+        "garment" {
+
+        }
+        "maquette" {
+
+        }
+        "muscles" {
+
+        }
+        "pose" {
+            float3[] extentsHint = [(-20.166092, -73.92237, -16.11869), (19.65714, 47.238617, 24.290028)]
+
+            over "GEO" (
+                payload = @pose/mesh/geo_modelling_decor_macrame_hangar01_pose_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "render_high" (
+            variants = {
+                string geo_vis = "preview"
+            }
+            prepend variantSets = "geo_vis"
+        ) {
+            float3[] extentsHint = [(-20.166092, -73.92237, -16.11869), (19.65714, 47.238617, 24.290028)]
+
+            over "GEO" (
+                payload = @render_high/mesh/geo_modelling_decor_macrame_hangar01_render_high_mesh.usd@
+            )
+            {
+                float3[] extentsHint = [(-20.166092, -73.92237, -16.11869), (19.65714, 47.238617, 24.290028)]
+            }
+            variantSet "geo_vis" = {
+                "default" {
+
+                }
+                "preview" {
+                    float3[] extentsHint = [(-20.190723, -73.92339, -16.162476), (19.528267, 47.117584, 24.358324)]
+
+                    over "GEO"
+                    {
+                        rel proxyPrim = </root/GEO_PROXY>
+                        uniform token purpose = "render"
+                    }
+
+                    def Xform "GEO_PROXY" (
+                        payload = @display_high/mesh/geo_modelling_decor_macrame_hangar01_display_high_mesh.usd@
+                    )
+                    {
+                        vector3d[] extentsHint = [(-20.166091918945312, -73.92237091064453, -16.118690490722656), (19.657140731811523, 47.238616943359375, 24.290027618408203)]
+                        uniform token purpose = "proxy"
+                    }
+
+                }
+            }
+
+        }
+        "scan_base" {
+
+        }
+        "scan_high" {
+
+        }
+        "scan_low" {
+
+        }
+        "scan_mid" {
+
+        }
+        "sculpt_bind" {
+
+        }
+        "sculpt_pose" {
+
+        }
+        "sculpt_symm" {
+
+        }
+        "shapes_high" {
+
+        }
+    }
+}
+

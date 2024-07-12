@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @../../../fragment/geo/modelling/decor_necklace_curly01/geo_modelling_decor_necklace_curly01.usda@
+)
+{
+}
+

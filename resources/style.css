@@ -1,0 +1,187 @@
+:root {
+  --table-border-color: rgb(104, 104, 104);
+  --table-border-separator-color: #666;
+  --table-head-back-color: rgb(210 210 210);
+  --table-head-fore-color: #111;
+  --table-body-back-color: #f8f8f8;
+  --table-body-fore-color: #111;
+  --table-body-alt-back-color: #eee;
+  --fore-color: rgb(216, 216, 216);
+  --secondary-fore-color: rgb(161, 161, 161);
+  --back-color: #000000;
+  --secondary-back-color: #363636;
+  --blockquote-color: #f57c00;
+  --pre-color: #ecc100;
+  --border-color: rgb(104, 104, 104);
+  --secondary-border-color: rgb(92, 92, 92);
+  --heading-ratio: 1.19;
+  --universal-margin: 0.5rem;
+  --universal-padding: 0.5rem;
+  --universal-border-radius: 0.125rem;
+  --a-link-color: #ecc100;
+  --a-visited-color: #ecc100;
+  --table-body-hover-back-color: #f9e090;
+}
+
+pre {
+    font-family: monospace;
+    white-space: pre;
+}
+
+pre {
+    overflow: auto;
+    background: var(--secondary-back-color);
+    padding: calc(1.5 * var(--universal-padding));
+    border-left: 0.25rem solid var(--pre-color);
+    border-radius: 0 var(--universal-border-radius) var(--universal-border-radius) 0;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 0;
+    width: 100%;
+    padding: var(--universal-padding);
+    padding-top: 0;
+}
+
+table th {
+    text-align: left;
+    background: var(--table-head-back-color);
+    color: var(--table-head-fore-color);
+    padding: calc(2 * var(--universal-padding));
+}
+
+table tbody {
+    border-top: 0;
+    margin-top: calc(0 - var(--universal-margin));
+    border-radius: 0 0 var(--universal-border-radius) var(--universal-border-radius);
+}
+
+table td {
+    padding: calc(var(--universal-padding));
+}
+
+body {
+    color: var(--fore-color);
+    background: var(--back-color);
+    max-width: 1080px;
+    margin: 0 auto !important;
+    float: none !important;
+    display: block;
+}
+
+p {
+    display: block;
+    margin: var(--universal-margin);
+    margin-block-start: 0.6em;
+    margin-block-end: 0.6em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+
+html, * {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif;
+    line-height: 1.5;
+    font-size: 1rem;
+}
+
+sup, sub, code, kbd {
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+code {
+    background: var(--secondary-back-color);
+    border-radius: var(--universal-border-radius);
+    padding: calc(var(--universal-padding) / 4) calc(var(--universal-padding) / 2);
+}
+code, kbd, pre, samp {
+    font-family: Menlo, Consolas, monospace;
+    font-size: 0.85em;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+ul {
+    list-style-type: disc;
+}
+
+a:visited {
+    color: var(--a-visited-color);
+}
+a:link {
+    color: var(--a-link-color);
+}
+a {
+    text-decoration: none;
+}
+a, b, del, em, i, ins, q, span, strong, u {
+    font-size: 1em;
+}
+
+h1 {
+    color: #fff;
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 2em;
+    margin-block-end: 0.4em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bolder;
+}
+
+h2 {
+    color: #fff;
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 2em;
+    margin-block-end: 0.4em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: lighter;
+}
+
+h3 {
+    color: #fff;
+    display: block;
+    font-size: 1.3em;
+    margin-block-start: 1.5em;
+    margin-block-end: 0.4em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: lighter;
+}
+
+h4 {
+    color: #fff;
+    display: block;
+    font-size: 1.1em;
+    margin-block-start: 1.3em;
+    margin-block-end: 0.3em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: lighter;
+}
+
+
+h5 {
+    color: #fff;
+    display: block;
+    font-size: 1em;
+    margin-block-start: 1.1em;
+    margin-block-end: 0.2em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: lighter;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+  }
+  

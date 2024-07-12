@@ -1,0 +1,27 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    framesPerSecond = 24
+    metersPerUnit = 1
+    timeCodesPerSecond = 24
+)
+
+def "root" (
+    variants = {
+        string weave = "render"
+    }
+    prepend variantSets = "weave"
+)
+{
+    variantSet "weave" = {
+        "off" {
+
+        }
+        "render" (
+            payload = None
+        ) {
+
+        }
+    }
+}
+

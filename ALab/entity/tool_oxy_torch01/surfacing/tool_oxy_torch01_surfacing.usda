@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @../../../fragment/look/surfacing/tool_oxy_torch01/look_surfacing_tool_oxy_torch01.usda@
+)
+{
+}
+

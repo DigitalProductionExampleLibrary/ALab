@@ -1,0 +1,118 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def Xform "root" (
+    variants = {
+        string geo = "render_high"
+    }
+    prepend variantSets = "geo"
+)
+{
+    def Xform "GEO"
+    {
+    }
+    variantSet "geo" = {
+        "base" {
+            over "GEO" (
+                references = @base/mesh/camerageo_modelling_test_beast_generic01_base_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "client_model" {
+
+        }
+        "collision" {
+
+        }
+        "deform_high" {
+            over "GEO" (
+                references = @deform_high/mesh/camerageo_modelling_test_beast_generic01_deform_high_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "deform_low" {
+
+        }
+        "deform_mid" {
+            over "GEO" (
+                references = @deform_mid/mesh/camerageo_modelling_test_beast_generic01_deform_mid_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "display_high" {
+            over "GEO" (
+                references = @display_high/mesh/camerageo_modelling_test_beast_generic01_display_high_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "display_low" {
+
+        }
+        "display_mid" {
+
+        }
+        "garment" {
+
+        }
+        "maquette" {
+
+        }
+        "muscles" {
+
+        }
+        "pose" {
+            over "GEO" (
+                references = @pose/mesh/camerageo_modelling_test_beast_generic01_pose_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "render_high" {
+            over "GEO" (
+                references = @render_high/mesh/camerageo_modelling_test_beast_generic01_render_high_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "scan_base" {
+
+        }
+        "scan_high" {
+
+        }
+        "scan_low" {
+
+        }
+        "scan_mid" {
+
+        }
+        "sculpt_bind" {
+
+        }
+        "sculpt_pose" {
+
+        }
+        "sculpt_symm" {
+
+        }
+        "shapes_high" {
+
+        }
+        "shapes_mid" {
+
+        }
+    }
+}
+

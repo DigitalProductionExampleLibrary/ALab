@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @../../../fragment/look/surfacing/tool_fishing_rod01/look_surfacing_tool_fishing_rod01.usda@
+)
+{
+}
+

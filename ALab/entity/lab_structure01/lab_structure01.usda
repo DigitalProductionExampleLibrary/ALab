@@ -1,0 +1,28 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    subLayers = [
+        @assembly/lab_structure01_assembly.usda@
+    ]
+    upAxis = "Y"
+)
+
+def "root" (
+    prepend apiSchemas = ["GeomModelAPI"]
+    assetInfo = {
+        string entityType = "environment"
+        string name = "lab_structure01"
+    }
+    prepend inherits = </__class__/lab_structure01>
+    kind = "assembly"
+    prepend specializes = </_root_type>
+)
+{
+}
+
+class Scope "_root_type" (
+    doc = "This prim holds the 'fallback' type of the default root prim"
+)
+{
+}
+

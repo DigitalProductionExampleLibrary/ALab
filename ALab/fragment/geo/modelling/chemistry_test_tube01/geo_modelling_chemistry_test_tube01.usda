@@ -1,0 +1,159 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def Xform "root" (
+    variants = {
+        string geo = "render_high"
+    }
+    prepend variantSets = "geo"
+)
+{
+    def Xform "GEO"
+    {
+    }
+    variantSet "geo" = {
+        "base" {
+            float3[] extentsHint = [(-1.022905, -0.029028, -1.0229044), (1.022905, 13.758649, 1.0229044)]
+
+            over "GEO" (
+                payload = @base/mesh/geo_modelling_chemistry_test_tube01_base_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "client_model" {
+
+        }
+        "collision" {
+
+        }
+        "deform_high" {
+            float3[] extentsHint = [(-1.022905, -0.029028, -1.0229044), (1.022905, 13.758649, 1.0229044)]
+
+            over "GEO" (
+                payload = @deform_high/mesh/geo_modelling_chemistry_test_tube01_deform_high_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "deform_low" {
+
+        }
+        "deform_mid" {
+            float3[] extentsHint = [(-1.022905, -0.029028, -1.0229044), (1.022905, 13.758649, 1.0229044)]
+
+            over "GEO" (
+                payload = @deform_mid/mesh/geo_modelling_chemistry_test_tube01_deform_mid_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "display_high" {
+            float3[] extentsHint = [(-0.96303886, 0.37370735, -0.9410665), (0.969678, 13.758649, 0.9696779)]
+
+            over "GEO" (
+                payload = @display_high/mesh/geo_modelling_chemistry_test_tube01_display_high_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "display_low" {
+
+        }
+        "display_mid" {
+
+        }
+        "garment" {
+
+        }
+        "maquette" {
+
+        }
+        "muscles" {
+
+        }
+        "pose" {
+            float3[] extentsHint = [(-1.022905, -0.029028, -1.0229044), (1.022905, 13.758649, 1.0229044)]
+
+            over "GEO" (
+                payload = @pose/mesh/geo_modelling_chemistry_test_tube01_pose_mesh.usd@
+            )
+            {
+            }
+
+        }
+        "render_high" (
+            variants = {
+                string geo_vis = "preview"
+            }
+            prepend variantSets = "geo_vis"
+        ) {
+            float3[] extentsHint = [(-1.022905, -0.029028, -1.0229044), (1.022905, 13.758649, 1.0229044)]
+
+            over "GEO" (
+                payload = @render_high/mesh/geo_modelling_chemistry_test_tube01_render_high_mesh.usd@
+            )
+            {
+                float3[] extentsHint = [(-1.022905, -0.029028, -1.0229044), (1.022905, 13.758649, 1.0229044)]
+            }
+            variantSet "geo_vis" = {
+                "default" {
+
+                }
+                "preview" {
+                    float3[] extentsHint = [(-0.96303886, 0.37370735, -0.9410665), (0.969678, 13.758649, 0.9696779)]
+
+                    over "GEO"
+                    {
+                        rel proxyPrim = </root/GEO_PROXY>
+                        uniform token purpose = "render"
+                    }
+
+                    def Xform "GEO_PROXY" (
+                        payload = @display_high/mesh/geo_modelling_chemistry_test_tube01_display_high_mesh.usd@
+                    )
+                    {
+                        vector3d[] extentsHint = [(-1.0229049921035767, -0.029028000310063362, -1.022904396057129), (1.0229049921035767, 13.758648872375488, 1.022904396057129)]
+                        uniform token purpose = "proxy"
+                    }
+
+                }
+            }
+
+        }
+        "scan_base" {
+
+        }
+        "scan_high" {
+
+        }
+        "scan_low" {
+
+        }
+        "scan_mid" {
+
+        }
+        "sculpt_bind" {
+
+        }
+        "sculpt_pose" {
+
+        }
+        "sculpt_symm" {
+
+        }
+        "shapes_high" {
+
+        }
+        "shapes_mid" {
+
+        }
+    }
+}
+

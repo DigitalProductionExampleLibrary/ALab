@@ -1,0 +1,31 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    subLayers = [
+        @surfacing/proc_dev_circuit_resistor02_surfacing.usda@,
+        @modelling/proc_dev_circuit_resistor02_modelling.usda@,
+        @preview/proc_dev_circuit_resistor02_preview.usda@
+    ]
+    upAxis = "Y"
+)
+
+def "root" (
+    prepend apiSchemas = ["GeomModelAPI"]
+    assetInfo = {
+        string entityType = "setpiece"
+        string name = "proc_dev_circuit_resistor02"
+    }
+    prepend inherits = </__class__/proc_dev_circuit_resistor02>
+    kind = "component"
+    prepend specializes = </_root_type>
+)
+{
+    string assetVersionId = "1832458600"
+}
+
+class Scope "_root_type" (
+    doc = "This prim holds the 'fallback' type of the default root prim"
+)
+{
+}
+

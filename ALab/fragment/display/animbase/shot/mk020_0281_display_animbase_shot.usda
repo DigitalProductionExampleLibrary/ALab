@@ -1,0 +1,18 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend variantSets = "display"
+)
+{
+    variantSet "display" = {
+        "animbase" (
+            prepend references = @base/data/mk020_0281_display_animbase_shot_base_data.usda@
+        ) {
+
+        }
+    }
+}
+

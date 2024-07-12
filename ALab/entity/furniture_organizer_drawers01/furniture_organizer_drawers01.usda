@@ -1,0 +1,31 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    subLayers = [
+        @surfacing/furniture_organizer_drawers01_surfacing.usda@,
+        @modelling/furniture_organizer_drawers01_modelling.usda@,
+        @preview/furniture_organizer_drawers01_preview.usda@
+    ]
+    upAxis = "Y"
+)
+
+def "root" (
+    prepend apiSchemas = ["GeomModelAPI"]
+    assetInfo = {
+        string entityType = "setpiece"
+        string name = "furniture_organizer_drawers01"
+    }
+    prepend inherits = </__class__/furniture_organizer_drawers01>
+    kind = "component"
+    prepend specializes = </_root_type>
+)
+{
+    string assetVersionId = "1832455300"
+}
+
+class Scope "_root_type" (
+    doc = "This prim holds the 'fallback' type of the default root prim"
+)
+{
+}
+

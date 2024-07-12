@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @../../../fragment/look/surfacing/structure_door01/look_surfacing_structure_door01.usda@
+)
+{
+}
+

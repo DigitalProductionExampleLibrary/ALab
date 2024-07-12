@@ -1,0 +1,39 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+over "root" (
+    variants = {
+        string camera_domain = "layout"
+    }
+    prepend variantSets = "camera_domain"
+)
+{
+    over "GEO"
+    {
+        over "renderCam_hrc"
+        {
+            over "renderCam_buffer"
+            {
+                over "renderCam_srt"
+                {
+                    over Camera "renderCam"
+                    {
+                    }
+                }
+            }
+        }
+    }
+    variantSet "camera_domain" = {
+        "layout" {
+            def "GEO" (
+                prepend references = @base/cache/mk020_0281_cameracache_layout_camera01_base_cache.usd@
+            )
+            {
+            }
+
+        }
+    }
+}
+

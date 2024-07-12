@@ -1,0 +1,53 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @../../../fragment/assembly/layout/shot/mk020_0281_assembly_layout_shot.usda@
+)
+{
+    def "blob_layout_shot" (
+        customData = {
+            string ASSET_TYPE = "AL_fragment"
+        }
+    )
+    {
+    }
+
+    over "camera01" (
+        customData = {
+            string ASSET_TYPE = "AL_fragment"
+        }
+        prepend references = @../../../fragment/cameracache/layout/camera01/mk020_0281_cameracache_layout_camera01.usda@
+    )
+    {
+    }
+
+    over "dmp_skydome_alab01" (
+        customData = {
+            string ASSET_TYPE = "AL_fragment"
+        }
+    )
+    {
+    }
+
+    over "remi" (
+        customData = {
+            string ASSET_TYPE = "AL_fragment"
+        }
+        prepend references = @../../../fragment/geocache/layout/remi/mk020_0281_geocache_layout_remi.usda@
+    )
+    {
+    }
+
+    over "stoat" (
+        customData = {
+            string ASSET_TYPE = "AL_fragment"
+        }
+        prepend references = @../../../fragment/geocache/layout/stoat/mk020_0281_geocache_layout_stoat.usda@
+    )
+    {
+    }
+}
+

@@ -1,0 +1,18 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = [
+        @../../../fragment/audio/edit/audio/mk020_0281_audio_edit_audio.usda@,
+        @../../../fragment/audio/edit/mixdown/mk020_0281_audio_edit_mixdown.usda@,
+        @../../../fragment/audio/edit/dialogue/mk020_0281_audio_edit_dialogue.usda@,
+        @../../../fragment/audio/edit/effects/mk020_0281_audio_edit_effects.usda@,
+        @../../../fragment/audio/edit/music/mk020_0281_audio_edit_music.usda@,
+        @../../../fragment/shotrange/edit/shot/mk020_0281_shotrange_edit_shot.usda@
+    ]
+)
+{
+}
+

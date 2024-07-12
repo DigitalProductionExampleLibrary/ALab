@@ -1,0 +1,37 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @../../../fragment/display/animbase/shot/mk020_0281_display_animbase_shot.usda@
+)
+{
+    over "camera01" (
+        customData = {
+            string ASSET_TYPE = "AL_fragment"
+        }
+        prepend references = @../../../fragment/cameracache/animbase/camera01/mk020_0281_cameracache_animbase_camera01.usda@
+    )
+    {
+    }
+
+    over "remi" (
+        customData = {
+            string ASSET_TYPE = "AL_fragment"
+        }
+        prepend references = @../../../fragment/geocache/animbase/remi/mk020_0281_geocache_animbase_remi.usda@
+    )
+    {
+    }
+
+    over "stoat" (
+        customData = {
+            string ASSET_TYPE = "AL_fragment"
+        }
+        prepend references = @../../../fragment/geocache/animbase/stoat/mk020_0281_geocache_animbase_stoat.usda@
+    )
+    {
+    }
+}
+

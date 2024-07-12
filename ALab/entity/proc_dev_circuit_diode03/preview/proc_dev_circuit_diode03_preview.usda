@@ -1,0 +1,15 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root"
+{
+    asset model:cardTextureXNeg = @proc_dev_circuit_diode03_preview/cards_textures_x_neg.png@
+    asset model:cardTextureXPos = @proc_dev_circuit_diode03_preview/cards_textures_X_pos.png@
+    asset model:cardTextureYNeg = @proc_dev_circuit_diode03_preview/cards_textures_y_neg.png@
+    asset model:cardTextureYPos = @proc_dev_circuit_diode03_preview/cards_textures_y_pos.png@
+    asset model:cardTextureZNeg = @proc_dev_circuit_diode03_preview/cards_textures_z_neg.png@
+    asset model:cardTextureZPos = @proc_dev_circuit_diode03_preview/cards_textures_z_pos.png@
+}
+

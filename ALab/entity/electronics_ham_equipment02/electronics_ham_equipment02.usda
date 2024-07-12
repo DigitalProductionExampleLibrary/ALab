@@ -1,0 +1,32 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    subLayers = [
+        @lighting/electronics_ham_equipment02_lighting.usda@,
+        @surfacing/electronics_ham_equipment02_surfacing.usda@,
+        @modelling/electronics_ham_equipment02_modelling.usda@,
+        @preview/electronics_ham_equipment02_preview.usda@
+    ]
+    upAxis = "Y"
+)
+
+def "root" (
+    prepend apiSchemas = ["GeomModelAPI"]
+    assetInfo = {
+        string entityType = "setpiece"
+        string name = "electronics_ham_equipment02"
+    }
+    prepend inherits = </__class__/electronics_ham_equipment02>
+    kind = "component"
+    prepend specializes = </_root_type>
+)
+{
+    string assetVersionId = "1832458022"
+}
+
+class Scope "_root_type" (
+    doc = "This prim holds the 'fallback' type of the default root prim"
+)
+{
+}
+

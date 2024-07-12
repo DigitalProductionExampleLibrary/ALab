@@ -1,0 +1,27 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def Xform "root" (
+    kind = "assembly"
+)
+{
+    def Xform "decor_sheets_inspiration01_0001" (
+        instanceable = true
+        prepend references = @../../../../entity/decor_sheets_inspiration01/decor_sheets_inspiration01.usda@
+    )
+    {
+    }
+
+    def Xform "decor_medical_screen01_0001" (
+        instanceable = true
+        prepend references = @../../../../entity/decor_medical_screen01/decor_medical_screen01.usda@
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, -85.038, 0)
+        double3 xformOp:translate = (75.162, 0, 364.766)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ"]
+    }
+}
+

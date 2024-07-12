@@ -1,0 +1,13 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    subLayers = [
+        @../lightingrenderovers/mk020_0281_lightingrenderovers.usda@
+    ]
+)
+
+def "root" (
+    prepend references = @../../../fragment/lightrig/lighting/mk020_0281_export/lightrig_lighting_mk020_0281_export.usda@
+)
+{
+}

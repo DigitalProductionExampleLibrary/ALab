@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+)
+
+def "root" (
+    prepend references = @../../../fragment/look/surfacing/electronics_cabling/look_surfacing_electronics_cabling.usda@
+)
+{
+}
+
