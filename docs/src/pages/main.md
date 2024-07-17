@@ -20,9 +20,9 @@ For quick preview and inspection, [`USDView`](https://graphics.pixar.com/usd/doc
 
 # Documentation
 
-- [Documentation](documentation) - File structure layout and asset documentation.
-- [AL-specific content](alSpecific) - Animal Logic specific concepts, which we love, but had to remove from ALab to ensure ease of use and compatibility.
-- [Changelog](changelog) - List of all the updates from the latest versions of ALab.
+- [Documentation](./documentation) - File structure layout and asset documentation.
+- [AL-specific content](./alSpecific) - Animal Logic specific concepts, which we love, but had to remove from ALab to ensure ease of use and compatibility.
+- [Changelog](./changelog) - List of all the updates from the latest versions of ALab.
 
 # About ALab
 
