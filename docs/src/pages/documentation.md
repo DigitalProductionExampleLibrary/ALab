@@ -1,5 +1,5 @@
 ---
-layout: ../layouts/BaseLayout.astro
+layout: ../layouts/Documentation.astro
 ---
 
 # Documentation
@@ -451,7 +451,7 @@ When crowd departments use this as an agent, they choose the `skeleton=on` varia
 
 `Primvars` are a special attribute that a renderer can associate with a geometric `primitive`. They can vary across the `primitive` they are defined on through various interpolation rules, defined in the [documentation](https://graphics.pixar.com/usd/dev/api/class_usd_geom_primvar.html).
 
-For example, **vertex** defines the value to be interpolated across the vertices on the surface. `Primvars` can also be passed onto children of USD `primitives`. This makes them very flexible, which makes them effective as custom attributes for renderers (such as Animal Logic's Glimpse) to read. You can read more about this in the [AL-Specific documentation](al_specific.html).
+For example, **vertex** defines the value to be interpolated across the vertices on the surface. `Primvars` can also be passed onto children of USD `primitives`. This makes them very flexible, which makes them effective as custom attributes for renderers (such as Animal Logic's Glimpse) to read. You can read more about this in the [AL-Specific documentation](alSpecific).
 
 As seen in the USD snippet above, the `SkelBindingAPI` uses its **skel** `primvars` to allow joint weights and joint indices to vary across the same primitive with vertex interpolation.
 
