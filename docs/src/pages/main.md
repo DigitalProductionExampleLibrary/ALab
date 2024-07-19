@@ -104,7 +104,7 @@ After merging, your contents from the `baked_procedurals` folder should look lik
 
 ![replace_texture_pack](../../public/baked_procedurals.jpg)
 
-Refer to the `Render Procedurals` section from [AL-specific content](ALab/alSpecific.md) for more details on this. 
+Refer to the `Render Procedurals` section from [AL-specific content](ALab/alSpecific) for more details on this. 
 
 ## Texture Pack
 
