@@ -33,6 +33,8 @@ The `entry.usda` `stage` places you in a shot with a structure similar to how we
 
 For “production style rendering” we also provide an additional package `texture_pack` with multi UDIM, mipmapped 4K OpenEXR textures.
 
+Refer below to the `Available Packages` section for more information on these.
+
 We hope that this is the starting point for future contributions to showcase new ideas for discussion, promotion, and hopefully adoption.
 
 
@@ -54,18 +56,41 @@ The same as we do internally. Their intended usage includes, but is not limited 
 - Workflow Experiments and white paper proposals
 
 
-# Working with Available Packages
-## ALab
-* "Lightweight" version with 1k textures and *without* fur & cloth.
+# Available Packages
 
-Start with the default **ALab** package, load `entry.usda` in your application and see the content.
+As the complete data set is heavy and different use cases may consume distinct subsets of the data, ALab is split in different packages, each serving a different purpose depending on the consuming context.
+
+*If in doubt, start only with the `Asset Structure` and `Techvar Assets` packages.*
+
+## Asset Structure
+* Main USD asset structure. No geometry, shaders or lights.
+
+This is purely the asset structure showcasing how all assets relate to each other through USD composition arcs. It does not include any geometry, shaders or lights, but it does include bounding box information and texture cards for every asset to be able to see extents and a preview of the ALab.
+Open the `entry.usda` in your application to inspect the content:
+
+![asset_structure](docs/public/asset_structure_default.jpg)
+
+Since there are no geometry, shaders or lights in this pacakge, nothing will be visible by default in the viewport. However, if changing the draw mode on a prim like `/root/alab_set01` to `bounds` or `cards`, you'll be able to see a better preview of the contents:
+
+![change_draw_mode](docs/public/asset_structure_cards_mode.png)
+
+## Techvar Assets
+* Geometry, shaders, rigs, lights & 1k textures.
+
+This will allow you to render the ALab *without* fur & cloth. 
+
+Unzip and merge the `fragment` folder from this package onto the `ALab/fragment` folder of the `Asset Structure` package overriding all existing files.
 
 If your application does not set the start and end frame automatically (e.g. when using a `sublayer` node in **Houdini** or Create USD Stage from File in **Maya**), set the frame range from 1004 to 1057.
 
 You can also view through the shot camera on `prim` path: `/root/camera01/GEO/renderCam_hrc/renderCam_buffer/renderCam_srt/renderCam`.
 
+![techvar_assets](docs/public/techvar_assets.png)
+
 ## Baked Procedurals
 * Baked procedurals (mainly in the form of `BasisCurves`) for the fur & cloth of the characters.
+
+Internally we use custom schemas which allow procedural expansion of fur & cloth at render time. Since we can not ship these schemas as they are bound to our internal renderer, we provide their "expanded form as USD caches" separately. 
 
 Unzip the contents on top of the default ALab package to merge the `baked_procedurals` folder, overriding the previously empty `baked_procedurals/main.usda` file.
 
