@@ -1,5 +1,5 @@
 ---
-layout: ../layouts/BaseLayout.astro
+layout: ../layouts/AlSpecific.astro
 ---
 
 # Animal Logic
@@ -241,7 +241,7 @@ In the example below, you can see how the **weave** procedural is configured to 
 
 > Note: We will replace the "relative path" string attribute with USD relationships soon.
 
-[weave.usda](../../public/weave.usda)
+[weave.usda](./public/weave.usda)
 
 ```python
 def "weave_gauze" (
@@ -303,7 +303,7 @@ With regards to material composition, we currently leverage referencing in two w
 - To `reference` materials from a centralised "material library" into "look bindings."
 - To `reference` "subgraphs" (node graphs) of shaders into materials. Our "triplanar projection" setup is an example of this.
 
-[look_binding.usda](../../public/look_binding.usda)
+[look_binding.usda](./public/look_binding.usda)
 
 ```c++
     over "GEO"
