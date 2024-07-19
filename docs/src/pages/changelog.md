@@ -10,6 +10,12 @@ layout: ../layouts/BaseLayout.astro
 
 > Changelog for [ALab](https://animallogic.com/alab/).
 
+### 2.2.0
+
+- Split main package in two: 
+  - `asset_structure`: Available as well as a GitHub repository to facilitate external experimentation and collaboration on the asset structure.
+  - `techvar_assets`: Geometry, lights, shaders, rigs which are the heavy assets containing artistic contributions. 
+
 ### 2.1.0
 
 - Updated geometry proxies to more closely match the **render** `purpose` geometry.
