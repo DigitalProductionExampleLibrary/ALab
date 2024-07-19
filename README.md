@@ -87,6 +87,8 @@ You can also view through the shot camera on `prim` path: `/root/camera01/GEO/re
 
 ![techvar_assets](docs/public/techvar_assets.png)
 
+For more information on "techvar" and other asset-related terminology, check-out the full [documentation](docs/src/pages/documentation.md).
+
 ## Baked Procedurals
 * Baked procedurals (mainly in the form of `BasisCurves`) for the fur & cloth of the characters.
 
@@ -97,6 +99,8 @@ Unzip the contents on top of the default ALab package to merge the `baked_proced
 After merging, your contents from the `baked_procedurals` folder should look like below:
 
 ![replace_texture_pack](docs/public/baked_procedurals.jpg)
+
+Refer to the `Render Procedurals` section from [AL-specific content](docs/src/pages/alSpecific.md) for more details on this. 
 
 ## Texture Pack
 * 4k texture maps, half float mipmapped OpenEXR images in ACEScg colour space.
