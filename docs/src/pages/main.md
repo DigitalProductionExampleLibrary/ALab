@@ -20,9 +20,9 @@ For quick preview and inspection, [`USDView`](https://graphics.pixar.com/usd/doc
 
 # Documentation
 
-- [Documentation](ALab/documentation) - File structure layout and asset documentation.
-- [AL-specific content](ALab/alSpecific) - Animal Logic specific concepts, which we love, but had to remove from ALab to ensure ease of use and compatibility.
-- [Changelog](ALab/changelog) - List of all the updates from the latest versions of ALab.
+- [Documentation](./documentation) - File structure layout and asset documentation.
+- [AL-specific content](./alSpecific) - Animal Logic specific concepts, which we love, but had to remove from ALab to ensure ease of use and compatibility.
+- [Changelog](./changelog) - List of all the updates from the latest versions of ALab.
 
 # About ALab
 
@@ -80,7 +80,7 @@ Since there are no geometry, shaders or lights in this pacakge, nothing will be 
 ## Techvar Assets
 - Geometry, shaders, rigs, lights & 1k textures.
 
-This will allow you to render the ALab *without* fur & cloth. 
+This will allow you to render the ALab *without* fur & cloth.
 
 Unzip and merge the `fragment` folder from this package onto the `ALab/fragment` folder of the `Asset Structure` package overriding all existing files.
 
@@ -90,13 +90,13 @@ You can also view through the shot camera on `prim` path: `/root/camera01/GEO/re
 
 ![techvar_assets](../../public/techvar_assets.png)
 
-For more information on "techvar" and other asset-related terminology, check-out the full [documentation](ALab/documentation).
+For more information on "techvar" and other asset-related terminology, check-out the full [documentation](./documentation).
 
 ## Baked Procedurals
 
 - Baked procedurals (mainly in the form of `BasisCurves`) for the fur & cloth of the characters.
 
-Internally we use custom schemas which allow procedural expansion of fur & cloth at render time. Since we can not ship these schemas as they are bound to our internal renderer, we provide their "expanded form as USD caches" separately. 
+Internally we use custom schemas which allow procedural expansion of fur & cloth at render time. Since we can not ship these schemas as they are bound to our internal renderer, we provide their "expanded form as USD caches" separately.
 
 Unzip the contents on top of the default ALab package to merge the `baked_procedurals` folder, overriding the previously empty `baked_procedurals/main.usda` file.
 
@@ -104,7 +104,7 @@ After merging, your contents from the `baked_procedurals` folder should look lik
 
 ![replace_texture_pack](../../public/baked_procedurals.jpg)
 
-Refer to the `Render Procedurals` section from [AL-specific content](ALab/alSpecific) for more details on this. 
+Refer to the `Render Procedurals` section from [AL-specific content](./alSpecific) for more details on this.
 
 ## Texture Pack
 
