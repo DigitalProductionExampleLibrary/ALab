@@ -4,8 +4,6 @@ layout: ../layouts/Documentation.astro
 
 # Documentation
 
-> New content in [ALab](https://animallogic.com/alab/) **v2.1.0** is marked with a **&lt;NEW&gt;** prefix in the title.
-
 # toc
 
 # Documentation
@@ -797,7 +795,7 @@ These curves should be visible by switching to a view with display `purpose` **r
 
 > Note: Textures are not visible on curves in `USDView` - the above image was rendered in Houdini's Karma renderer.
 
-## &lt;NEW&gt; Texture Cards in Draw Mode
+## Texture Cards in Draw Mode
 
 The ability to set entities draw mode to **card** drastically increases viewport performance. Global entities of `component` `Kind` have textures for "cards" Draw Mode.
 
@@ -812,9 +810,3 @@ For cards Draw Mode to work, we need to have a few `attributes` authored:
 - **model.drawMode**: This is the Draw Mode that needs to be selected. To use this, set the **drawMode** to **cards**.
 
 ![Texture Cards](../../public/texture_cards.png)
-
-## &lt;NEW&gt; Improved Proxies and Display Textures
-
-Proxies now more closely match their render purpose geometry.
-
-![Improved Proxy Topology](../../public/proxies01.png)
