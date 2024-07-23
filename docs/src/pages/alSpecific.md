@@ -6,8 +6,6 @@ layout: ../layouts/AlSpecific.astro
 
 This document describes some of the USD concepts, which we love, but had to remove from ALab to ensure ease of use and compatibility. Some of them are more daring and unique than others, but we hope that you find them all interesting.
 
-> New content in [ALab](https://animallogic.com/alab/) **v2.1.0** is marked with a **&lt;NEW&gt;** prefix in the title.
-
 # toc
 
 # Animal Logic
