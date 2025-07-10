@@ -1,14 +1,14 @@
 ---
-layout: ../layouts/AlSpecific.astro
+layout: ../layouts/NasSpecific.astro
 ---
 
-# Animal Logic
+# Netflix Animation Studios
 
 This document describes some of the USD concepts, which we love, but had to remove from ALab to ensure ease of use and compatibility. Some of them are more daring and unique than others, but we hope that you find them all interesting.
 
 # toc
 
-# Animal Logic
+# Netflix Animation Studios
 
 ## URIs > Relative Filepaths
 
@@ -152,7 +152,7 @@ static const TfTokenVector distortAttrsTable[numModels] = {
 
 ## Prim Schemas
 
-In addition to the Camera `schema`, we use other `schemas` for various use cases at Animal Logic. See below for a few more examples, which we use with the "USD Schema Generator" (as outlined [here](https://graphics.pixar.com/usd/docs/api/_usd__page__generating_schemas.html)).
+In addition to the Camera `schema`, we use other `schemas` for various use cases at Netflix Animation Studios. See below for a few more examples, which we use with the "USD Schema Generator" (as outlined [here](https://graphics.pixar.com/usd/docs/api/_usd__page__generating_schemas.html)).
 
 ```c++
 class ALEditFrameRange "ALEditFrameRange" (
@@ -228,7 +228,7 @@ We use a custom `schema` called `ALMayaReference` to reference Maya data. When s
 
 ![Shot](../../public/weave.png)
 
-In the Animal Logic pipeline, we emit some procedural geometry straight into the renderer (Glimpse).
+In the Netflix Animation Studios pipeline, we emit some procedural geometry straight into the renderer (Glimpse).
 
 - Cloth and Fabric ("[Weave](https://dl.acm.org/doi/abs/10.1145/3214745.3214781)")
 - Hair and Fur ("Alfro")
@@ -289,7 +289,7 @@ When downloading the `baked_procedurals` additional package, these `primvars` wi
 
 ## "Glimpse" Materials and Bindings
 
-[Glimpse](https://www.fxguide.com/fxfeatured/a-glimpse-at-animal-logic/) is the in-house renderer at Animal Logic.
+[Glimpse](https://www.fxguide.com/fxfeatured/a-glimpse-at-animal-logic/) is the in-house renderer at Netflix Animation Studios.
 
 Layered assignments underpin two important workflows:
 
@@ -411,7 +411,7 @@ Be aware that there is a fairly strict "grammar" in USD, which needs to be adher
 
 ### Register Your Kinds (`pluginInfo.json`)
 
-To register custom `kinds` in your pipeline, define them in a `pluginInfo.json`. This is an excerpt of the one we use at Animal Logic:
+To register custom `kinds` in your pipeline, define them in a `pluginInfo.json`. This is an excerpt of the one we use at Netflix Animation Studios:
 
 ```json
 {

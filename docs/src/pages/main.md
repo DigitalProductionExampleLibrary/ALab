@@ -6,7 +6,7 @@ layout: ../layouts/BaseLayout.astro
 
 # Introduction
 
-Welcome to Animal Logic's USD [ALab](https://animallogic.com/alab/).
+Welcome to Netflix Animation Studios' USD [ALab](https://animallogic.com/alab/).
 
 **TL;DR:** [Download ALab](https://dpel.aswf.io/alab/) and open `entry.usda` to get started.
 
@@ -21,16 +21,16 @@ For quick preview and inspection, [`USDView`](https://graphics.pixar.com/usd/doc
 # Documentation
 
 - [Documentation](../documentation) - File structure layout and asset documentation.
-- [AL-specific content](../alSpecific) - Animal Logic specific concepts, which we love, but had to remove from ALab to ensure ease of use and compatibility.
+- [NAS-specific content](../nasSpecific) - Netflix Animation Studios specific concepts, which we love, but had to remove from ALab to ensure ease of use and compatibility.
 - [Changelog](../changelog) - List of all the updates from the latest versions of ALab.
 
 # About ALab
 
-The ALab data set is the Animal Logic interpretation and implementation of real-world production and pipeline concepts in USD.
+Originally released in 2021 by Animal Logic, The ALab data set is the Netflix Animation Studios interpretation and implementation of real-world production and pipeline concepts in USD.
 
 It includes over 300 fully surfaced assets derived from an internally produced project, rather than created from scratch as a "USD reference implementation." It consequently exhibits the complexities (and some of the messiness) of real production assets. If one were to build a USD structure for the sole purpose of showcasing USD, it would lead to a different result.
 
-The `entry.usda` `stage` places you in a shot with a structure similar to how we use it at Animal Logic. Since no shot is complete without animation, included are two animated characters, each with some level of proceduralism. Due to this proceduralism requiring some custom `schemas` for our internal Glimpse renderer, we have provided a hint on what these procedurals create in a separate `baked_procedurals` package. This is the "cached" content that would be sent to the renderer per-frame.
+The `entry.usda` `stage` places you in a shot with a structure similar to how we use it at Netflix Animation Studios. Since no shot is complete without animation, included are two animated characters, each with some level of proceduralism. Due to this proceduralism requiring some custom `schemas` for our internal Glimpse renderer, we have provided a hint on what these procedurals create in a separate `baked_procedurals` package. This is the "cached" content that would be sent to the renderer per-frame.
 
 For “production style rendering” we also provide an additional package `texture_pack` with multi UDIM, mipmapped 4K OpenEXR textures.
 
@@ -38,7 +38,7 @@ Refer below to the `Available Packages` section for more information on these.
 
 We hope that this is the starting point for future contributions to showcase new ideas for discussion, promotion, and hopefully adoption.
 
-## Why did Animal Logic create these assets?
+## Why did Netflix Animation Studios create these assets?
 
 We created them to be used _internally_, primarily to provide client-free IP data for:
 
@@ -104,7 +104,7 @@ After merging, your contents from the `baked_procedurals` folder should look lik
 
 ![replace_texture_pack](../../public/baked_procedurals.jpg)
 
-Refer to the `Render Procedurals` section from [AL-specific content](../alSpecific) for more details on this.
+Refer to the `Render Procedurals` section from [NAS-specific content](../nasSpecific) for more details on this.
 
 ## Texture Pack
 

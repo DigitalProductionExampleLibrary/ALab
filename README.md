@@ -3,7 +3,7 @@
 
 # Introduction
 
-Welcome to Animal Logic's USD [ALab](https://animallogic.com/alab/).
+Welcome to Netflix Animation Studios' USD [ALab](https://animallogic.com/alab/).
 
 **TL;DR:** [Download ALab](https://dpel.aswf.io/alab/) and open `entry.usda` to get started.
 
@@ -12,7 +12,7 @@ Applications with USD support, such as Maya-2022+, Houdini-18.5+ and many more s
 For quick preview and inspection, [`USDView`](https://graphics.pixar.com/usd/docs/USD-Toolset.html#USDToolset-usdview) is a great starting point.
 
 
-|   Glimpse (AL proprietary)   | Houdini (Karma) |  Maya (VP2/render purpose) |  UsdView (Storm/render purpose)  |
+|   Glimpse (NAS proprietary)   | Houdini (Karma) |  Maya (VP2/render purpose) |  UsdView (Storm/render purpose)  |
 | ---------------------------- | --------------- | ------------------ | ------------------------ |
 |![Glimpse](docs/public/glimpse_phase2.png)|![Houdini screenshot](docs/public/houdini_phase2.png)|![Maya 2022 screenshot](docs/public/maya_phase2.png)|![UsdView (render purpose)](docs/public/usdview_phase2.png)|
 
@@ -20,16 +20,16 @@ For quick preview and inspection, [`USDView`](https://graphics.pixar.com/usd/doc
 # Documentation
 
 - [Documentation](docs/src/pages/documentation.md) - File structure layout and asset documentation.
-- [AL-specific content](docs/src/pages/alSpecific.md) - Animal Logic specific concepts, which we love, but had to remove from ALab to ensure ease of use and compatibility.
+- [NAS-specific content](docs/src/pages/nasSpecific.md) - Netflix Animation Studios specific concepts, which we love, but had to remove from ALab to ensure ease of use and compatibility.
 - [Changelog](docs/src/pages/changelog.md) - List of all the updates from the latest versions of ALab.
 
 
 # About ALab
-The ALab data set is the Animal Logic interpretation and implementation of real-world production and pipeline concepts in USD.
+Originally released in 2021 by Animal Logic, the ALab data set is the Netflix Animation Studios interpretation and implementation of real-world production and pipeline concepts in USD.
 
 It includes over 300 fully surfaced assets derived from an internally produced project, rather than created from scratch as a "USD reference implementation." It consequently exhibits the complexities (and some of the messiness) of real production assets. If one were to build a USD structure for the sole purpose of showcasing USD, it would lead to a different result.
 
-The `entry.usda` `stage` places you in a shot with a structure similar to how we use it at Animal Logic. Since no shot is complete without animation, included are two animated characters, each with some level of proceduralism. Due to this proceduralism requiring some custom `schemas` for our internal Glimpse renderer, we have provided a hint on what these procedurals create in a separate `baked_procedurals` package. This is the "cached" content that would be sent to the renderer per-frame.
+The `entry.usda` `stage` places you in a shot with a structure similar to how we use it at Netflix Animation Studios. Since no shot is complete without animation, included are two animated characters, each with some level of proceduralism. Due to this proceduralism requiring some custom `schemas` for our internal Glimpse renderer, we have provided a hint on what these procedurals create in a separate `baked_procedurals` package. This is the "cached" content that would be sent to the renderer per-frame.
 
 For “production style rendering” we also provide an additional package `texture_pack` with multi UDIM, mipmapped 4K OpenEXR textures.
 
@@ -38,7 +38,7 @@ Refer below to the `Available Packages` section for more information on these.
 We hope that this is the starting point for future contributions to showcase new ideas for discussion, promotion, and hopefully adoption.
 
 
-## Why did Animal Logic create these assets?
+## Why did Netflix Animation Studios create these assets?
 We created them to be used *internally*, primarily to provide client-free IP data for:
 - Training of Developers, TDs and Artists
 - Discussion Reference ("something to point at")
@@ -100,7 +100,7 @@ After merging, your contents from the `baked_procedurals` folder should look lik
 
 ![replace_texture_pack](docs/public/baked_procedurals.jpg)
 
-Refer to the `Render Procedurals` section from [AL-specific content](docs/src/pages/alSpecific.md) for more details on this. 
+Refer to the `Render Procedurals` section from [NAS-specific content](docs/src/pages/nasSpecific.md) for more details on this. 
 
 ## Texture Pack
 * 4k texture maps, half float mipmapped OpenEXR images in ACEScg colour space.
