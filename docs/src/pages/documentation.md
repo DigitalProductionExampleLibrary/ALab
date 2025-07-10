@@ -10,7 +10,7 @@ layout: ../layouts/Documentation.astro
 
 ## File / Asset Structure (Entities & Fragments)
 
-At Animal Logic, we organise files into "`Entities` & `Fragments`" Libraries.
+At Netflix Animation Studios, we organise files into "`Entities` & `Fragments`" Libraries.
 
 > Note: If we weren't using a custom asset resolver internally, we would probably use two `PXR_AR_DEFAULT_SEARCH_PATH`s (pointing to `/entity` and `/fragment`) to make asset identification very simple.
 
@@ -387,7 +387,7 @@ The `point instancers` come with **off** and **render** `variants` under the `va
 
 ## USDSkel
 
-[USDSkel](https://graphics.pixar.com/usd/release/api/usd_skel_page_front.html) is a bare-bones rig with simple skeletons and blendshapes. At Animal Logic, `USDSkel` is used for crowd workflows. It works well for this purpose as it is designed to be efficient and scalable, with a lack of shared joint influence and the ability to apply unique animations to `instances` without deinstancing.
+[USDSkel](https://graphics.pixar.com/usd/release/api/usd_skel_page_front.html) is a bare-bones rig with simple skeletons and blendshapes. At Netflix Animation Studios, `USDSkel` is used for crowd workflows. It works well for this purpose as it is designed to be efficient and scalable, with a lack of shared joint influence and the ability to apply unique animations to `instances` without deinstancing.
 
 This is represented in USD through **skel** `primvars`, which are a part of USD's `SkelBindingAPI`.
 
@@ -449,7 +449,7 @@ When crowd departments use this as an agent, they choose the `skeleton=on` varia
 
 `Primvars` are a special attribute that a renderer can associate with a geometric `primitive`. They can vary across the `primitive` they are defined on through various interpolation rules, defined in the [documentation](https://graphics.pixar.com/usd/dev/api/class_usd_geom_primvar.html).
 
-For example, **vertex** defines the value to be interpolated across the vertices on the surface. `Primvars` can also be passed onto children of USD `primitives`. This makes them very flexible, which makes them effective as custom attributes for renderers (such as Animal Logic's Glimpse) to read. You can read more about this in the [AL-Specific documentation](alSpecific).
+For example, **vertex** defines the value to be interpolated across the vertices on the surface. `Primvars` can also be passed onto children of USD `primitives`. This makes them very flexible, which makes them effective as custom attributes for renderers (such as Netflix Animation Studios' Glimpse) to read. You can read more about this in the [NAS-Specific documentation](nasSpecific).
 
 As seen in the USD snippet above, the `SkelBindingAPI` uses its **skel** `primvars` to allow joint weights and joint indices to vary across the same primitive with vertex interpolation.
 
@@ -700,7 +700,7 @@ In phase 2, you can also see a `value clip` used for the baked procedurals of Mc
 
 ## Assemblies & Native Instancing
 
-At Animal Logic we make heavy use of instancing whenever possible. By default, all `entities` used on an environment are instanced.
+At Netflix Animation Studios we make heavy use of instancing whenever possible. By default, all `entities` used on an environment are instanced.
 
 This means if we use the same seven windows on a city, they all share the same prototype `prim`. ALab is no exception, these are the most frequently used `entities` (all of which are instanced):
 
@@ -789,7 +789,7 @@ Render procedurals such as hair (Alfro) and cloth (Weave) have been expanded int
 
 ![Procedurals in ALab rendered by Houdini's Karma](../../public/character_procedurals_in_karma.png)
 
-These curves are represented by USD overrides and stored in `baked_procedurals.usd`. They overwrite the original Animal Logic procedural data designed for Glimpse with a `prim` `<procedural_root_prim>/procedurals/output/curves`.
+These curves are represented by USD overrides and stored in `baked_procedurals.usd`. They overwrite the original Netflix Animation Studios procedural data designed for Glimpse with a `prim` `<procedural_root_prim>/procedurals/output/curves`.
 
 These curves should be visible by switching to a view with display `purpose` **render**. In `USDView`, you can navigate to **View > Display Purposes > Render**.
 
