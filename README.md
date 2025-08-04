@@ -1,4 +1,4 @@
-![Glimpse](docs/public/doc_header.jpg)
+![Glimpse](docs/public/doc_header.png)
 
 
 # Introduction
