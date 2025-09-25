@@ -65,6 +65,15 @@ As the complete data set is heavy and different use cases may consume distinct s
 
 *If in doubt, start only with the `Asset Structure` and `Techvar Assets` packages.*
 
+You can use the `install_optional_packages.py` script provided with the ALab repository to automate downloading and/or installing these packages:
+
+```bash
+# install all packages in current directory (will take a while)
+python install_optional_packages.py --all
+# you can provide a .zip filepath for each package if already downloaded, otherwise the script will download each for you
+python install_optional_packages.py --techvar --baked_procedurals --texture_pack texture_pack_download.zip --cameras --output ./repos/ALab/
+```
+
 ## Asset Structure
 - Main USD asset structure. No geometry, shaders or lights.
 
