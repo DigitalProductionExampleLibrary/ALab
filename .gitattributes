@@ -1,1 +1,2 @@
 ALab/extras/alab.ply filter=lfs diff=lfs merge=lfs -text
+ALab/extras/alab.usdc filter=lfs diff=lfs merge=lfs -text
