@@ -127,6 +127,18 @@ From the **Camera** > **Select Camera** menu, choose the required shot camera.
 
 ![select_cameras](docs/public/multiple_camera_prims.png)
 
+## Splat Pack (WIP)
+* This contains the ALab as a single gaussian splat in USD, using the new/upcoming [Lightfields USD schema](https://github.com/PixarAnimationStudios/OpenUSD/pull/3716). It is a WIP, but we wanted to get a test branch out for people to start iterating on and to help push forward collaboration on the schema and refining this DPEL asset. 
+
+Files currently in this pack:
+- The original .ply file
+- A .usdc file of the ALab Splat
+- The USD camera for the rendered images used to generate the splat
+
+In order to successfully view the usdc file you will need to have built usd with [this branch](https://github.com/PixarAnimationStudios/OpenUSD/pull/3716) for the schema and usdview renderer. 
+
+More details on how to test with this at the moment are [here in the docs](docs/src/pages/gaussianSplat.md)
+
 # Contact & Feedback
 
 We are proud to have been accepted into the [Academy Software Foundation Digital Production Example Library](https://dpel.aswf.io). As such we have moved further conversations to the [#assets-alab](https://academysoftwarefdn.slack.com/channels/C03S4QB8N04) slack channel.
