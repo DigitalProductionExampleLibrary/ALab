@@ -133,6 +133,7 @@ From the **Camera** > **Select Camera** menu, choose the required shot camera.
 Files currently in this pack:
 - The original .ply file
 - A .usdc file of the ALab Splat
+- A .usda file of transformations to make the splat match up with ALab (this is temporary)
 - The USD camera for the rendered images used to generate the splat
 
 In order to successfully view the usdc file you will need to have built usd with [this branch](https://github.com/PixarAnimationStudios/OpenUSD/pull/3716) for the schema and usdview renderer. 
