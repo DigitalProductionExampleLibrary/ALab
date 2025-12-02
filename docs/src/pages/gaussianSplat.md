@@ -18,11 +18,7 @@ If you're interested in getting involved with the development of the schema, you
 
 3. Clone this ALab branch
 
-4. Convert alab.usdc from the provided alab.ply file
-
-		python OpenUSD/extras/imaging/examples/hdParticleField/py3dgsPlyToUsd.py -i /ALab/ALab/extras/alab.ply -o /ALab/ALab/extras/alab.usdc
-
-The output alab.usdc will have contents like this:
+4. The alab.usdc will have contents like this:
 
 		def ParticleField_3DGaussianSplat "alab"
 		{
@@ -38,13 +34,19 @@ The output alab.usdc will have contents like this:
 		    float3[] scales = << GfVec3f[1502196] >>
 		}
     
-Launch USDView and set the renderer to hdParticleField
+5. Launch USDView and set the renderer to hdParticleField
 		
     usdview ALab/ALab/extras/gaussian_splats_with_camera.usda
 
 Now you should be able to open it in usdview like this:
 
 ![gif](../../public/ALab_splat_in_usdview.gif)
+
+## Here's the Splat in some other DCC
+
+### Adobe Substance Viewer (Beta - 0.25.1)
+![view](../../public/splat_substance_viewer_screenshot.png)
+
 
 ## How was the first version of the splat created?
 
@@ -60,7 +62,7 @@ Now you should be able to open it in usdview like this:
 1. The lightrig used for this splat isn't publicly available, so we're considering the best way forward.
 2. We will be re-rendering and re-splatting at higher resolution once we decide on the lightrig to use
 3. COLMAP was just a shortcut at the time, but we will be taking that out of the workflow eventually, which means you wouldn't need the transform adjustments in the usda
-4. We want to make sure the colorspace work here aligns with ASWF efforts, and is better formalized
+4. Ongoing work to decide the best production workflow colorspace to train splats in. For now we train on linear images with values between 0-1.
 5. Splatting with different shape kernels, e.g. 2dgs, and triangles
 6. Splatting with different falloffs besides gaussian
 7. Animated Splats of Remi and the Stoat
