@@ -47,6 +47,9 @@ Now you should be able to open it in usdview like this:
 ### Adobe Substance Viewer (Beta - 0.25.1)
 ![view](../../public/splat_substance_viewer_screenshot.png)
 
+### Nuke 17 beta
+
+### Houdini 21 beta
 
 ## How was the first version of the splat created?
 
