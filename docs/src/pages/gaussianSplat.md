@@ -62,7 +62,7 @@ Now you should be able to open it in usdview like this:
 
 ## Future plans
 
-1. The lightrig used for this splat isn't publicly available, so we're considering the best way forward.
+1. The lightrig used for this splat isn't the exact same lighting that is publicly available, so we're considering the best way forward.
 2. We will be re-rendering and re-splatting at higher resolution once we decide on the lightrig to use
 3. COLMAP was just a shortcut at the time, but we will be taking that out of the workflow eventually, which means you wouldn't need the transform adjustments in the usda
 4. Ongoing work to decide the best production workflow colorspace to train splats in. For now we train on linear images with values between 0-1.
