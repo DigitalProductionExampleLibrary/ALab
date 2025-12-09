@@ -54,8 +54,8 @@ Now you should be able to open it in usdview like this:
 ## How was the first version of the splat created?
 
 1. Used Houdini to do a quick ray cast setup test to try and define enough cameras to capture the majority of the scene (ending up with 570~ frames)
-2. Rendered 1k*1k squares of the ALab using Glimpse (NAS's proprietary renderer) with those cameras- these files were linear rec709 exrs
-3. Converted these into .png in a sdr range (at the time this was COLMAP constraint)
+2. Rendered 1k*1k squares of the ALab using Glimpse (NAS's proprietary renderer) with those cameras- these files were acescg P3 exrs
+3. Converted these into .png in a ACES 1.0 HDR - rec.2100 (P3D65 1000nit) [in the process of doing this in ACES 2.0 asap)
 4. Fed these into COLMAP to quickly get an input data format that would work with existing gsplat implementations
 5. Used nerfstudio/gsplat implementation of 3dgs to splat with pretty standard settings for 30000 steps
 6. The result of that training produces the original .ply file
