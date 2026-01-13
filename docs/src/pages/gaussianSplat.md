@@ -54,18 +54,26 @@ Now you should be able to open it in usdview like this:
 ## How was the first version of the splat created?
 
 1. Used Houdini to do a quick ray cast setup test to try and define enough cameras to capture the majority of the scene (ending up with 570~ frames)
-2. Rendered 1k*1k squares of the ALab using Glimpse (NAS's proprietary renderer) with those cameras- these files were acescg P3 exrs
-3. Converted these into .png in a ACES 1.0 HDR - rec.2100 (P3D65 1000nit) [in the process of doing this in ACES 2.0 asap)
+2. Rendered 1k*1k squares of the ALab using Glimpse (NAS's proprietary renderer) with those cameras- these files were acescg exrs
+3. Converted these into .png (SDR and HDR variants)
 4. Fed these into COLMAP to quickly get an input data format that would work with existing gsplat implementations
 5. Used nerfstudio/gsplat implementation of 3dgs to splat with pretty standard settings for 30000 steps
 6. The result of that training produces the original .ply file
+
+## Colour Workflows!
+We would like to train the ALab splat on acescg 32 bit exrs eventually.
+
+For the moment we have included SDR and HDR 8 bit png variants of the splat. The training images were generated from the original acescg exr renders. The colmap and gaussian training steps were then done with these images. We are looking into how to train against 32bit images
+
+- SDR: sRGB - ACES 2.0 - SDR 100 nits (Rec709) (8 bit png)
+- HDR: Rec.2100-PQ - ACES-2.0 HDR 1000 nits (P3 D65 Limited) (8 bit png)
 
 ## Future plans
 
 1. The lightrig used for this splat isn't the exact same lighting that is publicly available, so we're considering the best way forward.
 2. We will be re-rendering and re-splatting at higher resolution once we decide on the lightrig to use
 3. COLMAP was just a shortcut at the time, but we will be taking that out of the workflow eventually, which means you wouldn't need the transform adjustments in the usda
-4. Ongoing work to decide the best production workflow colorspace to train splats in. For now we train on linear images with values between 0-1.
+4. Ongoing work to decide the best production workflow colorspace to train splats in.
 5. Splatting with different shape kernels, e.g. 2dgs, and triangles
 6. Splatting with different falloffs besides gaussian
 7. Animated Splats of Remi and the Stoat
