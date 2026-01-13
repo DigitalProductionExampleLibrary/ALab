@@ -70,12 +70,13 @@ For the moment we have included SDR and HDR 8 bit png variants of the splat. The
 
 ## Future plans
 
-1. The lightrig used for this splat isn't the exact same lighting that is publicly available, so we're considering the best way forward.
-2. We will be re-rendering and re-splatting at higher resolution once we decide on the lightrig to use
-3. COLMAP was just a shortcut at the time, but we will be taking that out of the workflow eventually, which means you wouldn't need the transform adjustments in the usda
-4. Ongoing work to decide the best production workflow colorspace to train splats in.
-5. Splatting with different shape kernels, e.g. 2dgs, and triangles
-6. Splatting with different falloffs besides gaussian
-7. Animated Splats of Remi and the Stoat
-8. Improve camera coverage for the hard to reach spots in the scene
+1. Train the splat using 32 bit acescg exrs
+2. The lightrig used for this splat isn't the exact same lighting that is publicly available, so we're considering the best way forward.
+3. We will be re-rendering and re-splatting at higher resolution once we decide on the lightrig to use
+4. COLMAP was just a shortcut at the time, but we will be taking that out of the workflow eventually, which means you wouldn't need the transform adjustments in the usda
+5. Ongoing work to decide the best production workflow colorspace to train splats in.
+6. Splatting with different shape kernels, e.g. 2dgs, and triangles
+7. Splatting with different falloffs besides gaussian
+8. Animated Splats of Remi and the Stoat
+9. Improve camera coverage for the hard to reach spots in the scene
 
