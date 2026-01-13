@@ -71,6 +71,11 @@ For the moment we have included SDR and HDR 8 bit png variants of the splat
 ## Future plans
 
 1. Train the splat using 32 bit acescg exrs
+	- Need a gaussian rasterizer to output 32 bit for the training
+	- Need to adjust/test the ply -> usdc conversion script with 32 bit
+	- colorspaceAPI hasn't been made part of the schema yet, but it is planned to be
+	- Apple's splat renderer may need updates to work with 32bit splat values
+
 2. The lightrig used for this splat isn't the exact same lighting that is publicly available, so we're considering the best way forward.
 3. We will be re-rendering and re-splatting at higher resolution once we decide on the lightrig to use
 4. COLMAP was just a shortcut at the time, but we will be taking that out of the workflow eventually, which means you wouldn't need the transform adjustments in the usda
