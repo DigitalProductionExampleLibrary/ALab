@@ -63,7 +63,7 @@ Now you should be able to open it in usdview like this:
 ## Colour Workflows!
 We would like to train the ALab splat on acescg 32 bit exrs eventually.
 
-For the moment we have included SDR and HDR 8 bit png variants of the splat. The training images were generated from the original acescg exr renders. The colmap and gaussian training steps were then done with these images. We are looking into how to train against 32bit images
+For the moment we have included SDR and HDR 8 bit png variants of the splat. The training images were generated from the original acescg exr renders. The colmap and gaussian training steps were then done with these images.
 
 - SDR: sRGB - ACES 2.0 - SDR 100 nits (Rec709) (8 bit png)
 - HDR: Rec.2100-PQ - ACES-2.0 HDR 1000 nits (P3 D65 Limited) (8 bit png)
