@@ -20,14 +20,50 @@ def Xform "root"
         uniform token[] xformOpOrder = ["xformOp:transform:transform1"]
         variantSet "train_img_colorspace" = {
             "sdr-8bit-rec709" (
-                payload = @./sdr_variant.usda@
             ) {
-                
+                def "alab_splat" (
+                    variants = {
+                        string file_format = "usd"
+                    }
+                    prepend variantSets = "file_format"
+                )
+                {
+                    variantSet "file_format" = {
+                        "usd" (
+                            payload = @./aLab_sdr_splat.usdc@
+                        ) {
+                            
+                        }
+                        "ply" (
+                            payload = @./aLab_sdr_splat.ply@
+                        ) {
+
+                        }
+                    }
+                }                           
             }
             "hdr-8bit-rec2100" (
-                payload = @./hdr_variant.usda@
             ) {
+                def "alab_splat" (
+                    variants = {
+                        string file_format = "usd"
+                    }
+                    prepend variantSets = "file_format"
+                )
+                {
+                    variantSet "file_format" = {
+                        "usd" (
+                            payload = @./aLab_hdr_splat.usdc@
+                        ) {
+                            
+                        }
+                        "ply" (
+                            payload = @./aLab_hdr_splat.ply@
+                        ) {
 
+                        }
+                    }
+                }
             }
         }
     }
