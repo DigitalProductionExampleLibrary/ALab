@@ -44,10 +44,8 @@ Now you should be able to open it in usdview like this:
 
 ## Here's the Splat in some other DCC
 
-### Adobe Substance Viewer (Beta - 0.25.1)
-![view](../../public/splat_substance_viewer_screenshot.png)
-
 ### Nuke 17 beta
+![view](../../public/nuke_17_sdr.jpg)
 
 ### Houdini 21 beta
 
