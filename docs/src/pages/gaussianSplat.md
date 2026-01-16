@@ -42,12 +42,13 @@ Now you should be able to open it in usdview like this:
 
 ![gif](../../public/ALab_splat_in_usdview.gif)
 
-## Here's the Splat in some other DCC
+## Here's the SDR Splat in some other DCC
 
 ### Nuke 17 beta
 ![view](../../public/nuke_17_sdr.jpg)
 
 ### Houdini 21 beta
+![view](../../public/hou_21_sdr.jpg)
 
 ## How was the first version of the splat created?
 
