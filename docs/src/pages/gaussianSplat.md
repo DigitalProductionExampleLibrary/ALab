@@ -60,7 +60,7 @@ Now you should be able to open it in usdview like this:
 6. The result of that training produces the original .ply file
 
 ## Colour Workflows!
-We would like to train the ALab splat on acescg 32 bit exrs eventually.
+Eventually we would like to train the ALab splat on acescg 32 bit exrs.
 
 For the moment we have included SDR and HDR 8 bit png variants of the splat
 
