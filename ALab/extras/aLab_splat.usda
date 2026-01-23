@@ -9,7 +9,7 @@ def Xform "root"
 {
 
     
-    def "alab_splat_hrc" (
+    def Xform "alab_splat_hrc" (
         variants = {
             string train_img_colorspace = "sdr-8bit-rec709"
         }
