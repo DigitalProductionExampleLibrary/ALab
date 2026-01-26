@@ -30,12 +30,12 @@ def Xform "root"
                 {
                     variantSet "file_format" = {
                         "usd" (
-                            payload = @./aLab_sdr_splat.usdc@
+                            payload = @./alab_sdr_splat.usdc@
                         ) {
                             
                         }
                         "ply" (
-                            payload = @./aLab_sdr_splat.ply@
+                            payload = @./alab_sdr_splat.ply@
                         ) {
 
                         }
@@ -53,12 +53,12 @@ def Xform "root"
                 {
                     variantSet "file_format" = {
                         "usd" (
-                            payload = @./aLab_hdr_splat.usdc@
+                            payload = @./alab_hdr_splat.usdc@
                         ) {
                             
                         }
                         "ply" (
-                            payload = @./aLab_hdr_splat.ply@
+                            payload = @./alab_hdr_splat.ply@
                         ) {
 
                         }
