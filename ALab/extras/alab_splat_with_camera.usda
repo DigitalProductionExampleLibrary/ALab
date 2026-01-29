@@ -6,7 +6,7 @@
     startTimeCode = 1
     timeCodesPerSecond = 24
     upAxis = "Y"
-    subLayers = [@./aLab_splat.usda@]
+    subLayers = [@./alab_splat.usda@]
 )
 
 def "camera" (
