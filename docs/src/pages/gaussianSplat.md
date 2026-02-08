@@ -6,7 +6,10 @@ This is the initial version of the ALab as gaussian splats, to help test and pre
 It's still a WIP but we wanted to make this available for early testers and hopefully as a tool to help refine the splat schema work.
 If you're interested in getting involved with the development of the schema, you should join the [AOUSD Emerging Geometry Interest Group](https://aousd.org/community/interest-groups/#:~:text=VIEW%20CHARTER-,USD%20Emerging%20Geometry,-The%20USD%20Emerging)
 
-## Steps to view the ALab Splat in usdview
+#### Note: you will need to install the adobe usd file format plugins to be able to load .ply files
+https://github.com/adobe/USD-Fileformat-plugins
+
+## Steps to view the ALab usdc splat in usdview
 
 1. Build USD from the branch PR: APPLE: Add Gaussian Splats API schema PixarAnimationStudios/OpenUSD#3716
 		
