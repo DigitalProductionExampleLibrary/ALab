@@ -1,9 +1,11 @@
 
 # ALab Splat Pack Documentation
 
-This is the initial version of the ALab as gaussian splats, to help test and preview of PixarAnimationStudios/OpenUSD#3716
+This is the initial version of the ALab as gaussian splats, to help support development and adoption of gaussian splats in USD.
 
-It's still a WIP but we wanted to make this available for early testers and hopefully as a tool to help refine the splat schema work.
+The particleField UsdVol schema has now been merged into the dev branch, and will be available with USD 26.3
+
+We wanted to make this available for early testers and hopefully as a tool to help refine the splat schema work.
 If you're interested in getting involved with the development of the schema, you should join the [AOUSD Emerging Geometry Interest Group](https://aousd.org/community/interest-groups/#:~:text=VIEW%20CHARTER-,USD%20Emerging%20Geometry,-The%20USD%20Emerging)
 
 #### Note: you will need to install the adobe usd file format plugins to be able to load .ply files
