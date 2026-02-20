@@ -65,7 +65,7 @@ Now you should be able to open it in usdview like this:
 6. The result of that training produces the original .ply file
 
 ## Colour Workflows!
-Eventually we would like to train the ALab splat on acescg 32 bit exrs.
+Eventually we would like to train the ALab splat on acescg 16 half float or 32 bit exrs.
 
 For the moment we have included SDR and HDR 8 bit png variants of the splat
 
@@ -74,11 +74,10 @@ For the moment we have included SDR and HDR 8 bit png variants of the splat
 
 ## Future plans
 
-1. Train the splat using 32 bit acescg exrs
-	- Need a gaussian rasterizer to output 32 bit for the training
-	- Need to adjust/test the ply -> usdc conversion script with 32 bit
-	- colorspaceAPI hasn't been made part of the schema yet, but it is planned to be
-	- Apple's splat renderer may need updates to work with 32bit splat values
+1. Train the splat using 16 bit half floating point acescg exrs
+	- Need a gaussian rasterizer to output 16 bit half float for the training
+	- colorspaceAPI wasn't part of the schema yet when we published this, but it's been suggested
+	- Clear documentation on the motivation and healthy acescg workflows
 
 2. The lightrig used for this splat isn't the exact same lighting that is publicly available, so we're considering the best way forward.
 3. We will be re-rendering and re-splatting at higher resolution once we decide on the lightrig to use
