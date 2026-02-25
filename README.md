@@ -128,7 +128,7 @@ From the **Camera** > **Select Camera** menu, choose the required shot camera.
 ![select_cameras](docs/public/multiple_camera_prims.png)
 
 ## Splat Pack (WIP)
-* This contains the ALab as a single gaussian splat in USD, using the new/upcoming [Lightfields USD schema](https://github.com/PixarAnimationStudios/OpenUSD/pull/3716). It is a WIP, but we wanted to get a test branch out for people to start iterating on and to help push forward collaboration on the schema and refining this DPEL asset. 
+* This contains the ALab as a single gaussian splat in USD, using the new [Lightfields USD schema](https://openusd.org/release/user_guides/schemas/usdVol/ParticleField.html). We want to get an asset out to help with the testing and future development of particle fields in USD, starting with guassian splats!
 
 Files currently in this pack:
 - The original .ply file
@@ -136,7 +136,7 @@ Files currently in this pack:
 - A .usda file of transformations to make the splat match up with ALab (this is temporary)
 - The USD camera for the rendered images used to generate the splat
 
-In order to successfully view the usdc file you will need to have built usd with [this branch](https://github.com/PixarAnimationStudios/OpenUSD/pull/3716) for the schema and usdview renderer. 
+In order to successfully view the usdc file you will need to have buil the USD dev branch or wait for the 26.3 release, this includes the schema and renderer used here.
 
 More details on how to test with this at the moment are [here in the docs](docs/src/pages/gaussianSplat.md)
 
