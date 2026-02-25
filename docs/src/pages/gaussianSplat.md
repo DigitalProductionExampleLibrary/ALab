@@ -13,9 +13,9 @@ https://github.com/adobe/USD-Fileformat-plugins
 
 ## Steps to view the ALab usdc splat in usdview
 
-1. Build USD from the branch PR: APPLE: Add Gaussian Splats API schema PixarAnimationStudios/OpenUSD#3716
+1. Build the USD from the dev branch or USD 26.3
 		
-		git clone -b gaussians https://github.com/dgovil/USD.git
+		https://github.com/PixarAnimationStudios/OpenUSD/tree/dev
 
 2. Ensure the PXR_PLUGINPATH_NAME is extended to include 
 
