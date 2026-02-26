@@ -21,9 +21,13 @@ https://github.com/adobe/USD-Fileformat-plugins
 
 		share/usd/examples/plugin/hdParticleField/resources/plugInfo.json
 
-3. Clone this ALab branch
+3. Clone the DPEL ALab repo or if you're just interested in the splat, you just need the files here
 
-4. The alab_sdr_splat.usdc and alab_hdr_splat.usdc files will have contents *like* this:
+   Note that the splat files use git LFS - https://github.com/git-lfs/git-lfs
+
+		/ALab/tree/main/ALab/extras
+
+5. The alab_sdr_splat.usdc and alab_hdr_splat.usdc files will have contents *like* this:
 
 		def ParticleField_3DGaussianSplat "alab"
 		{
@@ -39,7 +43,7 @@ https://github.com/adobe/USD-Fileformat-plugins
 		    float3[] scales = << GfVec3f[1502196] >>
 		}
     
-5. Launch USDView and set the renderer to hdParticleField
+6. Launch USDView and set the renderer to hdParticleField
 		
     usdview ALab/ALab/extras/gaussian_splats_with_camera.usda
 
