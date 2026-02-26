@@ -21,7 +21,7 @@ https://github.com/adobe/USD-Fileformat-plugins
 
 		share/usd/examples/plugin/hdParticleField/resources/plugInfo.json
 
-3. Clone the DPEL ALab repo or if you're just interested in the splat, you just need the files here
+3. Clone the DPEL ALab repo - OR - if you're just interested in the splat, you just need the files in the extras directory
 
    Note that the splat files use git LFS - https://github.com/git-lfs/git-lfs
 
