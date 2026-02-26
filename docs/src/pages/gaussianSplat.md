@@ -23,7 +23,7 @@ https://github.com/adobe/USD-Fileformat-plugins
 
 3. Clone this ALab branch
 
-4. The alab.usdc will have contents like this:
+4. The alab_sdr_splat.usdc and alab_hdr_splat.usdc files will have contents *like* this:
 
 		def ParticleField_3DGaussianSplat "alab"
 		{
